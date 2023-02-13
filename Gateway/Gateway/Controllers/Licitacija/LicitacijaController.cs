@@ -100,8 +100,8 @@ namespace Gateway.Controllers.Licitacija
         }
 
         [AuthRole("Role", "Prva komisija,Superuser,Operater nadmetanja")]
-        [HttpPut("{id}")]
-        public ActionResult<LicitacijaUpdateDto> Put(int id, LicitacijaDto licitacijaDto)
+        [HttpPut]
+        public ActionResult<LicitacijaUpdateDto> Put(int id, LicitacijaUpdateDto licitacijaDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))

@@ -30,5 +30,6 @@
         /// Broj table ovlascenog lica
         /// </summary>
         public int BrTable { get; set; }
+        public List<Guid>? Kupci { get; set; }
     }
 }

@@ -108,12 +108,47 @@ namespace Gateway.ServiceCalls.Implementations
             }
         }
 
-        public async Task<C> PutAsync(string url, int id, T dto)
+        public async Task<C> PutAsync(string url, int? id, T dto)
         {
             try
             {
                 using var httpClient = new HttpClient();
-                Uri uri = new Uri(url + id);
+                Uri uri = null;
+                if (id == 0)
+                    uri = new Uri(url);
+                else
+                    uri = new Uri(url + id);
+                var request = new HttpRequestMessage(HttpMethod.Put, uri);
+                request.Content = new StringContent(JsonConvert.SerializeObject(dto));
+                request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                var response = await httpClient.SendAsync(request);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    if (string.IsNullOrEmpty(content))
+                    {
+                        return null;
+                    }
+                    return JsonConvert.DeserializeObject<C>(content);
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<C> PutAsync(string url, int? id, C dto)
+        {
+            try
+            {
+                using var httpClient = new HttpClient();
+                Uri uri = null;
+                if (id == 0)
+                    uri = new Uri(url);
+                else
+                    uri = new Uri(url + id);
                 var request = new HttpRequestMessage(HttpMethod.Put, uri);
                 request.Content = new StringContent(JsonConvert.SerializeObject(dto));
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");

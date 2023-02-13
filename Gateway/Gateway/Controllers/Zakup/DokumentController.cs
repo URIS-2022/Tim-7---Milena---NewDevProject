@@ -30,7 +30,7 @@ namespace Gateway.Controllers.Zakup
             _noAuth = "Niste ulogovani";
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Menadzer,Administrator,Superuser,Tehnicki sekretar")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -54,7 +54,7 @@ namespace Gateway.Controllers.Zakup
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Menadzer,Administrator,Superuser,Tehnicki sekretar")]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -78,7 +78,7 @@ namespace Gateway.Controllers.Zakup
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Administrator,Superuser,Tehnicki sekretar")]
         [HttpPost]
         public ActionResult<DokumentDTO> Post(DokumentDTO dokumentDto)
         {
@@ -99,9 +99,9 @@ namespace Gateway.Controllers.Zakup
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
-        [HttpPut("{id}")]
-        public ActionResult<DokumentConfirmationDTO> Put(int id, DokumentDTO dokumentDto)
+        [AuthRole("Role", "Administrator,Superuser,Tehnicki sekretar")]
+        [HttpPut]
+        public ActionResult<DokumentConfirmationDTO> Put(int id, DokumentConfirmationDTO dokumentDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
@@ -120,7 +120,7 @@ namespace Gateway.Controllers.Zakup
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Administrator,Superuser,Tehnicki sekretar")]
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {

@@ -100,8 +100,8 @@ namespace Gateway.Controllers.Liciter
         }
 
         [AuthRole("Role", "Superuser,Operater nadmetanja,Tehnicki sekretar")]
-        [HttpPut("{id}")]
-        public ActionResult<FizickoLiceUpdateDto> Put(int id, FizickoLiceCreationDto fizickoLiceDto)
+        [HttpPut]
+        public ActionResult<FizickoLiceUpdateDto> Put(int id, FizickoLiceUpdateDto fizickoLiceDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))

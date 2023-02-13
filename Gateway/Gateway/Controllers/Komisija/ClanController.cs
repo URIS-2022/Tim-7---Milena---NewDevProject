@@ -30,7 +30,7 @@ namespace Gateway.Controllers.Komisija
             _noAuth = "Niste ulogovani";
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Operater,Superuser,Licitant,Menadzer")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -54,7 +54,7 @@ namespace Gateway.Controllers.Komisija
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Operater,Superuser,Licitant,Menadzer,Tehnicki sekretar")]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -78,7 +78,7 @@ namespace Gateway.Controllers.Komisija
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Operater,Superuser")]
         [HttpPost]
         public ActionResult<ClanKomisijeDto> Post(ClanKomisijeDto clanKomisijeDto)
         {
@@ -99,8 +99,8 @@ namespace Gateway.Controllers.Komisija
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
-        [HttpPut("{id}")]
+        [AuthRole("Role", "Operater,Superuser,Tehnicki sekretar")]
+        [HttpPut]
         public ActionResult<ClanKomisijeDto> Put(int id, ClanKomisijeDto clanKomisijeDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
@@ -120,7 +120,7 @@ namespace Gateway.Controllers.Komisija
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Operater,Superuser")]
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {

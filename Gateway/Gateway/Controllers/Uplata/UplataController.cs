@@ -94,7 +94,7 @@ namespace Gateway.Controllers.Uplata
         }
 
         [AuthRole("Role", "Administrator")]
-        [HttpPut("{id}")]
+        [HttpPut]
         public ActionResult<UplataDTO> Put(int id, UplataDTO uplataDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);

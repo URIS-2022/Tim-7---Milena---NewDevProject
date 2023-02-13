@@ -100,7 +100,7 @@ namespace Gateway.Controllers.Parcela
         }
 
         [AuthRole("Role", "Administrator")]
-        [HttpPut("{id}")]
+        [HttpPut]
         public ActionResult<KulturaDTO> Put(int id, KulturaDTO kulturaDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);

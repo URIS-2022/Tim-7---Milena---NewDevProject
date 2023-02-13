@@ -1,6 +1,5 @@
 ﻿using Gateway.Helpers;
 using Gateway.Logger;
-using Gateway.Models.Drzava;
 using Gateway.Models.Zakup;
 using Gateway.ServiceCalls.Interfaces;
 using Gateway.Utility;
@@ -31,7 +30,7 @@ namespace Gateway.Controllers.Zakup
             _noAuth = "Niste ulogovani";
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Menadzer,Administrator,Superuser,Tehnicki sekretar")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -55,7 +54,7 @@ namespace Gateway.Controllers.Zakup
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Menadzer,Administrator,Superuser,Tehnicki sekretar")]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -79,7 +78,7 @@ namespace Gateway.Controllers.Zakup
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Administrator,Superuser,Tehnicki sekretar")]
         [HttpPost]
         public ActionResult<UgovorDTO> Post(UgovorDTO ugovorDto)
         {
@@ -100,9 +99,9 @@ namespace Gateway.Controllers.Zakup
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
-        [HttpPut("{id}")]
-        public ActionResult<UgovorConfirmationDTO> Put(int id, UgovorDTO ugovorDto)
+        [AuthRole("Role", "Administrator,Superuser,Tehnicki sekretar")]
+        [HttpPut]
+        public ActionResult<UgovorConfirmationDTO> Put(int id, UgovorConfirmationDTO ugovorDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
@@ -121,7 +120,7 @@ namespace Gateway.Controllers.Zakup
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Administrator,Superuser,Tehnicki sekretar")]
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {

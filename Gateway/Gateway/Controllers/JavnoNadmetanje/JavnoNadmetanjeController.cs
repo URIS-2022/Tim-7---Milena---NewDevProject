@@ -30,7 +30,7 @@ namespace Gateway.Controllers.JavnoNadmetanje
             _noAuth = "Niste ulogovani";
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Menadzer,Administrator,Superuser,Operater nadmetanja")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -54,7 +54,7 @@ namespace Gateway.Controllers.JavnoNadmetanje
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Menadzer,Administrator,Superuser,Operater nadmetanja")]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -78,7 +78,7 @@ namespace Gateway.Controllers.JavnoNadmetanje
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Administrator,Superuser,Operater nadmetanja")]
         [HttpPost]
         public ActionResult<JavnoNadmetanjeCreationDTO> Post(JavnoNadmetanjeCreationDTO javnoNadmetanjeDto)
         {
@@ -99,9 +99,9 @@ namespace Gateway.Controllers.JavnoNadmetanje
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
-        [HttpPut("{id}")]
-        public ActionResult<JavnoNadmetanjeDTO> Put(int id, JavnoNadmetanjeCreationDTO javnoNadmetanjeDto)
+        [AuthRole("Role", "Administrator,Superuser,Operater nadmetanja")]
+        [HttpPut]
+        public ActionResult<JavnoNadmetanjeDTO> Put(int id, JavnoNadmetanjeDTO javnoNadmetanjeDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
@@ -120,7 +120,7 @@ namespace Gateway.Controllers.JavnoNadmetanje
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Administrator,Superuser,Operater nadmetanja")]
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {

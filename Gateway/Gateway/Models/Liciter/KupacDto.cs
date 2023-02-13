@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Gateway.Models.Drzava;
+using Gateway.Models.JavnoNadmetanje;
+using Gateway.Models.Uplata;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Gateway.Models.Liciter
@@ -59,17 +62,17 @@ namespace Gateway.Models.Liciter
         /// </summary>
         [JsonIgnore]
         public Guid AdresaId { get; set; }
-        public AdresaDto Adresa { get; set; }
+        public AdresaDTO Adresa { get; set; }
         /// <summary>
         /// Dto objekat Pravnog lica
         /// </summary>
        
-        public PravnoLiceDto PravnoLice { get; set; }
+        public PravnoLiceUpdateDto PravnoLice { get; set; }
         /// <summary>
         /// Dto objekat fizickog lica
         /// </summary>
        
-        public FizickoLiceDto FizickoLice { get; set; }
+        public FizickoLiceUpdateDto FizickoLice { get; set; }
 
 
         /// <summary>
@@ -83,14 +86,14 @@ namespace Gateway.Models.Liciter
         /// <summary>
         /// Lista dto objekata javnog nadmetanja
         /// </summary>
-        public List<JavnoNadmetanjeInfoDto> JavnaNadmetanjaOb { get; set; }
+        public List<JavnoNadmetanjeDTO> JavnaNadmetanjaOb { get; set; }
 
 
         /// <summary>
         /// Lista dto objekata uplate
         /// </summary>
       
-        public List<UplataDto> Uplate { get; set; }
+        public List<UplataDTO> Uplate { get; set; }
         /// <summary>
         /// Lista uplata id
         /// </summary>
