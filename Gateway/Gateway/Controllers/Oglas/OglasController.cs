@@ -30,7 +30,7 @@ namespace Gateway.Controllers.Oglas
             _noAuth = "Niste ulogovani";
         }
 
-        [AuthRole("Role", "Operater,Superuser,Prva oglas,Menadzer")]
+        [AuthRole("Role", "Operater,Superuser,Licitant,Menadzer")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -54,7 +54,7 @@ namespace Gateway.Controllers.Oglas
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Operater,Superuser,Prva oglas,Menadzer,Tehnicki sekretar")]
+        [AuthRole("Role", "Operater,Superuser,Licitant,Menadzer,Tehnicki sekretar")]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -78,7 +78,7 @@ namespace Gateway.Controllers.Oglas
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Operater,Superuser,Prva oglas")]
+        [AuthRole("Role", "Operater,Superuser")]
         [HttpPost]
         public ActionResult<OglasDto> Post(OglasDto oglasDto)
         {
@@ -99,7 +99,7 @@ namespace Gateway.Controllers.Oglas
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Operater,Superuser,Tehnicki sekretar,Prva oglas")]
+        [AuthRole("Role", "Operater,Superuser,Tehnicki sekretar")]
         [HttpPut("{id}")]
         public ActionResult<OglasDto> Put(int id, OglasDto oglasDto)
         {
@@ -120,7 +120,7 @@ namespace Gateway.Controllers.Oglas
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Operater,Superuser,Prva oglas")]
+        [AuthRole("Role", "Operater,Superuser")]
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {
