@@ -1,28 +1,28 @@
-﻿using Gateway.ServiceCalls.Interfaces;
+﻿using Gateway.Helpers;
+using Gateway.Logger;
+using Gateway.Models.Oglas;
+using Gateway.ServiceCalls.Interfaces;
 using Gateway.Utility;
-using Gateway.Helpers;
+using Google.Cloud.Logging.Type;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
-using Gateway.Models.Parcela;
-using Gateway.Logger;
-using Google.Cloud.Logging.Type;
 using System.Reflection;
 
-namespace Gateway.Controllers.Parcela
+namespace Gateway.Controllers.Oglas
 {
-    [Route("api/katastarskaOpstina")]
+    [Route("api/sluzbeniList")]
     [ApiController]
     [Produces("application/json")]
-    public class KatastarskaOpstinaController : ControllerBase
+    public class SluzbeniListController : ControllerBase
     {
-        private readonly IServiceCall<KatastarskaOpstinaDTO, KatastarskaOpstinaDTO> _serviceCall;
-        private readonly string url = $"{StaticDetails.ParcelaService}api/katastarskaOpstina/";
+        private readonly IServiceCall<SluzbeniListDto, SluzbeniListGetDto> _serviceCall;
+        private readonly string url = $"{StaticDetails.OglasService}api/sluzbeniList/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private string _error;
         private readonly string _noAuth;
 
-        public KatastarskaOpstinaController(IServiceCall<KatastarskaOpstinaDTO, KatastarskaOpstinaDTO> serviceCall, ILoggerService loggerService)
+        public SluzbeniListController(IServiceCall<SluzbeniListDto, SluzbeniListGetDto> serviceCall, ILoggerService loggerService)
         {
             _serviceCall = serviceCall;
             _loggerService = loggerService;
@@ -30,112 +30,112 @@ namespace Gateway.Controllers.Parcela
             _noAuth = "Niste ulogovani";
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Operater,Superuser,Prva komisija,Menadzer")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<List<KatastarskaOpstinaDTO>> GetAll()
+        public ActionResult<List<SluzbeniListGetDto>> GetAll()
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
-                var katastarskeOpstine = _serviceCall.GetAsync(url).Result;
-                if (katastarskeOpstine == null)
+                var sluzbeniListovi = _serviceCall.GetAsync(url).Result;
+                if (sluzbeniListovi == null)
                 {
-                    _error = $"Ne postoji nijedna katastarska opstina";
+                    _error = $"Ne postoji nijedan sluzbeni list";
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
                 _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
-                return Ok(katastarskeOpstine);
+                return Ok(sluzbeniListovi);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Operater,Superuser,Prva komisija,Menadzer,Tehnicki sekretar")]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<KatastarskaOpstinaDTO> Get(int id)
+        public ActionResult<SluzbeniListGetDto> Get(int id)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
-                var katastarskaOpstina = _serviceCall.GetByIdAsync(url, id).Result;
-                if (katastarskaOpstina == null)
+                var sluzbeniList = _serviceCall.GetByIdAsync(url, id).Result;
+                if (sluzbeniList == null)
                 {
-                    _error = $"Ne postoji katastarska opstina sa ID-jem {id}";
+                    _error = $"Ne postoji sluzbeni list sa ID-jem {id}";
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
                 _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
-                return Ok(katastarskaOpstina);
+                return Ok(sluzbeniList);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Operater,Superuser,Prva komisija")]
         [HttpPost]
-        public ActionResult<KatastarskaOpstinaDTO> Post(KatastarskaOpstinaDTO kulturaDto)
+        public ActionResult<SluzbeniListGetDto> Post(SluzbeniListDto sluzbeniListDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
-                var katastarskaOpstina = _serviceCall.PostAsync(url, kulturaDto).Result;
-                if (katastarskaOpstina == null)
+                var sluzbeniList = _serviceCall.PostAsync(url, sluzbeniListDto).Result;
+                if (sluzbeniList == null)
                 {
-                    _error = $"Postoji katastarska opstina {kulturaDto.Naziv}";
+                    _error = "Conflict";
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
-                    return StatusCode(409, value: _error);
+                    return Conflict();
                 }
                 _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
-                return Ok(katastarskaOpstina);
+                return Ok(sluzbeniList);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Operater,Superuser,Tehnicki sekretar,Prva komisija")]
         [HttpPut("{id}")]
-        public ActionResult<KatastarskaOpstinaDTO> Put(int id, KatastarskaOpstinaDTO kulturaDto)
+        public ActionResult<SluzbeniListGetDto> Put(int id, SluzbeniListDto sluzbeniListDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
-                var katastarskaOpstina = _serviceCall.PutAsync(url, id, kulturaDto).Result;
-                if (katastarskaOpstina == null)
+                var sluzbeniList = _serviceCall.PutAsync(url, id, sluzbeniListDto).Result;
+                if (sluzbeniList == null)
                 {
-                    _error = $"Vec postoji katastarska opstina {kulturaDto.Naziv} ili ne postoji katastarska opstina sa ID-jem {id}";
+                    _error = $"Ne postoji sluzbeni list sa ID-jem {id}";
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(404, value: _error);
                 }
                 _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
-                return Ok(katastarskaOpstina);
+                return Ok(sluzbeniList);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Operater,Superuser,Prva komisija")]
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
-                var katastarskaOpstina = _serviceCall.DeleteAsync(url, id).Result;
-                if (katastarskaOpstina == null)
+                var sluzbeniList = _serviceCall.DeleteAsync(url, id).Result;
+                if (sluzbeniList == null)
                 {
-                    _error = $"Ne postoji katastarska opstina sa ID-jem {id}";
+                    _error = $"Ne postoji sluzbeni list sa ID-jem {id}";
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
                 _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
-                return Ok(katastarskaOpstina);
+                return Ok(sluzbeniList);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");

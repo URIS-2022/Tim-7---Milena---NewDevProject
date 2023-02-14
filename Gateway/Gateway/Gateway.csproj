@@ -16,9 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\Liciter\" />
-    <Folder Include="Controllers\Oglas\" />
     <Folder Include="Models\Liciter\" />
-    <Folder Include="Models\Oglas\" />
   </ItemGroup>
 
 </Project>

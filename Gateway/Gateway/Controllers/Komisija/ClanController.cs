@@ -100,7 +100,7 @@ namespace Gateway.Controllers.Komisija
         }
 
         [AuthRole("Role", "Operater,Superuser,Tehnicki sekretar")]
-        [HttpPut]
+        [HttpPut("{id}")]
         public ActionResult<ClanKomisijeDto> Put(int id, ClanKomisijeDto clanKomisijeDto)
         {
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);

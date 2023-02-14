@@ -5,8 +5,7 @@
         Task<List<C>> GetAsync(string url);
         Task<C> GetByIdAsync(string url, int id);
         Task<C> PostAsync(string url, T dto);
-        Task<C> PutAsync(string url, int? id, T dto);
-        Task<C> PutAsync(string url, int? id, C dto);
+        Task<C> PutAsync(string url, int? id, object dto);
         Task<string> DeleteAsync(string url, int id);
     }
 }
