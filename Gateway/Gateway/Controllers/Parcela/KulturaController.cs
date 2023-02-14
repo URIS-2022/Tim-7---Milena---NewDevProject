@@ -30,7 +30,7 @@ namespace Gateway.Controllers.Parcela
             _noAuth = "Niste ulogovani";
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Superuser")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -54,7 +54,7 @@ namespace Gateway.Controllers.Parcela
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Superuser")]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -78,7 +78,7 @@ namespace Gateway.Controllers.Parcela
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Superuser")]
         [HttpPost]
         public ActionResult<KulturaDTO> Post(KulturaDTO kulturaDto)
         {
@@ -99,7 +99,7 @@ namespace Gateway.Controllers.Parcela
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Superuser")]
         [HttpPut("{id}")]
         public ActionResult<KulturaDTO> Put(int id, KulturaDTO kulturaDto)
         {
@@ -120,7 +120,7 @@ namespace Gateway.Controllers.Parcela
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Superuser")]
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {

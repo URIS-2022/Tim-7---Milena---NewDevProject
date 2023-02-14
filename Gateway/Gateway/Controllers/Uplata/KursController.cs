@@ -30,7 +30,7 @@ namespace Gateway.Controllers.Uplata
             _noAuth = "Niste ulogovani";
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Superuser")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -54,7 +54,7 @@ namespace Gateway.Controllers.Uplata
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Menadzer,Administrator")]
+        [AuthRole("Role", "Superuser")]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -78,7 +78,7 @@ namespace Gateway.Controllers.Uplata
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Superuser")]
         [HttpPost]
         public ActionResult<KursDTO> Post(KursDTO kursDto)
         {
@@ -93,7 +93,7 @@ namespace Gateway.Controllers.Uplata
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Superuser")]
         [HttpPut("{id}")]
         public ActionResult<KursDTO> Put(int id, KursDTO kursDto)
         {
@@ -114,7 +114,7 @@ namespace Gateway.Controllers.Uplata
             return StatusCode(StatusCodes.Status400BadRequest, "Niste ulogovani");
         }
 
-        [AuthRole("Role", "Administrator")]
+        [AuthRole("Role", "Superuser")]
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {
