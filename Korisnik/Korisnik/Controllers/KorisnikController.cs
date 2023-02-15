@@ -22,14 +22,22 @@ namespace Korisnik.Controllers
             _authHelper = authHelper;
         }
 
+        /// <summary>
+        /// Vraca sve korisnike
+        /// </summary>
+        /// <returns>Lista korisnika</returns>
+        /// <response code="200">Vraca sve korisnike</response>
+        /// <response code="204">Ako ne postoji nijedan korisnik u bazi</response>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<List<KorisnikConfirmationDTO>> Get()
         {
             var korisniciDb = _korisnikRepository.GetAll(includeProperties: "TipKorisnika");
 
             if (korisniciDb == null || korisniciDb.Count() == 0)
             {
-                return NotFound();
+                return NoContent();
             }
 
             var korisnici = new List<KorisnikConfirmationDTO>();
@@ -39,18 +47,38 @@ namespace Korisnik.Controllers
             return Ok(korisnici);
         }
 
+        /// <summary>
+        /// Vraca odredjenog korisnika 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Vraca korisnika po proslednjenom ID-ju</returns>
+        /// <remarks>
+        /// <response code="200">Vraca korisnika sa prosledjenim ID-jem</response>
+        /// <response code="204">Ako ne postoji korisnik sa prosledjenim ID-jem</response>
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<KorisnikConfirmationDTO> Get(int id)
         {
             var korisnikDb = _korisnikRepository.GetFirstOrDefault(x => x.Id == id, includeProperties: "TipKorisnika");
             if (korisnikDb == null)
             {
-                return NotFound();
+                return NoContent();
             }
             return new KorisnikConfirmationDTO(korisnikDb);
         }
 
+        /// <summary>
+        /// Kreira novog korisnika
+        /// </summary>
+        /// <param name="korisnikDto"></param>
+        /// <returns>Vraca novokreiranog korisnika</returns>
+        /// <response code="200">Vraca novokreiranog korisnika</response>
+        /// <response code="409">Ako vec postoji korisnik sa tim korisnickim imenom</response>
         [HttpPost("register")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public ActionResult<KorisnikTokenDTO> Register(KorisnikDTO korisnikDto)
         {
             var korisnikDb = _korisnikRepository.GetFirstOrDefault(x => x.KorisnickoIme == korisnikDto.KorisnickoIme);
@@ -63,13 +91,12 @@ namespace Korisnik.Controllers
 
             if (tipKorisnikaDb == null)
             {
-                return NotFound();
+                return NoContent();
             }
 
             _authHelper.CreatePasswordHash(korisnikDto.Lozinka, out byte[] passwordHash, out byte[] passwordSalt);
 
             KorisnikEntity korisnik = new KorisnikEntity();
-            korisnik.Lozinka = korisnikDto.Lozinka;
             korisnik.KorisnickoIme = korisnikDto.KorisnickoIme;
             korisnik.Ime = korisnikDto.Ime;
             korisnik.Prezime = korisnikDto.Prezime;
@@ -85,7 +112,16 @@ namespace Korisnik.Controllers
             return Ok(new KorisnikTokenDTO(korisnik, token));
         }
 
+        /// <summary>
+        /// Loguje postojeceg korisnika
+        /// </summary>
+        /// <param name="korisnikDto"></param>
+        /// <returns>Vraca ulogovanog korisnika</returns>
+        /// <response code="200">Vraca ulogovanog korisnika</response>
+        /// <response code="204">Ako ne postoji korisnik sa tim korisnickim imenom ili je lozinka pogresna</response>
         [HttpPost("login")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<KorisnikTokenDTO> Login(KorisnikLoginDTO korisnikDto)
         {
             var korisnikDb = _korisnikRepository.GetFirstOrDefault(u => u.KorisnickoIme == korisnikDto.KorisnickoIme, includeProperties: "TipKorisnika");
@@ -100,41 +136,64 @@ namespace Korisnik.Controllers
                 }
                 else
                 {
-                    return NotFound();
+                    return NoContent();
                 }
             }
             else
             {
-                return NotFound();
+                return NoContent();
             }
         }
 
+        /// <summary>
+        /// Modifikuje postojeceg korisnika
+        /// </summary>
+        /// <param name="korisnik"></param>
+        /// <returns>Vraca modifikovanog korisnika</returns>
+        /// <response code="200">Vraca modifikovanog korisnika</response>
+        /// <response code="204">Ako ne postoji korisnik sa prosledjenim ID-jem</response>
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<KorisnikConfirmationDTO> Put(int id, KorisnikDTO korisnik)
         {
             var korisnikDb = _korisnikRepository.GetFirstOrDefault(x => x.Id == id);
             var tipKorisnikaDb = _tipKorisnikaRepository.GetFirstOrDefault(x => x.Id == korisnik.TipKorisnikaId);
 
             if (korisnikDb == null || tipKorisnikaDb == null)
-                return NotFound();
+                return NoContent();
 
             korisnikDb.KorisnickoIme = korisnik.KorisnickoIme;
             korisnikDb.Ime = korisnik.Ime;
             korisnikDb.Prezime= korisnik.Prezime;
-            korisnikDb.Lozinka = korisnik.Lozinka;
             korisnikDb.TipKorisnika = tipKorisnikaDb;
             _korisnikRepository.Save();
 
             return Ok(new KorisnikConfirmationDTO(korisnikDb));
         }
 
+        /// <summary>
+        /// Brise postojeceg korisnika
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Brise postojeceg korisnika</returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     DELETE /api/korisnik/1
+        ///
+        /// </remarks>
+        /// <response code="200">Uspesno obrisan korisnik</response>
+        /// <response code="204">Ako ne postoji korisnik sa prosledjenim ID-jem</response>
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<string> Delete(int id)
         {
             var korisnikDb = _korisnikRepository.GetFirstOrDefault(x => x.Id == id);
 
             if (korisnikDb == null)
-                return NotFound();
+                return NoContent();
 
             _korisnikRepository.Remove(korisnikDb);
             _korisnikRepository.Save();

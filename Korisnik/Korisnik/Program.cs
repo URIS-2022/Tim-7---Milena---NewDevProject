@@ -22,7 +22,7 @@ builder.Services.AddSwaggerGen(options =>
     {
         Version = "v1",
         Title = "Korisnik API",
-        Description = "Mikroservis za CRUD operacije Korisnika i Tipa Korisnika, i za autentifikaciju"
+        Description = "Mikroservis za CRUD operacije Korisnika i Tipa Korisnika, kao i za login i registraciju"
     });
 });
 

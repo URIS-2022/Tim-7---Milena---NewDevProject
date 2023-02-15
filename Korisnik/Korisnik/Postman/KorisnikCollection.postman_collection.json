@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "f2a4fc70-3127-41bf-91aa-a43b28e15814",
+		"name": "KorisnikCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Korisnik",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7282/api/korisnik",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"korisnik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Korisnik",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7282/api/korisnik/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"korisnik",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Korisnik",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ime\": \"Enio\",\r\n  \"prezime\": \"Kurtesi\",\r\n  \"korisnickoIme\": \"enioo\",\r\n  \"lozinka\": \"enio00\",\r\n  \"tipKorisnikaId\": 9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7282/api/korisnik/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"korisnik",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Korisnik",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"korisnickoIme\": \"enio\",\r\n  \"lozinka\": \"enio00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7282/api/korisnik/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"korisnik",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Korisnik",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ime\": \"Milica\",\r\n  \"prezime\": \"Popovic\",\r\n  \"korisnickoIme\": \"milica\",\r\n  \"lozinka\": \"2001\",\r\n  \"tipKorisnikaId\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7282/api/korisnik/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"korisnik",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Korisnik",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7282/api/korisnik/22",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"korisnik",
+						"22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tip Korisnika",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7282/api/tipKorisnika",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"tipKorisnika"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tip Korisnika",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7282/api/tipKorisnika/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"tipKorisnika",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Tip Korisnika",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"naziv\": \"Nesto\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7282/api/tipKorisnika",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"tipKorisnika"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Tip Korisnika",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"naziv\": \"Tehnicki nesto\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7282/api/tipKorisnika/21",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"tipKorisnika",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Tip Korisnika",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7282/api/tipKorisnika/21",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7282",
+					"path": [
+						"api",
+						"tipKorisnika",
+						"21"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

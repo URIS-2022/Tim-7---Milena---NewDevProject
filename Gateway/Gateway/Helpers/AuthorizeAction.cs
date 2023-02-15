@@ -36,7 +36,13 @@ namespace Gateway.Helpers
                     }
                 }
                 _loggerService.WriteLog("Niste autorizovani", null, LogSeverity.Error);
-                context.Result = new UnauthorizedResult();
+                context.Result = new JsonResult(new
+                {
+                    Message = "Niste autorizovani"
+                })
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized
+                };
             }
             return;
         }

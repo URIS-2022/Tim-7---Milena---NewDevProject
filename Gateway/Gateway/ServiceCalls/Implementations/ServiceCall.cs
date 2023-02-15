@@ -50,7 +50,7 @@ namespace Gateway.ServiceCalls.Implementations
                 }
                 return null;
             }
-            catch
+            catch 
             {
                 return null;
             }

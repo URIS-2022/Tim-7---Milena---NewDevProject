@@ -12,6 +12,7 @@ namespace Gateway.Controllers.Korisnik
 {
     [Route("api/tipKorisnika")]
     [ApiController]
+    [Produces("application/json")]
     public class TipKorisnikaController : ControllerBase
     {
         private readonly IServiceCall<TipKorisnikaDTO, TipKorisnikaConfirmationDTO> _serviceCall;
