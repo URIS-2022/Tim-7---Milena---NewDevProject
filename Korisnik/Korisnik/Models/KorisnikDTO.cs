@@ -1,26 +1,26 @@
 ﻿namespace Korisnik.Models
 {
     /// <summary>
-    /// DTO za Korisnika
+    /// Dto za Korisnika
     /// </summary>
-    public class KorisnikDTO
+    public class KorisnikDto
     {
         /// <summary>
         /// Ime korisnika
         /// </summary>
-        public string Ime { get; set; }
+        public string? Ime { get; set; }
         /// <summary>
         /// Prezime korisnika
         /// </summary>
-        public string Prezime { get; set; }
+        public string? Prezime { get; set; }
         /// <summary>
         /// Korisnicko ime korisnika
         /// </summary>
-        public string KorisnickoIme { get; set; }
+        public string? KorisnickoIme { get; set; }
         /// <summary>
         /// Lozinka korisnika
         /// </summary>
-        public string Lozinka { get; set; }
+        public string? Lozinka { get; set; }
         /// <summary>
         /// Id tipa korisnika
         /// </summary>

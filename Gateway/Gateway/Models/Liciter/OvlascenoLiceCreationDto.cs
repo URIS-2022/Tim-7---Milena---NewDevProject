@@ -7,15 +7,15 @@ namespace Gateway.Models.Liciter
         /// <summary>
         /// Ime ovlascenog lica
         /// </summary>
-        public string Ime { get; set; }
+        public string? Ime { get; set; }
         /// <summary>
         /// Prezime ovlascenog lica
         /// </summary>
-        public string Prezime { get; set; }
+        public string? Prezime { get; set; }
         /// <summary>
         /// Jmbg ovlascenog lica
         /// </summary>
-        public string Jmbg { get; set; }
+        public string? Jmbg { get; set; }
         /// <summary>
         /// Id adrese ovlascenog lica
         /// </summary>
@@ -29,18 +29,18 @@ namespace Gateway.Models.Liciter
         /// </summary>
         public int BrTable { get; set; }
 
-       public List<Guid> Kupci { get; set; }
+       public List<Guid>? Kupci { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (Ime.Length == 0)
+            if (Ime!.Length == 0)
             {
                 yield return new ValidationResult(
                     "Ime can not be empty",
                     new[] { "OvlascenoLiceCreationDto" });
             }
 
-            if (Prezime.Length == 0)
+            if (Prezime!.Length == 0)
             {
                 yield return new ValidationResult(
                     "Prezime can not be empty.",

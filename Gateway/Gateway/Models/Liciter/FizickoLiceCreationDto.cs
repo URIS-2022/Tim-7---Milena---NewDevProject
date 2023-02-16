@@ -7,15 +7,15 @@ namespace Gateway.Models.Liciter
         /// <summary>
         /// Ime fizickog lica
         /// </summary>
-        public string Ime { get; set; }
+        public string? Ime { get; set; }
         /// <summary>
         /// Prezime fizickog lica
         /// </summary>
-        public string Prezime { get; set; }
+        public string? Prezime { get; set; }
         /// <summary>
         /// JMBG fizickog lica
         /// </summary>
-        public string JMBG { get; set; }
+        public string? JMBG { get; set; }
         /// <summary>
         /// id kupca
         /// </summary>
@@ -23,14 +23,14 @@ namespace Gateway.Models.Liciter
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (Ime.Length == 0)
+            if (Ime!.Length == 0)
             {
                 yield return new ValidationResult(
                     "Ime can not be empty.",
                     new[] { "LicitacijaCreationDto" });
             }
 
-            if (JMBG.Length == 0)
+            if (JMBG!.Length == 0)
             {
                 yield return new ValidationResult(
                     "JMBG can not be empty.",

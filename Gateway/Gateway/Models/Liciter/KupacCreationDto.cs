@@ -34,19 +34,19 @@ namespace Gateway.Models.Liciter
         /// <summary>
         /// Broj telefona kupca 
         /// </summary>
-        public string BrTelefona1 { get; set; }
+        public string? BrTelefona1 { get; set; }
         /// <summary>
         /// Drugi broj telefona kupca
         /// </summary>
-        public string BrTelefona2 { get; set; }
+        public string? BrTelefona2 { get; set; }
         /// <summary>
         /// Email kupca
         /// </summary>
-        public string Email { get; set; }
+        public string? Email { get; set; }
         /// <summary>
         /// Broj racuna kupca
         /// </summary>
-        public string BrRacuna { get; set; }
+        public string? BrRacuna { get; set; }
         /// <summary>
         /// Id adrese kupca
         /// </summary>
@@ -54,22 +54,22 @@ namespace Gateway.Models.Liciter
         /// <summary>
         /// Lista kljuceva ovlascenih lica kupca
         /// </summary>
-        public List<Guid> OvlascenaLica { get; set; }
+        public List<Guid>? OvlascenaLica { get; set; }
         /// <summary>
         /// Lista kljuceva javnih nadmetanja na kojima kupac ucestvuje
         /// </summary>
-        public List<Guid> JavnaNadmetanja { get; set; }
+        public List<Guid>? JavnaNadmetanja { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (BrRacuna.Length ==0 )
+            if (BrRacuna!.Length ==0 )
             {
                 yield return new ValidationResult(
                     "BrRacuna can not be empty ",
                     new[] { "KupacCreationDto" });
             }
 
-            if (Email.Length == 0)
+            if (Email!.Length == 0)
             {
                 yield return new ValidationResult(
                     "Email can not be empty.",

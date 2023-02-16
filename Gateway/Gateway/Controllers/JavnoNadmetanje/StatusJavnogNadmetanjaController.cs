@@ -15,14 +15,13 @@ namespace Gateway.Controllers.JavnoNadmetanje
     [Produces("application/json")]
     public class StatusJavnogNadmetanjaController : ControllerBase
     {
-        private readonly IServiceCall<StatusJavnogNadmetanjaCreationDTO, StatusJavnogNadmetanjaDTO> _serviceCall;
+        private readonly IServiceCall<StatusJavnogNadmetanjaCreationDto, StatusJavnogNadmetanjaDto> _serviceCall;
         private readonly string url = $"{StaticDetails.NadmetanjeService}api/statusJavnogNadmetanja/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
-        private string _error;
         private readonly string _noAuth;
 
-        public StatusJavnogNadmetanjaController(IServiceCall<StatusJavnogNadmetanjaCreationDTO, StatusJavnogNadmetanjaDTO> serviceCall, ILoggerService loggerService)
+        public StatusJavnogNadmetanjaController(IServiceCall<StatusJavnogNadmetanjaCreationDto, StatusJavnogNadmetanjaDto> serviceCall, ILoggerService loggerService)
         {
             _serviceCall = serviceCall;
             _loggerService = loggerService;
@@ -35,8 +34,9 @@ namespace Gateway.Controllers.JavnoNadmetanje
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<List<StatusJavnogNadmetanjaDTO>> GetAll()
+        public ActionResult<List<StatusJavnogNadmetanjaDto>> GetAll()
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -47,7 +47,7 @@ namespace Gateway.Controllers.JavnoNadmetanje
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(statusiJavnogNadmetanja);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -59,8 +59,9 @@ namespace Gateway.Controllers.JavnoNadmetanje
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<StatusJavnogNadmetanjaDTO> Get(int id)
+        public ActionResult<StatusJavnogNadmetanjaDto> Get(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -71,7 +72,7 @@ namespace Gateway.Controllers.JavnoNadmetanje
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(statusJavnogNadmetanja);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -80,8 +81,9 @@ namespace Gateway.Controllers.JavnoNadmetanje
 
         [AuthRole("Role", "Administrator,Superuser,Operater nadmetanja")]
         [HttpPost]
-        public ActionResult<StatusJavnogNadmetanjaCreationDTO> Post(StatusJavnogNadmetanjaCreationDTO statusJavnogNadmetanjaDto)
+        public ActionResult<StatusJavnogNadmetanjaCreationDto> Post(StatusJavnogNadmetanjaCreationDto statusJavnogNadmetanjaDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -92,7 +94,7 @@ namespace Gateway.Controllers.JavnoNadmetanje
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return Conflict();
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(statusJavnogNadmetanja);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -101,8 +103,9 @@ namespace Gateway.Controllers.JavnoNadmetanje
 
         [AuthRole("Role", "Administrator,Superuser,Operater nadmetanja")]
         [HttpPut]
-        public ActionResult<StatusJavnogNadmetanjaDTO> Put(int id, StatusJavnogNadmetanjaDTO statusJavnogNadmetanjaDto)
+        public ActionResult<StatusJavnogNadmetanjaDto> Put(int id, StatusJavnogNadmetanjaDto statusJavnogNadmetanjaDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -113,7 +116,7 @@ namespace Gateway.Controllers.JavnoNadmetanje
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(404, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(statusJavnogNadmetanja);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -124,6 +127,7 @@ namespace Gateway.Controllers.JavnoNadmetanje
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -134,7 +138,7 @@ namespace Gateway.Controllers.JavnoNadmetanje
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(statusJavnogNadmetanja);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);

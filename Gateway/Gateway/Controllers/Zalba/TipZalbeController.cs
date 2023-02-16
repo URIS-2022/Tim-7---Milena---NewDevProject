@@ -15,14 +15,13 @@ namespace Gateway.Controllers.Zalba
     [Produces("application/json")]
     public class TipZalbeController : ControllerBase
     {
-        private readonly IServiceCall<TipZalbeCreationDTO, TipZalbeDTO> _serviceCall;
+        private readonly IServiceCall<TipZalbeCreationDto, TipZalbeDto> _serviceCall;
         private readonly string url = $"{StaticDetails.ZalbaService}api/tipZalbe/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
-        private string _error;
         private readonly string _noAuth;
 
-        public TipZalbeController(IServiceCall<TipZalbeCreationDTO, TipZalbeDTO> serviceCall, ILoggerService loggerService)
+        public TipZalbeController(IServiceCall<TipZalbeCreationDto, TipZalbeDto> serviceCall, ILoggerService loggerService)
         {
             _serviceCall = serviceCall;
             _loggerService = loggerService;
@@ -35,8 +34,9 @@ namespace Gateway.Controllers.Zalba
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<List<TipZalbeDTO>> GetAll()
+        public ActionResult<List<TipZalbeDto>> GetAll()
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -47,7 +47,7 @@ namespace Gateway.Controllers.Zalba
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(tipoviZalbe);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -59,8 +59,9 @@ namespace Gateway.Controllers.Zalba
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<TipZalbeDTO> Get(int id)
+        public ActionResult<TipZalbeDto> Get(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -71,7 +72,7 @@ namespace Gateway.Controllers.Zalba
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(tipZalbe);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -80,8 +81,9 @@ namespace Gateway.Controllers.Zalba
 
         [AuthRole("Role", "Administrator,Superuser,Operater nadmetanja")]
         [HttpPost]
-        public ActionResult<TipZalbeCreationDTO> Post(TipZalbeCreationDTO tipZalbeDto)
+        public ActionResult<TipZalbeCreationDto> Post(TipZalbeCreationDto tipZalbeDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -92,7 +94,7 @@ namespace Gateway.Controllers.Zalba
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return Conflict();
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(tipZalbe);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -101,8 +103,9 @@ namespace Gateway.Controllers.Zalba
 
         [AuthRole("Role", "Administrator,Superuser,Operater nadmetanja")]
         [HttpPut]
-        public ActionResult<TipZalbeDTO> Put(int id, TipZalbeDTO tipZalbeDto)
+        public ActionResult<TipZalbeDto> Put(int id, TipZalbeDto tipZalbeDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -113,7 +116,7 @@ namespace Gateway.Controllers.Zalba
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(404, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(tipZalbe);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -124,6 +127,7 @@ namespace Gateway.Controllers.Zalba
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -134,7 +138,7 @@ namespace Gateway.Controllers.Zalba
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(tipZalbe);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);

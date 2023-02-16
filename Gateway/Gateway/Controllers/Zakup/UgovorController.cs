@@ -15,14 +15,13 @@ namespace Gateway.Controllers.Zakup
     [Produces("application/json")]
     public class UgovorController : ControllerBase
     {
-        private readonly IServiceCall<UgovorDTO, UgovorConfirmationDTO> _serviceCall;
+        private readonly IServiceCall<UgovorDto, UgovorConfirmationDto> _serviceCall;
         private readonly string url = $"{StaticDetails.ZakupService}api/ugovor/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
-        private string _error;
         private readonly string _noAuth;
 
-        public UgovorController(IServiceCall<UgovorDTO, UgovorConfirmationDTO> serviceCall, ILoggerService loggerService)
+        public UgovorController(IServiceCall<UgovorDto, UgovorConfirmationDto> serviceCall, ILoggerService loggerService)
         {
             _serviceCall = serviceCall;
             _loggerService = loggerService;
@@ -35,8 +34,9 @@ namespace Gateway.Controllers.Zakup
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<List<UgovorConfirmationDTO>> GetAll()
+        public ActionResult<List<UgovorConfirmationDto>> GetAll()
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -47,7 +47,7 @@ namespace Gateway.Controllers.Zakup
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(ugovori);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -59,8 +59,9 @@ namespace Gateway.Controllers.Zakup
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<UgovorConfirmationDTO> Get(int id)
+        public ActionResult<UgovorConfirmationDto> Get(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -71,7 +72,7 @@ namespace Gateway.Controllers.Zakup
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(ugovor);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -80,8 +81,9 @@ namespace Gateway.Controllers.Zakup
 
         [AuthRole("Role", "Administrator,Superuser,Tehnicki sekretar")]
         [HttpPost]
-        public ActionResult<UgovorDTO> Post(UgovorDTO ugovorDto)
+        public ActionResult<UgovorDto> Post(UgovorDto ugovorDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -92,7 +94,7 @@ namespace Gateway.Controllers.Zakup
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return Conflict();
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(ugovor);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -101,8 +103,9 @@ namespace Gateway.Controllers.Zakup
 
         [AuthRole("Role", "Administrator,Superuser,Tehnicki sekretar")]
         [HttpPut]
-        public ActionResult<UgovorConfirmationDTO> Put(int id, UgovorConfirmationDTO ugovorDto)
+        public ActionResult<UgovorConfirmationDto> Put(int id, UgovorConfirmationDto ugovorDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -113,7 +116,7 @@ namespace Gateway.Controllers.Zakup
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(404, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(ugovor);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -124,6 +127,7 @@ namespace Gateway.Controllers.Zakup
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -134,7 +138,7 @@ namespace Gateway.Controllers.Zakup
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(ugovor);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);

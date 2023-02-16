@@ -19,6 +19,7 @@ namespace Gateway.ServiceCalls.Implementations
                     var content = await response.Content.ReadAsStringAsync();
                     if (string.IsNullOrEmpty(content))
                     {
+                        #pragma warning disable CS8603 // Possible null reference return.
                         return null;
                     }
                     return content;
@@ -81,14 +82,14 @@ namespace Gateway.ServiceCalls.Implementations
             }
         }
 
-        public async Task<C> PostAsync(string url, T dto)
+        public async Task<C> PostAsync(string url, T Dto)
         {
             try
             {
                 using var httpClient = new HttpClient();
                 Uri uri = new Uri(url);
                 var request = new HttpRequestMessage(HttpMethod.Post, uri);
-                request.Content = new StringContent(JsonConvert.SerializeObject(dto));
+                request.Content = new StringContent(JsonConvert.SerializeObject(Dto));
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var response = await httpClient.SendAsync(request);
                 if (response.IsSuccessStatusCode)
@@ -108,18 +109,18 @@ namespace Gateway.ServiceCalls.Implementations
             }
         }
 
-        public async Task<C> PutAsync(string url, int? id, object dto)
+        public async Task<C> PutAsync(string url, int? id, object Dto)
         {
             try
             {
                 using var httpClient = new HttpClient();
-                Uri uri = null;
+                Uri? uri = null;
                 if (id == 0)
                     uri = new Uri(url);
                 else
                     uri = new Uri(url + id);
                 var request = new HttpRequestMessage(HttpMethod.Put, uri);
-                request.Content = new StringContent(JsonConvert.SerializeObject(dto));
+                request.Content = new StringContent(JsonConvert.SerializeObject(Dto));
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var response = await httpClient.SendAsync(request);
                 if (response.IsSuccessStatusCode)

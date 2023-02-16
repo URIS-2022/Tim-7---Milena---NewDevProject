@@ -1,7 +1,7 @@
 ﻿namespace Gateway.Models.Zakup
 {
-    public class TipGarancijeConfirmationDTO
+    public class TipGarancijeConfirmationDto
     {
-        public string NazivTipaG { get; set; }
+        public string? NazivTipaG { get; set; }
     }
 }

@@ -9,15 +9,15 @@
         /// <summary>
         /// Naziv pravnog lica
         /// </summary>
-        public string Naziv { get; set; }
+        public string? Naziv { get; set; }
         /// <summary>
         /// Maticni broj pravnog lica
         /// </summary>
-        public string MaticniBroj { get; set; }
+        public string? MaticniBroj { get; set; }
         /// <summary>
         /// Faks pravnog lica
         /// </summary>
-        public string Faks { get; set; }
+        public string? Faks { get; set; }
         
         public Guid KupacId { get; set; }
     }

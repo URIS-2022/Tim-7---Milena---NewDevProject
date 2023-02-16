@@ -34,27 +34,27 @@ namespace Gateway.Models.Liciter
         /// <summary>
         /// Broj telefona kupca 
         /// </summary>
-        public string BrTelefona1 { get; set; }
+        public string? BrTelefona1 { get; set; }
         /// <summary>
         /// Drugi broj telefona kupca
         /// </summary>
-        public string BrTelefona2 { get; set; }
+        public string? BrTelefona2 { get; set; }
         /// <summary>
         /// Email kupca
         /// </summary>
-        public string Email { get; set; }
+        public string? Email { get; set; }
         /// <summary>
         /// Broj racuna kupca
         /// </summary>
-        public string BrRacuna { get; set; }
+        public string? BrRacuna { get; set; }
         /// <summary>
         /// Lista ovlascenih lica koja se moze azurirati
         /// </summary>
-        public List<Guid> OvlascenaLica { get; set; }
+        public List<Guid>? OvlascenaLica { get; set; }
         /// <summary>
         ///Lista javnih nadmetanja koja se moze azuriratu
         /// </summary>
-        public List<Guid> JavnaNadmetanja { get; set; }
+        public List<Guid>? JavnaNadmetanja { get; set; }
 
         /// <summary>
         /// Id pravnog lica koji vec postoji u bazi

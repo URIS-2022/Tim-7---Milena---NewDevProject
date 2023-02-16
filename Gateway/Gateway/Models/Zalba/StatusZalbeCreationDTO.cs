@@ -1,8 +1,8 @@
 ﻿namespace Gateway.Models.Zalba
 {
-    public class StatusZalbeCreationDTO
+    public class StatusZalbeCreationDto
     {
-        public string NazivStatusaZalbe { get; set; }
+        public string? NazivStatusaZalbe { get; set; }
 
     }
 }

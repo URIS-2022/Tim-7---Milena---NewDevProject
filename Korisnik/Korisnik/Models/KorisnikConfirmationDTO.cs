@@ -3,9 +3,9 @@
 namespace Korisnik.Models
 {
     /// <summary>
-    /// DTO za uspesno kreiranog Korisnika
+    /// Dto za uspesno kreiranog Korisnika
     /// </summary>
-    public class KorisnikConfirmationDTO
+    public class KorisnikConfirmationDto
     {
         /// <summary>
         /// Id korisnika
@@ -28,7 +28,7 @@ namespace Korisnik.Models
         /// </summary>
         public int TipKorisnikaId { get; set; }
 
-        public KorisnikConfirmationDTO(KorisnikEntity korisnik)
+        public KorisnikConfirmationDto(KorisnikEntity korisnik)
         {
             Id = korisnik.Id;
             KorisnickoIme = korisnik.KorisnickoIme;

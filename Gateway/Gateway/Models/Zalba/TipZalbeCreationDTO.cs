@@ -1,7 +1,7 @@
 ﻿namespace Gateway.Models.Zalba
 {
-    public class TipZalbeCreationDTO
+    public class TipZalbeCreationDto
     {
-        public string NazivTipaZalbe { get; set; }
+        public string? NazivTipaZalbe { get; set; }
     }
 }

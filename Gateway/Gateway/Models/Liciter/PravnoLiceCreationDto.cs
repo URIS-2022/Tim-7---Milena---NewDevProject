@@ -8,15 +8,15 @@ namespace Gateway.Models.Liciter
         /// <summary>
         /// Naziv pravnog lica
         /// </summary>
-        public string Naziv { get; set; }
+        public string? Naziv { get; set; }
         /// <summary>
         /// Maticni broj pravnog lica
         /// </summary>
-        public string MaticniBroj { get; set; }
+        public string? MaticniBroj { get; set; }
           /// <summary>
         /// Faks pravnog lica
         /// </summary>
-        public string Faks { get; set; }
+        public string? Faks { get; set; }
         /// <summary>
         /// Id kupca koji je pravno lice
         /// </summary>
@@ -24,14 +24,14 @@ namespace Gateway.Models.Liciter
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (Naziv.Length ==0)
+            if (Naziv!.Length ==0)
             {
                 yield return new ValidationResult(
                     "Naziv can not be empty.",
                     new[] { "LicitacijaCreationDto" });
             }
 
-            if ( MaticniBroj.Length == 0)
+            if ( MaticniBroj!.Length == 0)
             {
                 yield return new ValidationResult(
                     "MaticniBroj can not be empty.",

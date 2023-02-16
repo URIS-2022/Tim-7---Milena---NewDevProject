@@ -1,7 +1,7 @@
 ﻿namespace Gateway.Models.Korisnik
 {
-    public class TipKorisnikaDTO
+    public class TipKorisnikaDto
     {
-        public string Naziv { get; set; }
+        public string? Naziv { get; set; }
     }
 }

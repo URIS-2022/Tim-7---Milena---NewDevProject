@@ -26,18 +26,18 @@ namespace Korisnik.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet]
-        public ActionResult<List<TipKorisnikaConfirmationDTO>> Get()
+        public ActionResult<List<TipKorisnikaConfirmationDto>> Get()
         {
             var tipoviKorisnikaDb = _tipKorisnikaRepository.GetAll();
 
-            if (tipoviKorisnikaDb == null || tipoviKorisnikaDb.Count() == 0)
+            if (tipoviKorisnikaDb == null || tipoviKorisnikaDb.Any())
             {
                 return NoContent();
             }
 
-            var tipoviKorisnika = new List<TipKorisnikaConfirmationDTO>();
+            var tipoviKorisnika = new List<TipKorisnikaConfirmationDto>();
             foreach (var tipKorisnika in tipoviKorisnikaDb)
-                tipoviKorisnika.Add(new TipKorisnikaConfirmationDTO(tipKorisnika));
+                tipoviKorisnika.Add(new TipKorisnikaConfirmationDto(tipKorisnika));
 
             return Ok(tipoviKorisnika);
         }
@@ -53,14 +53,14 @@ namespace Korisnik.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult<TipKorisnikaConfirmationDTO> Get(int id)
+        public ActionResult<TipKorisnikaConfirmationDto> Get(int id)
         {
             var tipKorisnikaDb = _tipKorisnikaRepository.GetFirstOrDefault(x => x.Id == id);
             if (tipKorisnikaDb == null)
             {
                 return NoContent();
             }
-            return new TipKorisnikaConfirmationDTO(tipKorisnikaDb);
+            return new TipKorisnikaConfirmationDto(tipKorisnikaDb);
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Korisnik.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public ActionResult<TipKorisnikaConfirmationDTO> Post(TipKorisnikaDTO tipKorisnikaDto)
+        public ActionResult<TipKorisnikaConfirmationDto> Post(TipKorisnikaDto tipKorisnikaDto)
         {
             var tipKorisnikaDb = _tipKorisnikaRepository.GetFirstOrDefault(x => x.Naziv == tipKorisnikaDto.Naziv);
 
@@ -92,12 +92,12 @@ namespace Korisnik.Controllers
             }
 
             TipKorisnikaEntity tipKorisnika = new TipKorisnikaEntity();
-            tipKorisnika.Naziv = tipKorisnikaDto.Naziv;
+            tipKorisnika.Naziv = tipKorisnikaDto.Naziv!;
 
             _tipKorisnikaRepository.Add(tipKorisnika);
             _tipKorisnikaRepository.Save();
 
-            return Ok(new TipKorisnikaConfirmationDTO(tipKorisnika));
+            return Ok(new TipKorisnikaConfirmationDto(tipKorisnika));
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace Korisnik.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public ActionResult<TipKorisnikaConfirmationDTO> Put(int id, TipKorisnikaDTO tipKorisnika)
+        public ActionResult<TipKorisnikaConfirmationDto> Put(int id, TipKorisnikaDto tipKorisnika)
         {
             var tipKorisnikaDb = _tipKorisnikaRepository.GetFirstOrDefault(x => x.Id == id);
             if (tipKorisnikaDb == null)
@@ -129,10 +129,10 @@ namespace Korisnik.Controllers
             if (_tipKorisnikaRepository.GetFirstOrDefault(x => x.Naziv == tipKorisnika.Naziv) != null)
                 return Conflict();
 
-            tipKorisnikaDb.Naziv = tipKorisnika.Naziv;
+            tipKorisnikaDb.Naziv = tipKorisnika.Naziv!;
             _tipKorisnikaRepository.Save();
 
-            return Ok(new TipKorisnikaConfirmationDTO(tipKorisnikaDb));
+            return Ok(new TipKorisnikaConfirmationDto(tipKorisnikaDb));
         }
 
         /// <summary>

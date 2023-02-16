@@ -5,16 +5,16 @@ using System.Net.Http.Headers;
 
 namespace Gateway.ServiceCalls.Implementations
 {
-    public class KorisnikService : ServiceCall<KorisnikDTO, KorisnikConfirmationDTO>, IKorisnikService
+    public class KorisnikService : ServiceCall<KorisnikDto, KorisnikConfirmationDto>, IKorisnikService
     {
-        public async Task<KorisnikTokenDTO> RegisterAsync(string url, KorisnikDTO dto)
+        public async Task<KorisnikTokenDto> RegisterAsync(string url, KorisnikDto Dto)
         {
             try
             {
                 using var httpClient = new HttpClient();
                 Uri uri = new Uri(url);
                 var request = new HttpRequestMessage(HttpMethod.Post, uri);
-                request.Content = new StringContent(JsonConvert.SerializeObject(dto));
+                request.Content = new StringContent(JsonConvert.SerializeObject(Dto));
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var response = await httpClient.SendAsync(request);
                 if (response.IsSuccessStatusCode)
@@ -22,26 +22,31 @@ namespace Gateway.ServiceCalls.Implementations
                     var content = await response.Content.ReadAsStringAsync();
                     if (string.IsNullOrEmpty(content))
                     {
+                        #pragma warning disable CS8603 // Possible null reference return.
                         return null;
                     }
-                    return JsonConvert.DeserializeObject<KorisnikTokenDTO>(content);
+                    #pragma warning disable CS8603 // Possible null reference return.
+                    return JsonConvert.DeserializeObject<KorisnikTokenDto>(content);
                 }
+                #pragma warning disable CS8603 // Possible null reference return.
                 return null;
+                #pragma warning restore CS8603 // Possible null reference return.
             }
             catch
             {
+                #pragma warning disable CS8603 // Possible null reference return.
                 return null;
             }
         }
 
-        public async Task<KorisnikTokenDTO> LoginAsync(string url, KorisnikLoginDTO dto)
+        public async Task<KorisnikTokenDto> LoginAsync(string url, KorisnikLoginDto Dto)
         {
             try
             {
                 using var httpClient = new HttpClient();
                 Uri uri = new Uri(url);
                 var request = new HttpRequestMessage(HttpMethod.Post, uri);
-                request.Content = new StringContent(JsonConvert.SerializeObject(dto));
+                request.Content = new StringContent(JsonConvert.SerializeObject(Dto));
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var response = await httpClient.SendAsync(request);
                 if (response.IsSuccessStatusCode)
@@ -51,7 +56,7 @@ namespace Gateway.ServiceCalls.Implementations
                     {
                         return null;
                     }
-                    return JsonConvert.DeserializeObject<KorisnikTokenDTO>(content);
+                    return JsonConvert.DeserializeObject<KorisnikTokenDto>(content);
                 }
                 return null;
             }

@@ -12,25 +12,25 @@ namespace Gateway.Models.Liciter
         /// <summary>
         /// Ime ovlascenog lica
         /// </summary>
-        public string Ime { get; set; }
+        public string? Ime { get; set; }
         /// <summary>
         /// Prezime ovlascenog lica
         /// </summary>
-        public string Prezime { get; set; }
+        public string? Prezime { get; set; }
         /// <summary>
         /// Jmbg ovlascenog lica
         /// </summary>
-        public string Jmbg { get; set; }
+        public string? Jmbg { get; set; }
         [JsonIgnore]
         public Guid AdresaId { get; set; }
-        public AdresaDTO Adresa { get; set; }
+        public AdresaDto? Adresa { get; set; }
         /// <summary>
         /// Id drzave ovlascenog lica
         /// </summary>
         [JsonIgnore]
         public Guid? DrzavaId { get; set; }
 
-        public DrzavaDTO Drzava { get; set; }
+        public DrzavaDto? Drzava { get; set; }
         /// <summary>
         /// Broj table ovlascenog lica
         /// </summary>
@@ -44,6 +44,6 @@ namespace Gateway.Models.Liciter
         /// Lista kupac id
         /// </summary>
         [JsonIgnore]
-        public List<Guid> Kupci { get; set; }
+        public List<Guid>? Kupci { get; set; }
     }
 }

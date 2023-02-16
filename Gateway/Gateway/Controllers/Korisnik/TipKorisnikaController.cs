@@ -15,14 +15,13 @@ namespace Gateway.Controllers.Korisnik
     [Produces("application/json")]
     public class TipKorisnikaController : ControllerBase
     {
-        private readonly IServiceCall<TipKorisnikaDTO, TipKorisnikaConfirmationDTO> _serviceCall;
+        private readonly IServiceCall<TipKorisnikaDto, TipKorisnikaConfirmationDto> _serviceCall;
         private readonly string url = $"{StaticDetails.KorisnikService}api/tipKorisnika/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
-        private string _error;
         private readonly string _noAuth;
 
-        public TipKorisnikaController(IServiceCall<TipKorisnikaDTO, TipKorisnikaConfirmationDTO> serviceCall, ILoggerService loggerService)
+        public TipKorisnikaController(IServiceCall<TipKorisnikaDto, TipKorisnikaConfirmationDto> serviceCall, ILoggerService loggerService)
         {
             _serviceCall = serviceCall;
             _loggerService = loggerService;
@@ -35,8 +34,9 @@ namespace Gateway.Controllers.Korisnik
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<List<TipKorisnikaConfirmationDTO>> GetAll()
+        public ActionResult<List<TipKorisnikaConfirmationDto>> GetAll()
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -47,7 +47,7 @@ namespace Gateway.Controllers.Korisnik
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(tipoviKorisnika);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -59,8 +59,9 @@ namespace Gateway.Controllers.Korisnik
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<TipKorisnikaConfirmationDTO> Get(int id)
+        public ActionResult<TipKorisnikaConfirmationDto> Get(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -71,7 +72,7 @@ namespace Gateway.Controllers.Korisnik
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(tipKorisnika);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -80,8 +81,9 @@ namespace Gateway.Controllers.Korisnik
 
         [AuthRole("Role", "Administrator")]
         [HttpPost]
-        public ActionResult<TipKorisnikaConfirmationDTO> Post(TipKorisnikaDTO tipKorisnikaDto)
+        public ActionResult<TipKorisnikaConfirmationDto> Post(TipKorisnikaDto tipKorisnikaDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -92,7 +94,7 @@ namespace Gateway.Controllers.Korisnik
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(409, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(tipKorisnika);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -101,8 +103,9 @@ namespace Gateway.Controllers.Korisnik
 
         [AuthRole("Role", "Administrator")]
         [HttpPut("{id}")]
-        public ActionResult<TipKorisnikaConfirmationDTO> Put(int id, TipKorisnikaDTO tipKorisnikaDto)
+        public ActionResult<TipKorisnikaConfirmationDto> Put(int id, TipKorisnikaDto tipKorisnikaDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -113,7 +116,7 @@ namespace Gateway.Controllers.Korisnik
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(404, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(tipKorisnika);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -124,6 +127,7 @@ namespace Gateway.Controllers.Korisnik
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -134,7 +138,7 @@ namespace Gateway.Controllers.Korisnik
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(tipKorisnika);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);

@@ -2,18 +2,18 @@
 
 namespace Gateway.Models.Zalba
 {
-    public class ZalbaCreationDTO
+    public class ZalbaCreationDto
     {
         [Required(ErrorMessage = "Obavezno je uneti datum podnošenja žalbe.")]
         public DateTime DatumPodnosenjaZalbe { get; set; }
         [Required(ErrorMessage = "Obavezno je uneti razlog žalbe.")]
-        public string RazlogZalbe { get; set; }
-        public string Obrazlozenje { get; set; }
+        public string? RazlogZalbe { get; set; }
+        public string? Obrazlozenje { get; set; }
 
         [Required(ErrorMessage = "Obavezno je uneti datum broj nadmetanja na koje se odnosi žalba.")]
-        public string BrojNadmetanja { get; set; }
+        public string? BrojNadmetanja { get; set; }
         public DateTime DatumResenja { get; set; }
-        public string BrojResenja { get; set; }
+        public string? BrojResenja { get; set; }
 
         [Required(ErrorMessage = "Obavezno je uneti id tipa žalbe.")]
         public Guid TipZalbeID { get; set; }
@@ -30,7 +30,7 @@ namespace Gateway.Models.Zalba
             {
                 yield return new ValidationResult(
                     "Datum podnošenja žalbe ne može biti posle datuma rešenja!",
-                    new[] { "ZalbaCreationDTO" });
+                    new[] { "ZalbaCreationDto" });
             }
         }
     }

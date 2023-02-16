@@ -6,6 +6,6 @@
         
         public int PredsednikId { get; set; }
         
-        public List<int> ClanId { get; set; }
+        public List<int>? ClanId { get; set; }
     }
 }

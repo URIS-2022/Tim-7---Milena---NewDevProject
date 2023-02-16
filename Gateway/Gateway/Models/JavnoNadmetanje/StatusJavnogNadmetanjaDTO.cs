@@ -1,8 +1,8 @@
 ﻿namespace Gateway.Models.JavnoNadmetanje
 {
-    public class StatusJavnogNadmetanjaDTO
+    public class StatusJavnogNadmetanjaDto
     {
         public Guid StatusJavnogNadmetanjaID { get; set; }
-        public string NazivStatusaJavnogNadmetanja { get; set; }
+        public string? NazivStatusaJavnogNadmetanja { get; set; }
     }
 }

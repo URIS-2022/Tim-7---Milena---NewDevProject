@@ -15,12 +15,12 @@ namespace Korisnik.Helpers
         {
             _config = config;
         }
-        public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        public void CreatePasswordHash(string? password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512())
             {
                 passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password!));
             }
         }
 
@@ -35,7 +35,7 @@ namespace Korisnik.Helpers
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                _config.GetSection("Jwt:Token").Value)); //key from appsettings.json
+                _config.GetSection("Jwt:Token").Value!)); //key from appsettings.json
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 

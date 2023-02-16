@@ -1,6 +1,8 @@
-﻿namespace Gateway.Models.Parcela
+﻿using Gateway.Models.Liciter;
+
+namespace Gateway.Models.Parcela
 {
-    public class ParcelaDTO
+    public class ParcelaDto
     {
         public int Id { get; set; }
 
@@ -22,7 +24,7 @@
 
         public int KatastarskaOpstinaID { get; set; }
 
-        //public Kupac Kupac { get; set; }
+        public KupacDto? Kupac { get; set; }
     }
 
     public enum OblikSvojine

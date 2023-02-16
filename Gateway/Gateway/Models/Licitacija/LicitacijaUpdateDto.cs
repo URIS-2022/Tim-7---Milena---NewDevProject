@@ -27,11 +27,11 @@ namespace Gateway.Models.Licitacija
         /// <summary>
         /// Lista dokumenata fizickog lica za datu licitaciju
         /// </summary>
-        public string ListaDokumentacijeFizickaLica { get; set; }
+        public string? ListaDokumentacijeFizickaLica { get; set; }
         /// <summary>
         /// Lista dokumenata pravnog lica za datu licitaciju
         /// </summary>
-        public string ListaDokumentacijePravnaLica { get; set; }
+        public string? ListaDokumentacijePravnaLica { get; set; }
         /// <summary>
         ///rok
         /// </summary>

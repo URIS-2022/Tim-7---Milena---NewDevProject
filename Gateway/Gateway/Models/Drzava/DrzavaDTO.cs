@@ -1,7 +1,7 @@
 ﻿namespace Gateway.Models.Drzava
 {
-    public class DrzavaDTO
+    public class DrzavaDto
     {
-        public string NazivDrzave { get; set; }
+        public string? NazivDrzave { get; set; }
     }
 }

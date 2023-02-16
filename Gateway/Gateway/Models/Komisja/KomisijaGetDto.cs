@@ -4,8 +4,8 @@
     {     
         public int KomisijaId { get; set; }
 
-        public PredsednikDto Predsednik { get; set; }
+        public PredsednikDto? Predsednik { get; set; }
 
-        public List<ClanKomisijeDto> Clan { get; set; }
+        public List<ClanKomisijeDto>? Clan { get; set; }
     }
 }

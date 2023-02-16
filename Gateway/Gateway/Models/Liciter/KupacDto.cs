@@ -16,7 +16,7 @@ namespace Gateway.Models.Liciter
         /// <summary>
        /// Opis priosirteta kupca
        /// </summary>
-        public string OpisPrioriteta { get; set; }
+        public string? OpisPrioriteta { get; set; }
         /// <summary>
         /// Ostvarena povrsina
         /// </summary>
@@ -44,35 +44,35 @@ namespace Gateway.Models.Liciter
         /// <summary>
         /// Broj telefona kupca 
         /// </summary>
-        public string BrTelefona1 { get; set; }
+        public string? BrTelefona1 { get; set; }
         /// <summary>
         /// Drugi broj telefona kupca 
         /// </summary>
-        public string BrTelefona2 { get; set; }
+        public string? BrTelefona2 { get; set; }
         /// <summary>
         /// Email kupca 
         /// </summary>
-        public string Email { get; set; }
+        public string? Email { get; set; }
         /// <summary>
         /// Broj racuna kupca 
         /// </summary>
-        public string BrRacuna { get; set; }
+        public string? BrRacuna { get; set; }
         /// <summary>
         /// Dto objekat adrese
         /// </summary>
         [JsonIgnore]
         public Guid AdresaId { get; set; }
-        public AdresaDTO Adresa { get; set; }
+        public AdresaDto? Adresa { get; set; }
         /// <summary>
         /// Dto objekat Pravnog lica
         /// </summary>
        
-        public PravnoLiceUpdateDto PravnoLice { get; set; }
+        public PravnoLiceUpdateDto? PravnoLice { get; set; }
         /// <summary>
         /// Dto objekat fizickog lica
         /// </summary>
        
-        public FizickoLiceUpdateDto FizickoLice { get; set; }
+        public FizickoLiceUpdateDto? FizickoLice { get; set; }
 
 
         /// <summary>
@@ -80,37 +80,37 @@ namespace Gateway.Models.Liciter
         /// </summary>
 
         [JsonIgnore]
-        public List<Guid> JavnaNadmetanja { get; set; }
+        public List<Guid>? JavnaNadmetanja { get; set; }
 
 
         /// <summary>
-        /// Lista dto objekata javnog nadmetanja
+        /// Lista Dto objekata javnog nadmetanja
         /// </summary>
-        public List<JavnoNadmetanjeDTO> JavnaNadmetanjaOb { get; set; }
+        public List<JavnoNadmetanjeDto>? JavnaNadmetanjaOb { get; set; }
 
 
         /// <summary>
-        /// Lista dto objekata uplate
+        /// Lista Dto objekata uplate
         /// </summary>
       
-        public List<UplataDTO> Uplate { get; set; }
+        public List<UplataDto>? Uplate { get; set; }
         /// <summary>
         /// Lista uplata id
         /// </summary>
 
         [JsonIgnore]
-        public List<Guid> UplateId { get; set; }
+        public List<Guid>? UplateId { get; set; }
         /// <summary>
         /// Lista ovlasceno lice id
         /// </summary>
 
         [JsonIgnore]
-        public List<Guid> OvlascenaLica { get; set; }
+        public List<Guid>? OvlascenaLica { get; set; }
 
         /// <summary>
-        /// Lista dto objekata ovlascenog lica
+        /// Lista Dto objekata ovlascenog lica
         /// </summary>
-        public List<OvlascenoLiceInfoDto> OvlascenaLicaObj { get; set; }
+        public List<OvlascenoLiceInfoDto>? OvlascenaLicaObj { get; set; }
        
 
 
