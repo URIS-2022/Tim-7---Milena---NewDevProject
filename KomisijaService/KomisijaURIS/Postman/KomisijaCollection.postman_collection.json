@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "8a74e689-799e-44f3-bfbc-de319d1a0740",
+		"name": "KomisijaCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25561986"
+	},
+	"item": [
+		{
+			"name": "GetAllPredsednik",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7254/api/Predsednik",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"Predsednik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostPredsednik",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"predsednikId\": 0,\r\n        \"imePredsednika\": \"Ana\",\r\n        \"prezimePredsednika\": \"Adamovic\",\r\n        \"emailPredsednika\": \"ana@gmail.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7254/api/Predsednik",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"Predsednik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByIdPredsednik",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7254/api/Predsednik/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"Predsednik",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePredsednik",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"predsednikId\": 4,\r\n    \"imePredsednika\": \"Ana\",\r\n    \"prezimePredsednika\": \"Jelenkovic\",\r\n    \"emailPredsednika\": \"ana@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7254/api/Predsednik/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"Predsednik",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePredsednik",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7254/api/Predsednik/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"Predsednik",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllClanKomisije",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7254/api/ClanKomisije",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"ClanKomisije"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostClanKomisije",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"clanId\": 0,\r\n        \"imeClana\": \"Dusan\",\r\n        \"prezimeClana\": \"Volarevic\",\r\n        \"emailClana\": \"dusan@gmail.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7254/api/ClanKomisije",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"ClanKomisije"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByIdClanKomisije",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7254/api/ClanKomisije/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"ClanKomisije",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateClanKomisije",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clanId\": 5,\r\n    \"imeClana\": \"Dusan\",\r\n    \"prezimeClana\": \"Markovic\",\r\n    \"emailClana\": \"dusan@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7254/api/ClanKomisije/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"ClanKomisije",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteClanKomisije",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7254/api/ClanKomisije/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"ClanKomisije",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllKomisija",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7254/api/Komisija",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"Komisija"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostKomisija",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"komisijaId\": 0,\r\n  \"predsednikId\": 2,\r\n  \"clanId\": [\r\n    2,4\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7254/api/Komisija",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"Komisija"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByIdKomisija",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7254/api/Komisija/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"Komisija",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteKomisija",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7254/api/Komisija/10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"Komisija",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateKomisija",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"komisijaId\": 0,\r\n  \"predsednikId\": 3,\r\n  \"clanId\": [\r\n    2\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7254/api/Komisija/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7254",
+					"path": [
+						"api",
+						"Komisija",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
