@@ -49,5 +49,6 @@ jobs:
           dotnet publish UgovorService/UgovorService.sln -c Debug -o out
           dotnet publish ZalbaService/ZalbaService.sln -c Debug -o out
           dotnet publish JavnoNadmetanjeService/JavnoNadmetanjeService.sln -c Debug -o out
+          dotnet publish OglasService/OglasURIS.sln -c Debug -o out
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
