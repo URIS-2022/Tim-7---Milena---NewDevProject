@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "7af686b0-6cfd-4116-80c6-77de87068dca",
+		"name": "OglasCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25561986"
+	},
+	"item": [
+		{
+			"name": "GetAllOglas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7171/api/Oglas",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7171",
+					"path": [
+						"api",
+						"Oglas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostOglas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"oglasId\": 0,\r\n  \"datumObjave\": \"2023-02-11T20:07:44.943Z\",\r\n  \"rokZaZalbu\": \"2023-02-13T20:07:44.943Z\",\r\n  \"opisOglasa\": \"Oglas za posa0\",\r\n  \"objavljenUListuId\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7171/api/Oglas",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7171",
+					"path": [
+						"api",
+						"Oglas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByIdOglas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7171/api/Oglas/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7171",
+					"path": [
+						"api",
+						"Oglas",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateOglas",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"oglasId\": 5,\r\n    \"datumObjave\": \"2023-02-13T19:59:51.653\",\r\n    \"rokZaZalbu\": \"2023-02-13T19:59:51.653\",\r\n    \"opisOglasa\": \"Kupovina\",\r\n    \"objavljenUListuId\": 66\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7171/api/Oglas/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7171",
+					"path": [
+						"api",
+						"Oglas",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteOglas",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7171/api/Oglas/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7171",
+					"path": [
+						"api",
+						"Oglas",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllSluzbeniList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7171/api/SluzbeniList",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7171",
+					"path": [
+						"api",
+						"SluzbeniList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostSluzbeniList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"sluzbeniListId\": 0,\r\n        \"datumIzdanja\": \"2023-02-13T09:39:30.266\",\r\n        \"brojLista\": 8,\r\n        \"listaOglasa\": [5]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7171/api/SluzbeniList",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7171",
+					"path": [
+						"api",
+						"SluzbeniList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByIdSluzbeniList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7171/api/SluzbeniList/8",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7171",
+					"path": [
+						"api",
+						"SluzbeniList",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateSluzbeniList",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"sluzbeniListId\": 7,\r\n        \"datumIzdanja\": \"2023-02-12T19:49:48.833\",\r\n        \"brojLista\": 77,\r\n        \"listaOglasa\": [5]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7171/api/SluzbeniList/7",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7171",
+					"path": [
+						"api",
+						"SluzbeniList",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSluzbeniList",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7171/api/SluzbeniList/8",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7171",
+					"path": [
+						"api",
+						"SluzbeniList",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
