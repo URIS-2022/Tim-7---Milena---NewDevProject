@@ -1,0 +1,313 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JavnoNadmetanjeService</name>
+    </assembly>
+    <members>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.GetJavnaNadmetanja(System.String,System.String)">
+            <summary>
+            Vraca sva javna nadmetanja
+            </summary>
+            <param name="status">Status javnog nadmetanja (npr. Prvi krug)</param>
+            <param name="tip">Tip javnog nadmetanja (npr. Javna licitacija)</param>
+            <returns> Lista svih javnih nadmetanja </returns>
+            <response code="200">Vraca listu svih javnih nadmetanja</response>
+            <response code="404">Ne postoji nijedno javno nadmetanje</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.GetJavnoNadmetanjeByID(System.Guid)">
+            <summary>
+            Vraca jedno javno nadmetanje na osnovu ID-ja javnog nadmetanja.
+            </summary>
+            <param name="javnoNadmetanjeID">ID javnog nadmetanja</param>
+            <returns>Odgovarajuće javno nadmetanje</returns>
+            <response code="200">Vraća traženo javno nadmetanje</response>
+            <response code="404">Nije pronadjeno traženo javno nadmetanje</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.GetJavnoNadmetanjeZaDrugeServiseByID(System.Guid)">
+             <summary>
+             Vraca jedno javno nadmetanje na osnovu ID-ja javnog nadmetanja za druge mikroservise.
+             </summary>
+             <param name="javnoNadmetanjeID">ID javnog nadmetanja</param>
+             <returns>Odgovarajuće informacije o javnom nadmetanju prilagodjene potrebama drugih mikroservisa</returns>
+            <response code="200">Vraća traženo javno nadmetanje</response>
+            <response code="404">Nije pronadjeno traženo javno nadmetanje</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.CreateJavnoNadmetanje(JavnoNadmetanjeService.Models.JavnoNadmetanjeCreationDTO)">
+             <summary>
+             Kreira novo javno nadmetanje.
+             </summary>
+             <param name="javnoNadmetanje">Model javnog nadmetanja</param>
+             <remarks>
+             Primer zahteva za kreiranje novog javnog nadmetanja \
+             POST /api/javnoNadmetanje \
+             { \
+            "datum": "2023-02-16T16:41:41.220Z", \
+            "vremePocetka": "11:00", \
+            "vremeKraja": "14:000", \
+            "pocetnaCenaPoHektaru": 500, \
+            "izuzeto": true, \
+            "tipJavnogNadmetanjaID": "3fa85f64-5717-4562-b3fc-2c963f66afa6", \
+            "statusJavnogNadmetanjaID": "3fa85f64-5717-4562-b3fc-2c963f66afa6", \
+            "izlicitiranaCena": 1000, \
+            "periodZakupa":4, \
+            "brojUcesnika": 2, \
+            "visinaDopuneDepozita": 200, \
+            "krug": 2, \
+            "licitantiID": [
+                "3fa85f64-5717-4562-b3fc-2c963f66afa6" \
+            ], \
+            "prijavljeniKupciID": [ \
+                "3fa85f64-5717-4562-b3fc-2c963f66afa6" \
+            ], \
+            "parcela": [ \
+             0 \
+            ], \
+            "adresaID": "3fa85f64-5717-4562-b3fc-2c963f66afa6", \
+            "kupacID": "3fa85f64-5717-4562-b3fc-2c963f66afa6" \
+            } 
+            </remarks>
+             <response code="201">Vraća kreirano javno nadmetanje</response>
+             <response code="500">Došlo je do greške na serveru prilikom kreiranja javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.UpdateJavnoNadmetanje(JavnoNadmetanjeService.Models.JavnoNadmetanjeUpdateDTO)">
+            <summary>
+            Ažurira jedno javno nadmetanje
+            </summary>
+            <returns>Potvrda o modfikovanom javnom nadmetanju</returns>
+            <response code="200">Vraća kreirano javno nadmetanje</response>
+            <response code="400">Željeno javno nadmetanje koje se želi ažurirati nije pronađeno</response>
+            <response code="500">Došlo je do greške na serveru prilikom ažuriranja javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.DeleteJavnoNadmetanje(System.Guid)">
+            <summary>
+            Vrši brisanje jednog javnog nadmetanja na osnovu ID-ja javnog nadmetanja.
+            </summary>
+            <param name="javnoNadmetanjeID">ID javnog nadmetanja</param>
+            <returns>Status 204 (NoContent)</returns>
+            <response code="204">Javnog nadmetanje je uspešno obrisano</response>
+            <response code="404">Nije pronađeno javno nadmetanje za brisanje</response>
+            <response code="500">Došlo je do greške na serveru prilikom brisanja javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.GetJavnoNadmetanjeOptions">
+            <summary>
+            Vraća opcije za rad sa javnim nadmetanjem
+            </summary>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.GetStatusiJavnogNadmetanja">
+            <summary>
+            Vraca sve statuse javnih nadmetanja
+            </summary>
+            <returns> Lista statusa javnih nadmetanja </returns>
+            <response code="200">Vraca listu statusa javnih nadmetanja</response>
+            <response code="404">Ne postoji nijedan status javnih nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.GetStatusJavnogNadmetanjaByID(System.Guid)">
+            <summary>
+            Vraca jedan status javnih nadmetanja na osnovu ID-ja statusa javnog nadmetanja.
+            </summary>
+            <param name="statusJavnogNadmetanjaID">ID statusa javnog nadmetanja</param>
+            <returns>Odgovarajući status javnog nadmetanja</returns>
+            <response code="200">Vraća traženi status javnog nadmetanja</response>
+            <response code="404">Nije pronadjen traženi status javnog nadmetanja</response>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.CreateStatusJavnogNadmetanja(JavnoNadmetanjeService.Models.StatusJavnogNadmetanjaCreationDTO)" -->
+        <member name="M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.UpdateStatusJavnogNadmetanja(JavnoNadmetanjeService.Models.StatusJavnogNadmetanjaDTO)">
+            <summary>
+            Ažurira jedan status javnog nadmetanja
+            </summary>
+            <returns>Potvrda o modfikovanom statusu javnog nadmetanja</returns>
+            <response code="200">Vraća kreirani status javnog nadmetanja</response>
+            <response code="400">Željeni status javnog nadmetanja koji se želi ažurirati nije pronađen</response>
+            <response code="500">Došlo je do greške na serveru prilikom ažuriranja statusa javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.DeleteStatusJavnogNadmetanja(System.Guid)">
+            <summary>
+            Vrši brisanje jednog statusa javnog nadmetanja na osnovu ID-ja javnog nadmetanja.
+            </summary>
+            <param name="statusJavnogNadmetanjaID">ID statusa javnog nadmetanja</param>
+            <returns>Status 204 (NoContent)</returns>
+            <response code="204">status javnog nadmetanja uspešno obrisan</response>
+            <response code="404">Nije pronađen status javnog nadmetanja za brisanje</response>
+            <response code="500">Došlo je do greške na serveru prilikom brisanja statusa javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.GetStatusJavnogNadmetanjaOptions">
+            <summary>
+            Vraća opcije za rad sa statusom javnog nadmetanja
+            </summary>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.GetTipoviJavnogNadmetanja">
+            <summary>
+            Vraca sve tipove javnih nadmetanja
+            </summary>
+            <returns> Lista tipova javnih nadmetanja </returns>
+            <response code="200">Vraca listu tipova javnih nadmetanja</response>
+            <response code="404">Ne postoji nijedan tip javnih nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.GetTipJavnogNadmetanjaByID(System.Guid)">
+            <summary>
+            Vraca jedan tip javnih nadmetanja na osnovu ID-ja tipa javnog nadmetanja.
+            </summary>
+            <param name="tipJavnogNadmetanjaID">ID tipa javnog nadmetanja</param>
+            <returns>Odgovarajući tip javnog nadmetanja</returns>
+            <response code="200">Vraća traženi tip javnog nadmetanja</response>
+            <response code="404">Nije pronadjen traženi tip javnog nadmetanja</response>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.CreateTipJavnogNadmetanja(JavnoNadmetanjeService.Models.TipJavnogNadmetanjaCreationDTO)" -->
+        <member name="M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.UpdateTipJavnogNadmetanja(JavnoNadmetanjeService.Models.TipJavnogNadmetanjaDTO)">
+            <summary>
+            Ažurira jedan tip javnog nadmetanja
+            </summary>
+            <returns>Potvrda o modfikovanom tipu javnog nadmetanja</returns>
+            <response code="200">Vraća kreirani tip javnog nadmetanja</response>
+            <response code="400">Željeni tip javnog nadmetanja koji se želi ažurirati nije pronađen</response>
+            <response code="500">Došlo je do greške na serveru prilikom ažuriranja tipa javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.DeleteTipJavnogNadmetanja(System.Guid)">
+            <summary>
+            Vrši brisanje jednog tipa javnog nadmetanja na osnovu ID-ja javnog nadmetanja.
+            </summary>
+            <param name="tipJavnogNadmetanjaID">ID tipa javnog nadmetanja</param>
+            <returns>Status 204 (NoContent)</returns>
+            <response code="204">Tip javnog nadmetanja uspešno obrisan</response>
+            <response code="404">Nije pronađen tip javnog nadmetanja za brisanje</response>
+            <response code="500">Došlo je do greške na serveru prilikom brisanja tipa javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.GetTipJavnogNadmetanjaOptions">
+            <summary>
+            Vraća opcije za rad sa tipom javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.JavnoNadmetanjeID">
+            <summary>
+            ID javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.Datum">
+            <summary>
+             Datum održavanja javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.VremePocetka">
+            <summary>
+             Vreme početka javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.VremeKraja">
+            <summary>
+             Vreme kraja javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.PocetnaCenaPoHektaru">
+            <summary>
+            Početna cena po hektaru
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.Izuzeto">
+            <summary>
+             Informacija o tome da li je javno nadmetanje izuzeto
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.TipJavnogNadmetanjaID">
+            <summary>
+            ID tipa javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.TipJavnogNadmetanja">
+            <summary>
+            Tip javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.StatusJavnogNadmetanjaID">
+            <summary>
+            ID statusa javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.StatusJavnogNadmetanja">
+            <summary>
+            Status javnog nadmetanja 
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.IzlicitiranaCena">
+            <summary>
+            Izlicitirana cena
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.PeriodZakupa">
+            <summary>
+            Vremenski period zakupa 
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.BrojUcesnika">
+            <summary>
+            Broj učesnika u javnom nadmetanju
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.VisinaDopuneDepozita">
+            <summary>
+            Visina dopune depozita
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.Krug">
+            <summary>
+            Krug javnog nadmetanja 
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.KupacID">
+            <summary>
+            ID kupca koji je dostavio najbolju ponudu
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.AdresaID">
+            <summary>
+            ID adrese na kojoj se održava javno nadmetanje
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.LicitantiID">
+            <summary>
+            Lista ID-jeva licitanata(ovlašćenih lica) koji učestvuju na javnom nadmetanju
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.PrijavljeniKupciID">
+            <summary>
+            Lista ID-jeva svih prijavljenih kupaca koji učestvuju na javnom nadmetanju
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.JavnoNadmetanje.ParceleID">
+            <summary>
+            Lista ID-jeva parcela koje učestvuju na javnom nadmetanju
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.StatusJavnogNadmetanja.StatusJavnogNadmetanjaID">
+            <summary>
+            ID statusa javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.StatusJavnogNadmetanja.NazivStatusaJavnogNadmetanja">
+            <summary>
+            Naziv statusa javnog nadmetanja
+            </summary> 
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.TipJavnogNadmetanja.TipJavnogNadmetanjaID">
+            <summary>
+            ID tipa javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:JavnoNadmetanjeService.Entities.TipJavnogNadmetanja.NazivTipaJavnogNadmetanja">
+            <summary>
+            Naziv tipa javnog nadmetanja
+            </summary> 
+        </member>
+        <member name="T:JavnoNadmetanjeService.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:JavnoNadmetanjeService.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:JavnoNadmetanjeService.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:JavnoNadmetanjeService.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
