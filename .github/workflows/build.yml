@@ -54,5 +54,6 @@ jobs:
           dotnet publish Mikroservis-Uplata/Mikroservis-Uplata.sln -c Debug -o out   
           dotnet publish Mikroservis-Parcela/Uris.sln -c Debug -o out   
           dotnet publish LicitacijaServis/LicitacijaServis.sln -c Debug -o out
+          dotnet publish KupacServis/KupacServis.sln -c Debug -o out
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
