@@ -52,7 +52,7 @@ namespace Korisnik.Repositories.Implementations
                 }
             }
 
-            return query.FirstOrDefault();
+            return query.FirstOrDefault()!;
         }
 
         public void Remove(T entity)

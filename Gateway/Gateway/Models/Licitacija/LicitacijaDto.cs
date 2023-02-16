@@ -24,11 +24,11 @@ namespace Gateway.Models.Licitacija
         /// <summary>
         /// Lista dokumenata fizickog lica za datu licitaciju
         /// </summary>
-        public string ListaDokumentacijeFizickaLica { get; set; }
+        public string? ListaDokumentacijeFizickaLica { get; set; }
         /// <summary>
         /// Lista dokumenata pravnog lica za datu licitaciju
         /// </summary>
-        public string ListaDokumentacijePravnaLica { get; set; }
+        public string? ListaDokumentacijePravnaLica { get; set; }
         /// <summary>
         /// Rok 
         /// </summary>
@@ -38,13 +38,13 @@ namespace Gateway.Models.Licitacija
         /// </summary>
         public DateTime Datum { get; set; }
         /// <summary>
-        /// Lista dto objekata javnog nadmetanja
+        /// Lista Dto objekata javnog nadmetanja
         /// </summary>
-        public List<JavnoNadmetanjeDTO> JavnaNadmetanja { get; set; } //Moram kreirati JavnoNadmetanjeDto
+        public List<JavnoNadmetanjeDto>? JavnaNadmetanja { get; set; } //Moram kreirati JavnoNadmetanjeDto
         /// <summary>
         /// Lista id javnog nadmetanja
         /// </summary>
         [JsonIgnore]
-        public List<Guid> JavnaNadmetanjaId { get; set; }
+        public List<Guid>? JavnaNadmetanjaId { get; set; }
     }
 }

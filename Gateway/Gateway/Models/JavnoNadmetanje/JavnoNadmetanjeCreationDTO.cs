@@ -2,13 +2,13 @@
 
 namespace Gateway.Models.JavnoNadmetanje
 {
-    public class JavnoNadmetanjeCreationDTO
+    public class JavnoNadmetanjeCreationDto
     {
         [Required(ErrorMessage = "Obavezno je uneti datum održavanja javnog nadmetanja.")]
         public DateTime Datum { get; set; }
         [Required(ErrorMessage = "Obavezno je uneti vreme početka održavanja javnog nadmetanja.")]
-        public string VremePocetka { get; set; }
-        public string VremeKraja { get; set; }
+        public string? VremePocetka { get; set; }
+        public string? VremeKraja { get; set; }
 
         [Required(ErrorMessage = "Obavezno je uneti početnu cenu po hektaru.")]
         public int PocetnaCenaPoHektaru { get; set; }
@@ -34,13 +34,13 @@ namespace Gateway.Models.JavnoNadmetanje
             {
                 yield return new ValidationResult(
                     "Izlicitirana cena ne sme biti manja od početne cene!",
-                    new[] { "JavnoNadmetanjeCreationDTO" });
+                    new[] { "JavnoNadmetanjeCreationDto" });
             }
-            if (Int32.Parse(VremePocetka.Substring(0, 2)) > Int32.Parse(VremeKraja.Substring(0, 2)))
+            if (Int32.Parse(VremePocetka!.Substring(0, 2)) > Int32.Parse(VremeKraja!.Substring(0, 2)))
             {
                 yield return new ValidationResult(
                     "Vreme početka održavanja javnog nadmetanja ne sme biti veće od vremena kraja javnog nadmetanja!",
-                    new[] { "JavnoNadmetanjeCreationDTO" });
+                    new[] { "JavnoNadmetanjeCreationDto" });
             }
         }
 

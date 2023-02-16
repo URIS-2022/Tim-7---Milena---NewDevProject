@@ -2,9 +2,9 @@
 
 namespace Gateway.Models.JavnoNadmetanje
 {
-    public class TipJavnogNadmetanjaCreationDTO
+    public class TipJavnogNadmetanjaCreationDto
     {
         [Required(ErrorMessage = "Obavezno je uneti naziv tipa.")]
-        public string NazivTipaJavnogNadmetanja { get; set; }
+        public string? NazivTipaJavnogNadmetanja { get; set; }
     }
 }

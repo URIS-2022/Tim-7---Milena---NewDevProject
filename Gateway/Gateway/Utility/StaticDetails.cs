@@ -1,17 +1,17 @@
 ﻿namespace Gateway.Utility
 {
-    public class StaticDetails
+    public static class StaticDetails
     {
         public const string KorisnikService = "https://localhost:7282/";
         public const string ParcelaService = "https://localhost:7224/";
-        public const string UplataService = "http://localhost:9908/";
-        public const string OglasService = "http://localhost:9908/";
-        public const string KomisijaService = "http://localhost:9908/";
-        public const string NadmetanjeService = "http://localhost:9908/";
-        public const string ZalbaService = "http://localhost:9908/";
-        public const string ZakupService = "http://localhost:9908/";
-        public const string DrzavaService = "http://localhost:9908/";
-        public const string LiciterService = "http://localhost:9908/";
-        public const string LicitacijaService = "http://localhost:9908/";
+        public const string UplataService = "https://localhost:9908/";
+        public const string OglasService = "https://localhost:9908/";
+        public const string KomisijaService = "https://localhost:9908/";
+        public const string NadmetanjeService = "https://localhost:9908/";
+        public const string ZalbaService = "https://localhost:9908/";
+        public const string ZakupService = "https://localhost:9908/";
+        public const string DrzavaService = "https://localhost:9908/";
+        public const string LiciterService = "https://localhost:9908/";
+        public const string LicitacijaService = "https://localhost:9908/";
     }
 }

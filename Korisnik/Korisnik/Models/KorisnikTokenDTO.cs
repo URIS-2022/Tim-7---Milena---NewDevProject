@@ -3,9 +3,9 @@
 namespace Korisnik.Models
 {
     /// <summary>
-    /// DTO za ulogovanog korisnika
+    /// Dto za ulogovanog korisnika
     /// </summary>
-    public class KorisnikTokenDTO
+    public class KorisnikTokenDto
     {
         /// <summary>
         /// Id korisnika
@@ -20,7 +20,7 @@ namespace Korisnik.Models
         /// </summary>
         public string Token { get; set; }
 
-        public KorisnikTokenDTO(KorisnikEntity korisnik, string token)
+        public KorisnikTokenDto(KorisnikEntity korisnik, string token)
         {
             Id = korisnik.Id;
             KorisnickoIme = korisnik.KorisnickoIme;

@@ -1,13 +1,13 @@
 ﻿namespace Korisnik.Models
 {
     /// <summary>
-    /// DTO za tipa korisnika
+    /// Dto za tipa korisnika
     /// </summary>
-    public class TipKorisnikaDTO
+    public class TipKorisnikaDto
     {
         /// <summary>
         /// Naziv tipa korisnika
         /// </summary>
-        public string Naziv { get; set; }
+        public string? Naziv { get; set; }
     }
 }

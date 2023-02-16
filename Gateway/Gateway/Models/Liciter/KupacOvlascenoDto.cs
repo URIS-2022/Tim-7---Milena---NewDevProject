@@ -29,19 +29,19 @@
         /// <summary>
         /// Broj telefona kupca 
         /// </summary>
-        public string BrTelefona1 { get; set; }
+        public string? BrTelefona1 { get; set; }
         /// <summary>
         /// Drugi broj telefona kupca 
         /// </summary>
-        public string BrTelefona2 { get; set; }
+        public string? BrTelefona2 { get; set; }
         /// <summary>
         /// Email kupca 
         /// </summary>
-        public string Email { get; set; }
+        public string? Email { get; set; }
         /// <summary>
         /// Broj racuna kupca 
         /// </summary>
-        public string BrRacuna { get; set; }
+        public string? BrRacuna { get; set; }
         /// <summary>
         /// Kolekcija Dto objekata ovlascenog lica datum kupca
         /// </summary>

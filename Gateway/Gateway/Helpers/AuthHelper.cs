@@ -28,7 +28,7 @@ namespace Gateway.Helpers
                     IssuerSigningKey = key,
                     ValidateIssuer = false,
                     ValidateAudience = false
-                }, out SecurityToken validatedToken);
+                }, out SecurityToken validateDtoken);
             }
             catch
             {
@@ -42,7 +42,7 @@ namespace Gateway.Helpers
             var tokenHandler = new JwtSecurityTokenHandler();
             var securityToken = tokenHandler.ReadToken(token) as JwtSecurityToken;
 
-            var ClaimValue = securityToken.Claims.First(claim => claim.Type == claimType).Value;
+            var ClaimValue = securityToken!.Claims.First(claim => claim.Type == claimType).Value;
             return ClaimValue;
         }
     }

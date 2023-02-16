@@ -1,14 +1,17 @@
-﻿namespace Gateway.Models.Uplata
+﻿using Gateway.Models.JavnoNadmetanje;
+using Gateway.Models.Liciter;
+
+namespace Gateway.Models.Uplata
 {
-    public class UplataDTO
+    public class UplataDto
     {
         public int Id { get; set; }
 
-        public string BrojRacuna { get; set; }
+        public string? BrojRacuna { get; set; }
 
-        public string PozivNaBroj { get; set; }
+        public string? PozivNaBroj { get; set; }
 
-        public string SvrhaUplate { get; set; }
+        public string? SvrhaUplate { get; set; }
 
         public int Iznos { get; set; }
 
@@ -16,8 +19,8 @@
 
         public int KursID { get; set; }
 
-        //public Kupac Kupac { get; set; }
+        public KupacDto? Kupac { get; set; }
 
-        //public JavnoNadmetanje JavnoNadmetanje { get; set; }
+        public JavnoNadmetanjeDto? JavnoNadmetanje { get; set; }
     }
 }

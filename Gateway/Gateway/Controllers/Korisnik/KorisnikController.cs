@@ -19,7 +19,6 @@ namespace Gateway.Controllers.Korisnik
         private readonly string url = $"{StaticDetails.KorisnikService}api/korisnik/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
-        private string _error;
         private readonly string _noAuth;
 
         public KorisnikController(IKorisnikService serviceCall, ILoggerService loggerService)
@@ -35,8 +34,9 @@ namespace Gateway.Controllers.Korisnik
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<List<KorisnikConfirmationDTO>> GetAll()
+        public ActionResult<List<KorisnikConfirmationDto>> GetAll()
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -47,7 +47,7 @@ namespace Gateway.Controllers.Korisnik
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(korisnici);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -59,8 +59,9 @@ namespace Gateway.Controllers.Korisnik
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<KorisnikConfirmationDTO> Get(int id)
+        public ActionResult<KorisnikConfirmationDto> Get(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -71,7 +72,7 @@ namespace Gateway.Controllers.Korisnik
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(korisnik);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -80,8 +81,9 @@ namespace Gateway.Controllers.Korisnik
 
         [AuthRole("Role", "Administrator")]
         [HttpPost("register")]
-        public ActionResult<KorisnikTokenDTO> Register(KorisnikDTO korisnikDto)
+        public ActionResult<KorisnikTokenDto> Register(KorisnikDto korisnikDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -92,7 +94,7 @@ namespace Gateway.Controllers.Korisnik
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(409, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(korisnik);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -100,8 +102,9 @@ namespace Gateway.Controllers.Korisnik
         }
 
         [HttpPost("login")]
-        public ActionResult<KorisnikTokenDTO> Login(KorisnikLoginDTO korisnikDto)
+        public ActionResult<KorisnikTokenDto> Login(KorisnikLoginDto korisnikDto)
         {
+            string _error;
             var korisnik = _serviceCall.LoginAsync(url + "login/", korisnikDto).Result;
             if (korisnik == null)
             {
@@ -109,14 +112,15 @@ namespace Gateway.Controllers.Korisnik
                 _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                 return StatusCode(409, value: _error);
             }
-            _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info); 
+            _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info); 
             return Ok(korisnik);
         }
 
         [AuthRole("Role", "Administrator")]
         [HttpPut("{id}")]
-        public ActionResult<KorisnikConfirmationDTO> Put(int id, KorisnikDTO korisnikDto)
+        public ActionResult<KorisnikConfirmationDto> Put(int id, KorisnikDto korisnikDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -127,7 +131,7 @@ namespace Gateway.Controllers.Korisnik
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(404, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(korisnik);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -138,6 +142,7 @@ namespace Gateway.Controllers.Korisnik
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -148,7 +153,7 @@ namespace Gateway.Controllers.Korisnik
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(korisnik);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);

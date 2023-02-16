@@ -1,11 +1,11 @@
 ﻿namespace Gateway.Models.Parcela
 {
-    public class KatastarskaOpstinaDTO
+    public class KatastarskaOpstinaDto
     {
         public int Id { get; set; }
 
-        public string Naziv { get; set; }
+        public string? Naziv { get; set; }
 
-        public string Okrug { get; set; }
+        public string? Okrug { get; set; }
     }
 }

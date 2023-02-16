@@ -3,9 +3,9 @@
 namespace Korisnik.Models
 {
     /// <summary>
-    /// DTO za uspesno kreiranog tipa korisnika
+    /// Dto za uspesno kreiranog tipa korisnika
     /// </summary>
-    public class TipKorisnikaConfirmationDTO
+    public class TipKorisnikaConfirmationDto
     {
         /// <summary>
         /// Id tipa korisnika
@@ -16,7 +16,7 @@ namespace Korisnik.Models
         /// </summary>
         public string Naziv { get; set; }
 
-        public TipKorisnikaConfirmationDTO(TipKorisnikaEntity tipKorisnika)
+        public TipKorisnikaConfirmationDto(TipKorisnikaEntity tipKorisnika)
         {
             Id = tipKorisnika.Id;
             Naziv = tipKorisnika.Naziv; 

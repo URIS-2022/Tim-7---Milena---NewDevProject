@@ -31,18 +31,18 @@ namespace Korisnik.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult<List<KorisnikConfirmationDTO>> Get()
+        public ActionResult<List<KorisnikConfirmationDto>> Get()
         {
             var korisniciDb = _korisnikRepository.GetAll(includeProperties: "TipKorisnika");
 
-            if (korisniciDb == null || korisniciDb.Count() == 0)
+            if (korisniciDb == null || korisniciDb.Any())
             {
                 return NoContent();
             }
 
-            var korisnici = new List<KorisnikConfirmationDTO>();
+            var korisnici = new List<KorisnikConfirmationDto>();
             foreach (var korisnik in korisniciDb)
-                korisnici.Add(new KorisnikConfirmationDTO(korisnik));
+                korisnici.Add(new KorisnikConfirmationDto(korisnik));
 
             return Ok(korisnici);
         }
@@ -58,14 +58,14 @@ namespace Korisnik.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult<KorisnikConfirmationDTO> Get(int id)
+        public ActionResult<KorisnikConfirmationDto> Get(int id)
         {
             var korisnikDb = _korisnikRepository.GetFirstOrDefault(x => x.Id == id, includeProperties: "TipKorisnika");
             if (korisnikDb == null)
             {
                 return NoContent();
             }
-            return new KorisnikConfirmationDTO(korisnikDb);
+            return new KorisnikConfirmationDto(korisnikDb);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Korisnik.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public ActionResult<KorisnikTokenDTO> Register(KorisnikDTO korisnikDto)
+        public ActionResult<KorisnikTokenDto> Register(KorisnikDto korisnikDto)
         {
             var korisnikDb = _korisnikRepository.GetFirstOrDefault(x => x.KorisnickoIme == korisnikDto.KorisnickoIme);
             var tipKorisnikaDb = _tipKorisnikaRepository.GetFirstOrDefault(x => x.Id == korisnikDto.TipKorisnikaId);
@@ -96,20 +96,22 @@ namespace Korisnik.Controllers
 
             _authHelper.CreatePasswordHash(korisnikDto.Lozinka, out byte[] passwordHash, out byte[] passwordSalt);
 
-            KorisnikEntity korisnik = new KorisnikEntity();
-            korisnik.KorisnickoIme = korisnikDto.KorisnickoIme;
-            korisnik.Ime = korisnikDto.Ime;
-            korisnik.Prezime = korisnikDto.Prezime;
-            korisnik.LozinkaHash = passwordHash;
-            korisnik.LozinkaSalt = passwordSalt;
-            korisnik.TipKorisnika = _tipKorisnikaRepository.GetFirstOrDefault(x => x.Id == korisnikDto.TipKorisnikaId);
+            KorisnikEntity korisnik = new()
+            {
+                KorisnickoIme = korisnikDto.KorisnickoIme!,
+                Ime = korisnikDto.Ime!,
+                Prezime = korisnikDto.Prezime!,
+                LozinkaHash = passwordHash,
+                LozinkaSalt = passwordSalt,
+                TipKorisnika = _tipKorisnikaRepository.GetFirstOrDefault(x => x.Id == korisnikDto.TipKorisnikaId)
+            };
 
             _korisnikRepository.Add(korisnik);
             _korisnikRepository.Save();
 
             string token = _authHelper.CreateToken(korisnik);
 
-            return Ok(new KorisnikTokenDTO(korisnik, token));
+            return Ok(new KorisnikTokenDto(korisnik, token));
         }
 
         /// <summary>
@@ -122,17 +124,17 @@ namespace Korisnik.Controllers
         [HttpPost("login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult<KorisnikTokenDTO> Login(KorisnikLoginDTO korisnikDto)
+        public ActionResult<KorisnikTokenDto> Login(KorisnikLoginDto korisnikDto)
         {
             var korisnikDb = _korisnikRepository.GetFirstOrDefault(u => u.KorisnickoIme == korisnikDto.KorisnickoIme, includeProperties: "TipKorisnika");
 
             if (korisnikDb != null)
             {
-                if (_authHelper.VerifyPasswordHash(korisnikDto.Lozinka, korisnikDb.LozinkaHash, korisnikDb.LozinkaSalt))
+                if (_authHelper.VerifyPasswordHash(korisnikDto.Lozinka!, korisnikDb.LozinkaHash, korisnikDb.LozinkaSalt))
                 {
                     string token = _authHelper.CreateToken(korisnikDb);
 
-                    return Ok(new KorisnikTokenDTO(korisnikDb, token));
+                    return Ok(new KorisnikTokenDto(korisnikDb, token));
                 }
                 else
                 {
@@ -155,7 +157,7 @@ namespace Korisnik.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult<KorisnikConfirmationDTO> Put(int id, KorisnikDTO korisnik)
+        public ActionResult<KorisnikConfirmationDto> Put(int id, KorisnikDto korisnik)
         {
             var korisnikDb = _korisnikRepository.GetFirstOrDefault(x => x.Id == id);
             var tipKorisnikaDb = _tipKorisnikaRepository.GetFirstOrDefault(x => x.Id == korisnik.TipKorisnikaId);
@@ -163,13 +165,13 @@ namespace Korisnik.Controllers
             if (korisnikDb == null || tipKorisnikaDb == null)
                 return NoContent();
 
-            korisnikDb.KorisnickoIme = korisnik.KorisnickoIme;
-            korisnikDb.Ime = korisnik.Ime;
-            korisnikDb.Prezime= korisnik.Prezime;
+            korisnikDb.KorisnickoIme = korisnik.KorisnickoIme!;
+            korisnikDb.Ime = korisnik.Ime!;
+            korisnikDb.Prezime= korisnik.Prezime!;
             korisnikDb.TipKorisnika = tipKorisnikaDb;
             _korisnikRepository.Save();
 
-            return Ok(new KorisnikConfirmationDTO(korisnikDb));
+            return Ok(new KorisnikConfirmationDto(korisnikDb));
         }
 
         /// <summary>

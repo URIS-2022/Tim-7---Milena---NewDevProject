@@ -15,14 +15,13 @@ namespace Gateway.Controllers.Zalba
     [Produces("application/json")]
     public class RadnjaNaOsnovuZalbeController  : ControllerBase
     {
-        private readonly IServiceCall<RadnjaNaOsnovuZalbeCreationDTO, RadnjaNaOsnovuZalbeDTO> _serviceCall;
+        private readonly IServiceCall<RadnjaNaOsnovuZalbeCreationDto, RadnjaNaOsnovuZalbeDto> _serviceCall;
         private readonly string url = $"{StaticDetails.ZalbaService}api/radnjaNaOsnovuZalbe/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
-        private string _error;
         private readonly string _noAuth;
 
-        public RadnjaNaOsnovuZalbeController(IServiceCall<RadnjaNaOsnovuZalbeCreationDTO, RadnjaNaOsnovuZalbeDTO> serviceCall, ILoggerService loggerService)
+        public RadnjaNaOsnovuZalbeController(IServiceCall<RadnjaNaOsnovuZalbeCreationDto, RadnjaNaOsnovuZalbeDto> serviceCall, ILoggerService loggerService)
         {
             _serviceCall = serviceCall;
             _loggerService = loggerService;
@@ -35,8 +34,9 @@ namespace Gateway.Controllers.Zalba
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<List<RadnjaNaOsnovuZalbeDTO>> GetAll()
+        public ActionResult<List<RadnjaNaOsnovuZalbeDto>> GetAll()
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -47,7 +47,7 @@ namespace Gateway.Controllers.Zalba
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(radnjeNaOsnovuZalbe);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -59,8 +59,9 @@ namespace Gateway.Controllers.Zalba
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<RadnjaNaOsnovuZalbeDTO> Get(int id)
+        public ActionResult<RadnjaNaOsnovuZalbeDto> Get(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -71,7 +72,7 @@ namespace Gateway.Controllers.Zalba
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(radnjaNaOsnovuZalbe);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -80,8 +81,9 @@ namespace Gateway.Controllers.Zalba
 
         [AuthRole("Role", "Administrator,Superuser,Operater nadmetanja")]
         [HttpPost]
-        public ActionResult<RadnjaNaOsnovuZalbeCreationDTO> Post(RadnjaNaOsnovuZalbeCreationDTO radnjaNaOsnovuZalbeDto)
+        public ActionResult<RadnjaNaOsnovuZalbeCreationDto> Post(RadnjaNaOsnovuZalbeCreationDto radnjaNaOsnovuZalbeDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -92,7 +94,7 @@ namespace Gateway.Controllers.Zalba
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return Conflict();
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(radnjaNaOsnovuZalbe);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -101,8 +103,9 @@ namespace Gateway.Controllers.Zalba
 
         [AuthRole("Role", "Administrator,Superuser,Operater nadmetanja")]
         [HttpPut]
-        public ActionResult<RadnjaNaOsnovuZalbeDTO> Put(int id, RadnjaNaOsnovuZalbeDTO radnjaNaOsnovuZalbeDto)
+        public ActionResult<RadnjaNaOsnovuZalbeDto> Put(int id, RadnjaNaOsnovuZalbeDto radnjaNaOsnovuZalbeDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -113,7 +116,7 @@ namespace Gateway.Controllers.Zalba
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(404, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(radnjaNaOsnovuZalbe);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -124,6 +127,7 @@ namespace Gateway.Controllers.Zalba
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -134,7 +138,7 @@ namespace Gateway.Controllers.Zalba
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(radnjaNaOsnovuZalbe);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);

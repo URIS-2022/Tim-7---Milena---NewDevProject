@@ -15,14 +15,13 @@ namespace Gateway.Controllers.Parcela
     [Produces("application/json")]
     public class KatastarskaOpstinaController : ControllerBase
     {
-        private readonly IServiceCall<KatastarskaOpstinaDTO, KatastarskaOpstinaDTO> _serviceCall;
+        private readonly IServiceCall<KatastarskaOpstinaDto, KatastarskaOpstinaDto> _serviceCall;
         private readonly string url = $"{StaticDetails.ParcelaService}api/katastarskaOpstina/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
-        private string _error;
         private readonly string _noAuth;
 
-        public KatastarskaOpstinaController(IServiceCall<KatastarskaOpstinaDTO, KatastarskaOpstinaDTO> serviceCall, ILoggerService loggerService)
+        public KatastarskaOpstinaController(IServiceCall<KatastarskaOpstinaDto, KatastarskaOpstinaDto> serviceCall, ILoggerService loggerService)
         {
             _serviceCall = serviceCall;
             _loggerService = loggerService;
@@ -35,8 +34,9 @@ namespace Gateway.Controllers.Parcela
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<List<KatastarskaOpstinaDTO>> GetAll()
+        public ActionResult<List<KatastarskaOpstinaDto>> GetAll()
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -47,7 +47,7 @@ namespace Gateway.Controllers.Parcela
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(katastarskeOpstine);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -59,8 +59,9 @@ namespace Gateway.Controllers.Parcela
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<KatastarskaOpstinaDTO> Get(int id)
+        public ActionResult<KatastarskaOpstinaDto> Get(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -71,7 +72,7 @@ namespace Gateway.Controllers.Parcela
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(katastarskaOpstina);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -80,8 +81,9 @@ namespace Gateway.Controllers.Parcela
 
         [AuthRole("Role", "Superuser")]
         [HttpPost]
-        public ActionResult<KatastarskaOpstinaDTO> Post(KatastarskaOpstinaDTO kulturaDto)
+        public ActionResult<KatastarskaOpstinaDto> Post(KatastarskaOpstinaDto kulturaDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -92,7 +94,7 @@ namespace Gateway.Controllers.Parcela
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(409, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(katastarskaOpstina);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -101,8 +103,9 @@ namespace Gateway.Controllers.Parcela
 
         [AuthRole("Role", "Superuser")]
         [HttpPut("{id}")]
-        public ActionResult<KatastarskaOpstinaDTO> Put(int id, KatastarskaOpstinaDTO kulturaDto)
+        public ActionResult<KatastarskaOpstinaDto> Put(int id, KatastarskaOpstinaDto kulturaDto)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -113,7 +116,7 @@ namespace Gateway.Controllers.Parcela
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(404, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(katastarskaOpstina);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);
@@ -124,6 +127,7 @@ namespace Gateway.Controllers.Parcela
         [HttpDelete("{id}")]
         public ActionResult<string> Delete(int id)
         {
+            string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
             if (token != default(StringValues))
             {
@@ -134,7 +138,7 @@ namespace Gateway.Controllers.Parcela
                     _loggerService.WriteLog(_error, _controllerName, LogSeverity.Error);
                     return StatusCode(204, value: _error);
                 }
-                _loggerService.WriteLog(MethodBase.GetCurrentMethod().Name, _controllerName, LogSeverity.Info);
+                _loggerService.WriteLog(MethodBase.GetCurrentMethod()!.Name, _controllerName, LogSeverity.Info);
                 return Ok(katastarskaOpstina);
             }
             _loggerService.WriteLog(_noAuth, _controllerName, LogSeverity.Error);

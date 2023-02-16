@@ -6,14 +6,14 @@
         /// <summary>
         /// Ime predsednika komisije
         /// </summary>       
-        public string ImePredsednika { get; set; }
+        public string? ImePredsednika { get; set; }
         /// <summary>
         /// Prezime predsednika komisije
         /// </summary>       
-        public string PrezimePredsednika { get; set; }
+        public string? PrezimePredsednika { get; set; }
         /// <summary>
         /// Email predsednika komisije
         /// </summary>     
-        public string EmailPredsednika { get; set; }
+        public string? EmailPredsednika { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace Gateway.Models.Zalba
 {
-    public class RadnjaNaOsnovuZalbeCreationDTO
+    public class RadnjaNaOsnovuZalbeCreationDto
     {
-        public string NazivRadnjeNaOsnovuZalbe { get; set; }
+        public string? NazivRadnjeNaOsnovuZalbe { get; set; }
     }
 }
