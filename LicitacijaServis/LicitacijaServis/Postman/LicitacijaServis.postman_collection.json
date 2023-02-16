@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "e4385acc-b97a-4bd6-bb77-95752e5c9112",
+		"name": "LicitacijaServis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17049589"
+	},
+	"item": [
+		{
+			"name": "GetLicitacije",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7135/api/licitacija",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7135",
+					"path": [
+						"api",
+						"licitacija"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLicitacijaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7135/api/licitacija/9CC08977-2B5F-44CA-BD75-D530DA86CE78",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7135",
+					"path": [
+						"api",
+						"licitacija",
+						"9CC08977-2B5F-44CA-BD75-D530DA86CE78"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateLicitacija",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"broj\": 87,\r\n  \"godina\": 2022,\r\n  \"ogranicenje\": 1000000,\r\n  \"korakCene\": 50000,\r\n  \"listaDokumentacijeFizickaLica\": \"FizickoLiceDokument112\",\r\n  \"listaDokumentacijePravnaLica\": \"PravnoLiceDokument112\",\r\n  \"rok\": \"2023-12-21\",\r\n  \"datum\": \"2022-12-20\",\r\n  \"javnaNadmetanja\": [\r\n   \r\n  ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7135/api/licitacija",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7135",
+					"path": [
+						"api",
+						"licitacija"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateLicitacija",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"licitacijaId\":\"9CC08977-2B5F-44CA-BD75-D530DA86CE78\",\r\n    \"broj\": 1,\r\n  \"godina\": 2022,\r\n  \"ogranicenje\": 5000000,\r\n  \"korakCene\": 5000,\r\n  \"listaDokumentacijeFizickaLica\": \"Dokument F1\",\r\n  \"listaDokumentacijePravnaLica\": \"Dokument P1\",\r\n  \"rok\": \"2022-10-15T21:56:02.868Z\",\r\n  \"datum\": \"2022-10-25T21:56:02.868Z\",\r\n  \"javnaNadmetanja\": [\r\n   \"A21D9035-CC6E-40A6-8FCC-63A3DE6AE448\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7135/api/licitacija",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7135",
+					"path": [
+						"api",
+						"licitacija"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteLicitacija",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7135/api/licitacija/FEAD4CEE-FA4C-4B6A-8B27-83B70AA43698",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7135",
+					"path": [
+						"api",
+						"licitacija",
+						"FEAD4CEE-FA4C-4B6A-8B27-83B70AA43698"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

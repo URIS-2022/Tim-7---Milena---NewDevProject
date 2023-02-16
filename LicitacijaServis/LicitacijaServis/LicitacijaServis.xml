@@ -1,0 +1,301 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LicitacijaServis</name>
+    </assembly>
+    <members>
+        <member name="M:LicitacijaServis.Controllers.LicitacijaController.GetLicitacijas">
+            <summary>
+            Vraća sve licitacije.
+            </summary>
+            <response code="200">Vraća listu licitacija.</response>
+            /// <response code="204">Nema kontenta</response>
+            <response code="404">Nije pronađeno nijedna licitacija</response>
+        </member>
+        <member name="M:LicitacijaServis.Controllers.LicitacijaController.GetLicitacijaById(System.Guid)">
+            <summary>
+            Vraća jednu licitaciju na osnovu njenog ID-ja.
+            </summary>
+            <param name="id">ID licitacije</param>
+            <returns></returns>
+            <response code="200">Vraća traženu licitaciju</response>
+            <response code="404">Vraća da licitacija nije pronađena</response>
+        </member>
+        <member name="M:LicitacijaServis.Controllers.LicitacijaController.DeleteLicitacija(System.Guid)">
+            <summary>
+            Vrši brisanje jedne licitacije na osnovu njegovog ID-ja.
+            </summary>
+            <param name="id">ID licitacije</param>
+            <returns>Status 204 (NoContent)</returns>
+            <response code="204">Licitacija  uspješno obrisana</response>
+            <response code="404">Nije pronađena licitacija za brisanje</response>
+            <response code="500">Došlo je do greške na serveru prilikom brisanja licitacije</response>
+        </member>
+        <member name="M:LicitacijaServis.Controllers.LicitacijaController.UpdateLicitacija(LicitacijaServis.Models.LicitacijaUpdateDto)">
+            <summary>
+            Ažurira jednu licitaciju.
+            </summary>
+            <param name="licitacija">Model licitacije koji se ažurira</param>
+            <returns>Potvrdu o modifikovanoj licitaciji.</returns>
+            <response code="200">Vraća ažuriranu licitaciju</response>
+            <response code="404">Licitacija koje se ažurira nije pronađena</response>
+            <response code="500">Došlo je do greške na serveru prilikom ažuriranja licitacije.</response>
+        </member>
+        <member name="M:LicitacijaServis.Controllers.LicitacijaController.CreateLicitacija(LicitacijaServis.Models.LicitacijaCreationDto)">
+             <summary>
+             Kreiranje nove licitacije.
+             </summary>
+             <param name="licitacija">Model liictacije</param>
+             <returns>Potvrdu o kreiranoj licitaciji.</returns>
+             <remarks>
+             Primjer zahtjeva za kreiranje nove licitacije \
+             POST /api/licitacije \
+             {     \
+                 "Broj":"23", \
+                 "Godina": "2022", \
+                 "Ogranicenje": "100000000", \
+                 "KorakCene":"55000", \
+                 "ListaDokumentacijeFizickaLica":"DokumentFizicko", \
+                 "ListaDokumentacijePravnaLica":"DokumentPravno", \
+                 "Rok":"2022-10-14T21:56:02.868", \
+                 "Datum":"2022-12-14T21:56:02.868", \
+                 "JavnaNadmetanja":"4563cf92-b8d0-4574-9b40-a725f884da36", \
+            }
+             </remarks>
+             <response code="200">Vraća kreiranu liictaciju</response>
+             <response code="500">Došlo je do greške na serveru prilikom kreiranja licitacije</response>
+        </member>
+        <member name="M:LicitacijaServis.Entities.LicitacijaContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Popunjava bazu sa nekim inicijalnim podacima
+            </summary>
+        </member>
+        <member name="T:LicitacijaServis.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:LicitacijaServis.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:LicitacijaServis.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:LicitacijaServis.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaConfirmationDto.Broj">
+            <summary>
+            Broj licitacije
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaConfirmationDto.Ogranicenje">
+            <summary>
+            Ogranicenje licitacije
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaConfirmationDto.KorakCene">
+            <summary>
+            Korak cijene
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaConfirmationDto.Rok">
+            <summary>
+            Rok 
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaConfirmationDto.Datum">
+             <summary>
+            datum licitacije
+             </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaCreationDto.Broj">
+            <summary>
+            Broj licitacije
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaCreationDto.Godina">
+            <summary>
+            Godina licitacije
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaCreationDto.Ogranicenje">
+            <summary>
+            Ogranicenje licitacije
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaCreationDto.KorakCene">
+            <summary>
+            korak cijene
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaCreationDto.ListaDokumentacijeFizickaLica">
+            <summary>
+            Lista dokumenata fizickog lica za datu licitaciju
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaCreationDto.ListaDokumentacijePravnaLica">
+            <summary>
+            Lista dokumenata pravnog lica za datu licitaciju
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaCreationDto.Rok">
+            <summary>
+            rok
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaCreationDto.Datum">
+            <summary>
+            datum licitacije
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaDto.Broj">
+            <summary>
+            Broj licitacije
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaDto.Godina">
+            <summary>
+            Godina licitacije
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaDto.Ogranicenje">
+            <summary>
+            Ogranicenje licitacije
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaDto.KorakCene">
+            <summary>
+            Korak cijene
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaDto.ListaDokumentacijeFizickaLica">
+            <summary>
+            Lista dokumenata fizickog lica za datu licitaciju
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaDto.ListaDokumentacijePravnaLica">
+            <summary>
+            Lista dokumenata pravnog lica za datu licitaciju
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaDto.Rok">
+            <summary>
+            Rok 
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaDto.Datum">
+             <summary>
+            datum licitacije
+             </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaDto.JavnaNadmetanjaObj">
+            <summary>
+            Lista dto objekata javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaDto.JavnaNadmetanja">
+            <summary>
+            Lista id javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaUpdateDto.LicitacijaId">
+             <summary>
+            id licitacije
+             </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaUpdateDto.Broj">
+             <summary>
+            broj licitacije
+             </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaUpdateDto.Godina">
+            <summary>
+            godina licitacije
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaUpdateDto.Ogranicenje">
+             <summary>
+            ogranicenje licitacije
+             </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaUpdateDto.KorakCene">
+            <summary>
+            korak cijene
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaUpdateDto.ListaDokumentacijeFizickaLica">
+            <summary>
+            Lista dokumenata fizickog lica za datu licitaciju
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaUpdateDto.ListaDokumentacijePravnaLica">
+            <summary>
+            Lista dokumenata pravnog lica za datu licitaciju
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaUpdateDto.Rok">
+             <summary>
+            rok
+             </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.LicitacijaUpdateDto.Datum">
+             <summary>
+            datum licitacije
+             </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.JavnoNadmetanjeId">
+            <summary>
+            ID javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.Datum">
+            <summary>
+             Datum održavanja javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.VremePocetka">
+            <summary>
+             Vreme početka javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.VremeKraja">
+            <summary>
+             Vreme kraja javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.PocetnaCenaPoHektaru">
+            <summary>
+            Početna cena zemljišta po hektaru
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.Izuzeto">
+            <summary>
+             Izuzeto javno nadmetanje
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.IzlicitiranaCena">
+            <summary>
+            Izlicitirana cena
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.PeriodZakupa">
+            <summary>
+            Vremenski period zakupa 
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.BrojUcesnika">
+            <summary>
+            Broj učesnika u javnom nadmetanju
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.VisinaDopuneDepozita">
+            <summary>
+            Visina dopune depozita
+            </summary>
+        </member>
+        <member name="P:LicitacijaServis.Models.Mock.JavnoNadmetanjeDto.Krug">
+            <summary>
+            Krug javnog nadmetanja 
+            </summary>
+        </member>
+    </members>
+</doc>
