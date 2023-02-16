@@ -1,0 +1,589 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UgovorService</name>
+    </assembly>
+    <members>
+        <member name="M:UgovorService.Controllers.DokumentController.GetDokumente">
+            <summary>
+            Vraca sva dokumenta
+            </summary>
+            <returns> Lista dokumenata </returns>
+            <response code="200">Vraca listu dokumenata</response>
+            <response code="404">Ne postoji nijedan dokument</response>
+        </member>
+        <member name="M:UgovorService.Controllers.DokumentController.GetDokumentByID(System.Guid)">
+            <summary>
+            Vraca jedan dokument na osnovu ID-ja dokumenta.
+            </summary>
+            <param name="dokumentID">ID dokumenta</param>
+            <returns>Odgovarajuc dokument</returns>
+            <response code="200">Vraća trazen dokument</response>
+            <response code="404">Nije pronadjen dokument</response>
+        </member>
+        <member name="M:UgovorService.Controllers.DokumentController.CreateDokument(UgovorService.Models.DokumentCreationDTO)">
+            <summary>
+            Kreira novi dokument.
+            </summary>
+            <response code="201">Vraća kreirani dokument</response>
+            <response code="500">Došlo je do greške na serveru prilikom kreiranja dokumenta</response>
+        </member>
+        <member name="M:UgovorService.Controllers.DokumentController.DeleteDokument(System.Guid)">
+            <summary>
+            Vrši brisanje jednog dokumenta na osnovu ID-ja dokumenta.
+            </summary>
+            <param name="dokumentID">ID dokumenta</param>
+            <returns>Status 204 (NoContent)</returns>
+            <response code="204">Dokument uspešno obrisan</response>
+            <response code="404">Nije pronađen dokument za brisanje</response>
+            <response code="500">Došlo je do greške na serveru prilikom brisanja dokumenta</response>
+        </member>
+        <member name="M:UgovorService.Controllers.DokumentController.UpdateDokument(UgovorService.Models.DokumentUpdateDTO)">
+            <summary>
+            Ažurira jedan dokument
+            </summary>
+            <returns>Potvrda o modifikovanom dokumentu</returns>
+            <response code="200">Vraća kreiran dokument</response>
+            <response code="400">Željen dokument koja se želi ažurirati nije pronađen</response>
+            <response code="500">Došlo je do greške na serveru prilikom ažuriranja dokumenta</response>
+        </member>
+        <member name="M:UgovorService.Controllers.DokumentController.GetDokumentOptions">
+            <summary>
+            Vraća opcije za rad sa dokumentom
+            </summary>
+        </member>
+        <member name="M:UgovorService.Controllers.TipGarancijeController.GetTipoveGarancija">
+            <summary>
+            Vraca sve tipove garancije
+            </summary>
+            <returns> Lista garancija </returns>
+            <response code="200">Vraca listu garancija</response>
+            <response code="404">Ne postoji nijedna garancija</response>
+        </member>
+        <member name="M:UgovorService.Controllers.TipGarancijeController.GetTipGarancijeByID(System.Guid)">
+            <summary>
+            Vraca jednu garanciju na osnovu ID-ja garancije.
+            </summary>
+            <param name="tipGarancijeID">ID garancije</param>
+            <returns>Odgovarajuca garancija</returns>
+            <response code="200">Vraća trazenu garanciju</response>
+            <response code="404">Nije pronadjena tražena garancija</response>
+        </member>
+        <member name="M:UgovorService.Controllers.TipGarancijeController.CreateTipGarancije(UgovorService.Models.TipGarancijeCreationDTO)">
+            <summary>
+            Kreira novi tip garancije.
+            </summary>
+            <response code="201">Vraća kreirani tip garancije</response>
+            <response code="500">Došlo je do greške na serveru prilikom kreiranja tipa garancije</response>
+        </member>
+        <member name="M:UgovorService.Controllers.TipGarancijeController.DeleteTipGarancije(System.Guid)">
+            <summary>
+            Vrši brisanje jednog tipa garancije na osnovu ID-ja tipa garancije.
+            </summary>
+            <param name="tipGarancijeID">ID tipa garancije</param>
+            <returns>Status 204 (NoContent)</returns>
+            <response code="204">Garancija uspešno obrisana</response>
+            <response code="404">Nije pronađena garancija za brisanje</response>
+            <response code="500">Došlo je do greške na serveru prilikom brisanja garancijee</response>
+        </member>
+        <member name="M:UgovorService.Controllers.TipGarancijeController.UpdateTipGarancije(UgovorService.Models.TipGarancijeUpdateDTO)">
+            <summary>
+            Ažurira jednu garanciju
+            </summary>
+            <returns>Potvrda o modfikovanoj garanciji</returns>
+            <response code="200">Vraća kreiranu garanciju</response>
+            <response code="400">Garancija koja se želi ažurirati nije pronađena</response>
+            <response code="500">Došlo je do greške na serveru prilikom ažuriranja garancije</response>
+        </member>
+        <member name="M:UgovorService.Controllers.TipGarancijeController.GetTipGarancijeOptions">
+            <summary>
+            Vraća opcije za rad sa garancijom
+            </summary>
+        </member>
+        <member name="M:UgovorService.Controllers.UgovorController.GetUgovore">
+            <summary>
+            Vraca sve ugovore
+            </summary>
+            <returns> Lista ugovora </returns>
+            <response code="200">Vraca listu ugovora</response>
+            <response code="404">Ne postoji nijedan ugovor</response>
+        </member>
+        <member name="M:UgovorService.Controllers.UgovorController.GetUgovorByID(System.Guid)">
+            <summary>
+            Vraca ugovor na osnovu ID-ja .
+            </summary>
+            <param name="ugovorID">ID ugovora</param>
+            <returns>Odgovarajuc ugovor</returns>
+            <response code="200">Vraća trazen ugovor</response>
+            <response code="404">Nije pronadjen trazen ugovor</response>
+        </member>
+        <member name="M:UgovorService.Controllers.UgovorController.CreateUgovor(UgovorService.Models.UgovorCreationDTO)">
+            <summary>
+            Kreira novi ugovor.
+            </summary>
+            <response code="201">Vraća kreirani ugovor</response>
+            <response code="500">Došlo je do greške na serveru prilikom kreiranja ugovora</response>
+        </member>
+        <member name="M:UgovorService.Controllers.UgovorController.DeleteUgovor(System.Guid)">
+            <summary>
+            Vrši brisanje jednog ugovora na osnovu ID-ja.
+            </summary>
+            <param name="ugovorID">ID ugovora</param>
+            <returns>Status 204 (NoContent)</returns>
+            <response code="204">ugovor obrisan</response>
+            <response code="404">Nije pronađena ugovor za brisanjee</response>
+            <response code="500">Došlo je do greške na serveru prilikom brisanja ugovora</response>
+        </member>
+        <member name="M:UgovorService.Controllers.UgovorController.UpdateUgovor(UgovorService.Models.UgovorUpdateDTO)">
+            <summary>
+            Ažurira jedan ugovor
+            </summary>
+            <returns>Potvrda o modfikovanom ugovoru</returns>
+            <response code="200">Vraća kreiran ugovor</response>
+            <response code="400">ugovor nije pronadjen</response>
+            <response code="500">Došlo je do greške na serveru prilikom ažuriranja ugovora</response>
+        </member>
+        <member name="M:UgovorService.Controllers.UgovorController.GetUgovorOptions">
+            <summary>
+            Vraća opcije za rad sa ugovorom
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Dokument.DokumentID">
+            <summary>
+            ID dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Dokument.ZavodniBroj">
+            <summary>
+            Zavodni broj dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Dokument.Datum">
+            <summary>
+            Datum
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Dokument.DatumDonosenja">
+            <summary>
+            Datum donosenja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Dokument.Sablon">
+            <summary>
+            Sablon
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.TipGarancije.TipGarancijeID">
+            <summary>
+            ID tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.TipGarancije.NazivTipaG">
+            <summary>
+            Naziv tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Ugovor.UgovorID">
+            <summary>
+            ID ugovora
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Ugovor.ZavodniBrojUgovora">
+            <summary>
+            zavodni broj ugovora
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Ugovor.DatumZavodjenja">
+            <summary>
+            Datum zavodjenja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Ugovor.RokZaVracanjeZemljista">
+            <summary>
+            Rok za vracanje zemljista
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Ugovor.MestoPotpisa">
+            <summary>
+            Mesto potpisa
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Ugovor.DatumPotpisa">
+            <summary>
+            Datum potpisa
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Ugovor.TipGarancijeID">
+            <summary>
+            ID tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Ugovor.TipGarancije">
+            <summary>
+            Tip garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Ugovor.DokumentID">
+            <summary>
+            ID dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Entities.Ugovor.Dokument">
+            <summary>
+            Dokument
+            </summary>
+        </member>
+        <member name="T:UgovorService.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:UgovorService.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:UgovorService.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:UgovorService.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="P:UgovorService.Models.DokumentConfirmationDTO.DokumentID">
+            <summary>
+            ID dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentConfirmationDTO.ZavodniBroj">
+            <summary>
+            Zavodni broj dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentConfirmationDTO.Datum">
+            <summary>
+            Datum
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentConfirmationDTO.DatumDonosenja">
+            <summary>
+            Datum donosenja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentConfirmationDTO.Sablon">
+            <summary>
+            Sablon
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentCreationDTO.ZavodniBroj">
+            <summary>
+            Zavodni broj dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentCreationDTO.Datum">
+            <summary>
+            Datum
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentCreationDTO.DatumDonosenja">
+            <summary>
+            Datum donosenja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentCreationDTO.Sablon">
+            <summary>
+            Sablon
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentDTO.DokumentID">
+            <summary>
+            ID dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentDTO.ZavodniBroj">
+            <summary>
+            Zavodni broj dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentDTO.Datum">
+            <summary>
+            Datum
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentDTO.DatumDonosenja">
+            <summary>
+            Datum donosenja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentDTO.Sablon">
+            <summary>
+            Sablon
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentUpdateDTO.DokumentID">
+            <summary>
+            ID dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentUpdateDTO.ZavodniBroj">
+            <summary>
+            Zavodni broj dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentUpdateDTO.Datum">
+            <summary>
+            Datum
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentUpdateDTO.DatumDonosenja">
+            <summary>
+            Datum donosenja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.DokumentUpdateDTO.Sablon">
+            <summary>
+            Sablon
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.KupacInfoDto.KupacId">
+            <summary>
+            Kupac Id
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.KupacInfoDto.ImaZabranu">
+             <summary>
+            Da li kupac ima zabranu
+             </summary>
+        </member>
+        <member name="P:UgovorService.Models.KupacInfoDto.BrTelefona1">
+            <summary>
+            Broj telefona kupca 
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.KupacInfoDto.Email">
+            <summary>
+            Email kupca 
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.KupacInfoDto.BrRacuna">
+            <summary>
+            Broj racuna kupca 
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.TipGarancijeConfirmationDTO.TipGarancijeID">
+            <summary>
+            ID tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.TipGarancijeConfirmationDTO.NazivTipaG">
+            <summary>
+            Naziv tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.TipGarancijeCreationDTO.NazivTipaG">
+            <summary>
+            Naziv tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.TipGarancijeDTO.TipGarancijeID">
+            <summary>
+            ID tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.TipGarancijeDTO.NazivTipaG">
+            <summary>
+            Naziv tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.TipGarancijeUpdateDTO.TipGarancijeID">
+            <summary>
+            ID tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.TipGarancijeUpdateDTO.NazivTipaG">
+            <summary>
+            Naziv tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorConfirmationDTO.UgovorID">
+            <summary>
+            ID ugovora
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorConfirmationDTO.ZavodniBrojUgovora">
+            <summary>
+            zavodni broj ugovora
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorConfirmationDTO.DatumZavodjenja">
+            <summary>
+            Datum zavodjenja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorConfirmationDTO.RokZaVracanjeZemljista">
+            <summary>
+            Rok za vracanje zemljista
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorConfirmationDTO.MestoPotpisa">
+            <summary>
+            Mesto potpisa
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorConfirmationDTO.DatumPotpisa">
+            <summary>
+            Datum potpisa
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorConfirmationDTO.TipGarancijeID">
+            <summary>
+            ID tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorConfirmationDTO.DokumentID">
+            <summary>
+            ID dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorCreationDTO.ZavodniBrojUgovora">
+            <summary>
+            zavodni broj ugovora
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorCreationDTO.DatumZavodjenja">
+            <summary>
+            Datum zavodjenja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorCreationDTO.RokZaVracanjeZemljista">
+            <summary>
+            Rok za vracanje zemljista
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorCreationDTO.MestoPotpisa">
+            <summary>
+            Mesto potpisa
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorCreationDTO.DatumPotpisa">
+            <summary>
+            Datum potpisa
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorCreationDTO.TipGarancijeID">
+            <summary>
+            ID tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorCreationDTO.DokumentID">
+            <summary>
+            ID dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorCreationDTO.KupacID">
+            <summary>
+            ID kupca
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorCreationDTO.JavnoNadmetanjeID">
+            <summary>
+            ID javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.UgovorID">
+            <summary>
+            ID ugovora
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.ZavodniBrojUgovora">
+            <summary>
+            zavodni broj ugovora
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.DatumZavodjenja">
+            <summary>
+            Datum zavodjenja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.RokZaVracanjeZemljista">
+            <summary>
+            Rok za vracanje zemljista
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.MestoPotpisa">
+            <summary>
+            Mesto potpisa
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.DatumPotpisa">
+            <summary>
+            Datum potpisa
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.TipGarancijeID">
+            <summary>
+            ID tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.DokumentID">
+            <summary>
+            ID dokumenta
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.KupacID">
+            <summary>
+            ID kupca
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.JavnoNadmetanjeID">
+            <summary>
+            ID javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.Kupac">
+            <summary>
+            Kupac
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorDTO.JavnoNadmetanje">
+            <summary>
+            Javno nadmetanje
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorUpdateDTO.UgovorID">
+            <summary>
+            ID ugovora
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorUpdateDTO.ZavodniBrojUgovora">
+            <summary>
+            zavodni broj ugovora
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorUpdateDTO.DatumZavodjenja">
+            <summary>
+            Datum zavodjenja
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorUpdateDTO.RokZaVracanjeZemljista">
+            <summary>
+            Rok za vracanje zemljista
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorUpdateDTO.MestoPotpisa">
+            <summary>
+            Mesto potpisa
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorUpdateDTO.DatumPotpisa">
+            <summary>
+            Datum potpisa
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorUpdateDTO.TipGarancijeID">
+            <summary>
+            ID tipa garancije
+            </summary>
+        </member>
+        <member name="P:UgovorService.Models.UgovorUpdateDTO.DokumentID">
+            <summary>
+            ID dokumenta
+            </summary>
+        </member>
+    </members>
+</doc>
