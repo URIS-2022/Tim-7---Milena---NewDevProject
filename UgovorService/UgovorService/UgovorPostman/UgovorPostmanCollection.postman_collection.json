@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "23b69feb-d1a1-471e-a266-7c8037e9827d",
+		"name": "UgovorPostmanCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET ALL Dokument",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/dokument",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"dokument"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Dokument By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/dokument/364696aa-0369-4af0-954d-21b855b514e4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"dokument",
+						"364696aa-0369-4af0-954d-21b855b514e4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Dokument",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zavodniBroj\": \"postmanzavod\",\r\n  \"datum\": \"2023-02-17T10:55:17.686Z\",\r\n  \"datumDonosenja\": \"2023-02-17T10:55:17.686Z\",\r\n  \"sablon\": \"postmansablon\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/dokument",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"dokument"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE Dokument",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dokumentID\": \"1a397c0a-d320-4998-ae39-d137b037cbc0\",\r\n    \"zavodniBroj\": \"ABC-12\",\r\n    \"datum\": \"2020-02-12T13:11:31\",\r\n    \"datumDonosenja\": \"2020-02-12T14:20:00\",\r\n    \"sablon\": \"Odluka o raspisivanju  oglasa za davanje u zakup poljoprivrednog zemljišta u državnoj svojini\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/dokument",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"dokument"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Dokument By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/dokument/b11ecad0-2655-40d4-93ed-3745e2494bf8",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"dokument",
+						"b11ecad0-2655-40d4-93ed-3745e2494bf8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL Tip Garancije",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GET Tip Garancije By ID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "POST Tip Garancije",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nazivTipaG\": \"Garancija uris\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/tipgarancije",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"tipgarancije"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE Tip Garancije",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"tipGarancijeID\": \"85c389db-cec5-4283-bc47-a042de8785a2\",\r\n        \"nazivTipaG\": \"Uplata novcem\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/tipgarancije",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"tipgarancije"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Tip Garancije",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/tipgarancije/a1885b0e-58f9-4623-92a2-f95bfe0f2fcc",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"tipgarancije",
+						"a1885b0e-58f9-4623-92a2-f95bfe0f2fcc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL Ugovor",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GET Ugovor By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/ugovor/50916085-56d4-499c-9321-ae3839c1a4f5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"ugovor",
+						"50916085-56d4-499c-9321-ae3839c1a4f5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Ugovor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zavodniBrojUgovora\": \"postmanugovor\",\r\n  \"datumZavodjenja\": \"2023-02-17T20:28:40.974Z\",\r\n  \"rokZaVracanjeZemljista\": \"2023-02-17T20:28:40.974Z\",\r\n  \"mestoPotpisa\": \"mestopostman\",\r\n  \"datumPotpisa\": \"2023-02-17T20:28:40.974Z\",\r\n  \"tipGarancijeID\": \"8110783f-afbe-4c01-9be7-71de8eb9deff\",\r\n  \"dokumentID\": \"364696aa-0369-4af0-954d-21b855b514e4\",\r\n  \"kupacID\": \"9FE2017C-8109-42D9-A7B7-9FF9E016AEFB\",\r\n  \"javnoNadmetanjeID\": \"E128D9EA-25D6-47B7-8D94-4B73C6CB536C\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/ugovor",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"ugovor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE Ugovor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"ugovorID\": \"50916085-56d4-499c-9321-ae3839c1a4f5\",\r\n        \"zavodniBrojUgovora\": \"ugovor1111\",\r\n        \"datumZavodjenja\": \"2022-01-18T16:14:33\",\r\n        \"rokZaVracanjeZemljista\": \"2025-07-29T10:00:00\",\r\n        \"mestoPotpisa\": \"Subotica\",\r\n        \"datumPotpisa\": \"2022-04-23T14:20:57\",\r\n        \"tipGarancijeID\": \"ea44e6b8-269c-4298-a12c-885638095e4f\",\r\n        \"dokumentID\": \"20980ee8-a44e-4837-bae4-e54a9b6da870\",\r\n        \"kupac\": null,\r\n        \"javnoNadmetanje\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/ugovor",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"ugovor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Ugovor",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/ugovor/50916085-56d4-499c-9321-ae3839c1a4f5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"ugovor",
+						"50916085-56d4-499c-9321-ae3839c1a4f5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
