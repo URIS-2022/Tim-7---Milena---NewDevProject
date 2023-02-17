@@ -16,7 +16,7 @@ namespace Gateway.Controllers.Drzava
     public class AdresaController : ControllerBase
     {
         private readonly IServiceCall<AdresaDto, AdresaConfirmationDto> _serviceCall;
-        private readonly string url = $"{StaticDetails.DrzavaService}api/adresa/";
+        private readonly string url = $"{StaticDetails.AdresaService}api/adresa/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private readonly string _noAuth;
@@ -59,7 +59,7 @@ namespace Gateway.Controllers.Drzava
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<AdresaConfirmationDto> Get(int id)
+        public ActionResult<AdresaConfirmationDto> Get(Guid id)
         {
             string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
@@ -125,7 +125,7 @@ namespace Gateway.Controllers.Drzava
 
         [AuthRole("Role", "Administrator,Superuser,Tehnicki sekretar")]
         [HttpDelete("{id}")]
-        public ActionResult<string> Delete(int id)
+        public ActionResult<string> Delete(Guid id)
         {
             string _error;
             HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);

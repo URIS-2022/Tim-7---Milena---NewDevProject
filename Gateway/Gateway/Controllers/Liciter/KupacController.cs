@@ -16,7 +16,7 @@ namespace Gateway.Controllers.Liciter
     public class KupacController : ControllerBase
     {
         private readonly IServiceCall<KupacCreationDto, KupacUpdateDto> _serviceCall;
-        private readonly string url = $"{StaticDetails.LiciterService}api/kupac/";
+        private readonly string url = $"{StaticDetails.KupacService}api/kupac/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private readonly string _noAuth;

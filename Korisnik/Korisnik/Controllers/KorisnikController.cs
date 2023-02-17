@@ -35,7 +35,7 @@ namespace Korisnik.Controllers
         {
             var korisniciDb = _korisnikRepository.GetAll(includeProperties: "TipKorisnika");
 
-            if (korisniciDb == null || korisniciDb.Any())
+            if (korisniciDb == null || !korisniciDb.Any())
             {
                 return NoContent();
             }

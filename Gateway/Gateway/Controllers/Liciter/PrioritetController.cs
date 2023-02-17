@@ -16,7 +16,7 @@ namespace Gateway.Controllers.Liciter
     public class PrioritetController : ControllerBase
     {
         private readonly IServiceCall<PrioritetCreationDto, PrioritetUpdateDto> _serviceCall;
-        private readonly string url = $"{StaticDetails.LiciterService}api/prioritet/";
+        private readonly string url = $"{StaticDetails.KupacService}api/prioritet/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private readonly string _noAuth;

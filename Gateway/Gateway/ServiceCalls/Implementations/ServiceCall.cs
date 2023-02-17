@@ -6,7 +6,7 @@ namespace Gateway.ServiceCalls.Implementations
 {
     public class ServiceCall<T, C> : IServiceCall<T, C> where T : class where C : class
     {
-        public async Task<string> DeleteAsync(string url, int id)
+        public async Task<string> DeleteAsync(string url, object id)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Gateway.ServiceCalls.Implementations
             }
         }
 
-        public async Task<C> GetByIdAsync(string url, int id)
+        public async Task<C> GetByIdAsync(string url, object id)
         {
             try
             {

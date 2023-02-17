@@ -30,7 +30,7 @@ namespace Korisnik.Controllers
         {
             var tipoviKorisnikaDb = _tipKorisnikaRepository.GetAll();
 
-            if (tipoviKorisnikaDb == null || tipoviKorisnikaDb.Any())
+            if (tipoviKorisnikaDb == null || !tipoviKorisnikaDb.Any())
             {
                 return NoContent();
             }

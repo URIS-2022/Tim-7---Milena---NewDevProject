@@ -16,7 +16,7 @@ namespace Gateway.Controllers.Zakup
     public class DokumentController : ControllerBase
     {
         private readonly IServiceCall<DokumentDto, DokumentConfirmationDto> _serviceCall;
-        private readonly string url = $"{StaticDetails.ZakupService}api/dokument/";
+        private readonly string url = $"{StaticDetails.UgovorService}api/dokument/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private readonly string _noAuth;

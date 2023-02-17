@@ -60,7 +60,7 @@
                 "3fa85f64-5717-4562-b3fc-2c963f66afa6" \
             ], \
             "parcela": [ \
-             0 \
+             1 \
             ], \
             "adresaID": "3fa85f64-5717-4562-b3fc-2c963f66afa6", \
             "kupacID": "3fa85f64-5717-4562-b3fc-2c963f66afa6" \
@@ -73,6 +73,7 @@
             <summary>
             Ažurira jedno javno nadmetanje
             </summary>
+            <param name="javnoNadmetanje">Model javnog nadmetanja koje se ažurira</param>
             <returns>Potvrda o modfikovanom javnom nadmetanju</returns>
             <response code="200">Vraća kreirano javno nadmetanje</response>
             <response code="400">Željeno javno nadmetanje koje se želi ažurirati nije pronađeno</response>

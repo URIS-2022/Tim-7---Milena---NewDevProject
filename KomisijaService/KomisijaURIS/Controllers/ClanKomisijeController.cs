@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using KomisijaURIS.Data1;
 using KomisijaURIS.Entites;
 using KomisijaURIS.Interfaces;
 using KomisijaURIS.Models;
-using KomisijaURIS.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KomisijaURIS.Controllers
@@ -110,7 +108,7 @@ namespace KomisijaURIS.Controllers
             var clanKomisije = mapper.Map<ClanKomisije>(clanKomisijeDto);
             clanKomisijeRepository.Update(clanKomisije, clanKomisije.ClanId);
 
-            return NoContent();
+            return Ok(clanKomisije);
         }
 
         /// <summary>
@@ -138,7 +136,7 @@ namespace KomisijaURIS.Controllers
                 return NotFound();
             }
             clanKomisijeRepository.Delete(id);
-            return NoContent();
+            return Ok("Uspesno obrisan clan komisije");
         }
 
     }

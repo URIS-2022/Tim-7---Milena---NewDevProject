@@ -16,7 +16,7 @@ namespace Gateway.Controllers.Zakup
     public class TipGarancijeController : ControllerBase
     {
         private readonly IServiceCall<TipGarancijeDto, TipGarancijeConfirmationDto> _serviceCall;
-        private readonly string url = $"{StaticDetails.ZakupService}api/tipGarancije/";
+        private readonly string url = $"{StaticDetails.UgovorService}api/tipGarancije/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private readonly string _noAuth;
