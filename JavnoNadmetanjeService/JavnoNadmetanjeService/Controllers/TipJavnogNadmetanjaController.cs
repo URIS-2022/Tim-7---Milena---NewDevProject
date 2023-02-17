@@ -63,6 +63,13 @@ namespace JavnoNadmetanjeService.Controllers
         /// <summary>
         /// Kreira novi tip javnog nadmetanja.
         /// </summary>
+        /// <param name="tipJavnogNadmetanja">Model tipa javnog nadmetanja</param>
+        /// <remarks>
+        /// Primer zahteva za kreiranje novog tipa javnog nadmetanja \
+        /// POST /api/tipJavnogNadmetanja \
+        /// { \
+        /// "nazivTipaJavnogNadmetanja": "Prvi krug" \
+        /// }
         /// </remarks>
         /// <response code="201">Vraća kreirani tip javnog nadmetanja</response>
         /// <response code="500">Došlo je do greške na serveru prilikom kreiranja tipa javnog nadmetanja</response>
@@ -87,6 +94,7 @@ namespace JavnoNadmetanjeService.Controllers
         /// <summary>
         /// Ažurira jedan tip javnog nadmetanja
         /// </summary>
+        /// <param name="tipJavnogNadmetanja">Model tipa javnog nadmetanja koji se ažurira</param>
         /// <returns>Potvrda o modfikovanom tipu javnog nadmetanja</returns>
         /// <response code="200">Vraća kreirani tip javnog nadmetanja</response>
         /// <response code="400">Željeni tip javnog nadmetanja koji se želi ažurirati nije pronađen</response>

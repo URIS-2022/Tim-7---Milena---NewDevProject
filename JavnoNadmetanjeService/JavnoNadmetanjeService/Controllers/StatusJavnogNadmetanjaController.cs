@@ -64,6 +64,13 @@ namespace JavnoNadmetanjeService.Controllers
         /// <summary>
         /// Kreira novi status javnog nadmetanja.
         /// </summary>
+        /// <param name="statusJavnogNadmetanja">Model statusa javnog nadmetanja</param>
+        /// <remarks>
+        /// Primer zahteva za kreiranje novog statusa javnog nadmetanja \
+        /// POST /api/statusJavnogNadmetanja \
+        /// { \
+        /// "nazivStatusaJavnogNadmetanja": "Prvi krug" \
+        /// }
         /// </remarks>
         /// <response code="201">Vraća kreirani status javnog nadmetanja</response>
         /// <response code="500">Došlo je do greške na serveru prilikom kreiranja statusa javnog nadmetanja</response>
@@ -88,6 +95,7 @@ namespace JavnoNadmetanjeService.Controllers
         /// <summary>
         /// Ažurira jedan status javnog nadmetanja
         /// </summary>
+        /// <param name="statusJavnogNadmetanja">Model statusa javnog nadmetanja koji se ažurira</param>
         /// <returns>Potvrda o modfikovanom statusu javnog nadmetanja</returns>
         /// <response code="200">Vraća kreirani status javnog nadmetanja</response>
         /// <response code="400">Željeni status javnog nadmetanja koji se želi ažurirati nije pronađen</response>
