@@ -98,10 +98,8 @@ namespace KupacServis.Data
 
         public void UpdateKupac(Kupac stariKupac,Kupac noviKupac)
         {
-            FizickoLice? fizickoLice = new FizickoLice();
-              fizickoLice = stariKupac.FizickoLice;
-            PravnoLice? pravnoLice = new PravnoLice();
-                pravnoLice = stariKupac.PravnoLice;
+            FizickoLice? fizickoLice = stariKupac.FizickoLice;
+            PravnoLice? pravnoLice = stariKupac.PravnoLice;
             Console.WriteLine(fizickoLice);
             Console.WriteLine(pravnoLice);
 

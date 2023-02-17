@@ -6,11 +6,8 @@ namespace KupacServis.Data
     {
         private KupacContext _context;
 
-        public KupacContext _Context
-        {
-            get { return _context; }
-            set { _context = value; }
-        }
+        public KupacContext _Context { get; set; }
+        
         public FizickoLiceRepository(KupacContext context)
         {
             _context = context;

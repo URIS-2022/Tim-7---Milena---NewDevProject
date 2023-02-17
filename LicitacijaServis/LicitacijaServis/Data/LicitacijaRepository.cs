@@ -52,16 +52,18 @@ namespace LicitacijaServis.Data
             return _mapper.Map<Licitacija>(created.Entity);
         }
 
-        public void DeleteLicitacija(Guid licitacijaID)
+        public void DeleteLicitacija(Guid licitacijaId)
         {
-            _context.Licitacijas.Remove(_context.Licitacijas.FirstOrDefault(l => l.LicitacijaId == licitacijaID));
+            _context.Licitacijas.Remove(_context.Licitacijas.FirstOrDefault(l => l.LicitacijaId == licitacijaId));
         }
 
-        public Licitacija GetLicitacijaById(Guid licitacijaID)
+        public Licitacija GetLicitacijaById(Guid licitacijaId)
         {
-            var licitacija= _context.Licitacijas.Where(p => p.LicitacijaId == licitacijaID).FirstOrDefault();
-            licitacija.JavnaNadmetanja = _context.LicitacijaJavnoNadmetanjes.Where(ku => ku.LicitacijaId == licitacija.LicitacijaId).Select(pk => pk.JavnoNadmetanjeId).ToList();
-            return (licitacija);
+            Licitacija? licitacija= _context.Licitacijas.Where(p => p.LicitacijaId == licitacijaId).FirstOrDefault();
+            if (licitacija is not  null)
+                licitacija.JavnaNadmetanja = _context.LicitacijaJavnoNadmetanjes.Where(ku => ku.LicitacijaId == licitacija.LicitacijaId).Select(pk => pk.JavnoNadmetanjeId).ToList(); 
+            return licitacija;
+            
         }
 
         public void UpdateLicitacija(Licitacija staraLicitacija,Licitacija novaLicitacija)
