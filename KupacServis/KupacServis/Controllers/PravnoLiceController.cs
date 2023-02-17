@@ -174,7 +174,7 @@ namespace KupacServis.Controllers
 
 
 
-                string location = _linkGenerator.GetPathByAction("GetPravnoLices", "PravnoLice", new { PravnoLiceId = pl.PravnoLiceId });
+                string? location = _linkGenerator.GetPathByAction("GetPravnoLices", "PravnoLice", new { PravnoLiceId = pl.PravnoLiceId });
                 return Created(location, _mapper.Map<PravnoLiceDto>(pl));
 
 

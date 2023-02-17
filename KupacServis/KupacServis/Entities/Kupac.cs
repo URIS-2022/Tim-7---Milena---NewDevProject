@@ -45,8 +45,7 @@ namespace KupacServis.Entities
 
         public Guid? AdresaId { get; set; }
 
-       // [NotMapped]
-      //  public Guid? JavnoNadmetanjeId { get; set; }
+     
 
         [NotMapped]
         public List<int>? Uplate { get; set; }
