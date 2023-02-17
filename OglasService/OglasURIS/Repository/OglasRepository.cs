@@ -18,9 +18,6 @@ namespace OglasURIS.Repository
             return _context.Oglasi.ToList();
         }
 
-        //public Oglas GetById(Oglas x)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        
     }
 }
