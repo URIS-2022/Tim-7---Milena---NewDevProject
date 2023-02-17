@@ -4,6 +4,6 @@ namespace Mikroservis_Uplata.ServiceCalls
 {
     public interface IKupacService
     {
-        public Task<KupacDTO> GetKupacById(Guid KupacID);
+        public Task<KupacDto> GetKupacById(Guid KupacID);
     }
 }

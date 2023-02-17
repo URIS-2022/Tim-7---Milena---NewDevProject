@@ -1,6 +1,6 @@
 ﻿namespace Uris.DTO
 {
-    public class KupacDTO
+    public class KupacDto
     {
         public Guid Id{ get; set; }
 

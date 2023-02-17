@@ -4,6 +4,6 @@ namespace Mikroservis_Uplata.ServiceCalls
 {
     public interface IJavnoNadmetanjeService
     {
-        public Task<JavnoNadmetanjeDTO> GetJavnoNadmetanjeById(Guid JavnoNadmetanjeID);
+        public Task<JavnoNadmetanjeDto> GetJavnoNadmetanjeById(Guid JavnoNadmetanjeID);
     }
 }

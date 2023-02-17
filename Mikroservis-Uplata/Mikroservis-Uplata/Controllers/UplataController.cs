@@ -30,9 +30,9 @@ namespace Mikroservis_Uplata.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<UplataDTO>> GetAll()
+        public ActionResult<IEnumerable<UplataDto>> GetAll()
         {
-            List<UplataDTO> uplate = mapper.Map<List<UplataDTO>>(uplataRepository.GetAll().ToList());
+            List<UplataDto> uplate = mapper.Map<List<UplataDto>>(uplataRepository.GetAll().ToList());
             foreach (var obj in uplate)
             {
                 obj.KupacDTO = kupacService.GetKupacById(obj.KupacId).Result;
@@ -45,14 +45,14 @@ namespace Mikroservis_Uplata.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<UplataDTO> GetById(int id)
+        public ActionResult<UplataDto> GetById(int id)
         {
             if (id == 0)
             {
                 return BadRequest();
             }
 
-            var uplata = mapper.Map<UplataDTO>(uplataRepository.GetById(id));
+            var uplata = mapper.Map<UplataDto>(uplataRepository.GetById(id));
 
             if (uplata == null)
             {
@@ -69,7 +69,7 @@ namespace Mikroservis_Uplata.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<UplataDTO> Post([FromBody] UplataCreationDTO uplataDTO) 
+        public ActionResult<UplataDto> Post([FromBody] UplataCreationDto uplataDTO) 
         {
             if (uplataDTO == null)
             {
@@ -91,7 +91,7 @@ namespace Mikroservis_Uplata.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public ActionResult<UplataDTO> Update(int id, [FromBody] UplataDTO uplataDTO)
+        public ActionResult<UplataDto> Update(int id, [FromBody] UplataDto uplataDTO)
         {
             if (uplataDTO == null || id != uplataDTO.Id)
             {
@@ -134,14 +134,14 @@ namespace Mikroservis_Uplata.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("vo/{parcelaId}")]
         [ApiExplorerSettings(IgnoreApi = true)]
-        public ActionResult<UplataInfoDTO> GetUplateZaDrugeServiseByID(int uplataId)
+        public ActionResult<UplataInfoDto> GetUplateZaDrugeServiseByID(int uplataId)
         {
             var uplata = uplataRepository.GetUplataByIdVO(uplataId);
             if (uplata == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<UplataInfoDTO>(uplata));
+            return Ok(mapper.Map<UplataInfoDto>(uplata));
 
         }
 
@@ -149,7 +149,7 @@ namespace Mikroservis_Uplata.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<IEnumerable<UplataInfoDTO>> GetUplateZaDrugeServiseByKupacId(Guid kupacId)
+        public ActionResult<IEnumerable<UplataInfoDto>> GetUplateZaDrugeServiseByKupacId(Guid kupacId)
         {
             var uplate = uplataRepository.GetUplateByKupacIdVO(kupacId);
 
@@ -158,7 +158,7 @@ namespace Mikroservis_Uplata.Controllers
                 return NotFound("Nije pronađena nijedna uplata za prosleđenog kupca!");
             }
 
-            return Ok(mapper.Map<List<UplataInfoDTO>>(uplate));
+            return Ok(mapper.Map<List<UplataInfoDto>>(uplate));
         }
     }
 }

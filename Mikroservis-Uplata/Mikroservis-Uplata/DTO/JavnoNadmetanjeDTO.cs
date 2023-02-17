@@ -1,6 +1,6 @@
 ﻿namespace Mikroservis_Uplata.DTO
 {
-    public class JavnoNadmetanjeDTO 
+    public class JavnoNadmetanjeDto 
     {
         public Guid JavnoNadmetanjeID { get; set; }
 

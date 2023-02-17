@@ -8,8 +8,8 @@ namespace Uris.Profiles
     {
         public KatastarskaOpstinaProfile()
         {
-            CreateMap<KatastarskaOpstina, KatastarskaOpstinaDTO>();
-            CreateMap<KatastarskaOpstinaDTO, KatastarskaOpstina>();
+            CreateMap<KatastarskaOpstina, KatastarskaOpstinaDto>();
+            CreateMap<KatastarskaOpstinaDto, KatastarskaOpstina>();
         }
     }
 }

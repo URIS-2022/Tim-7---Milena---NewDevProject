@@ -11,7 +11,7 @@ namespace Mikroservis_Uplata.ServiceCalls
             this.configuration = configuration;
         }
 
-        public async Task<KupacDTO> GetKupacById(Guid KupacID)
+        public async Task<KupacDto> GetKupacById(Guid KupacID)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -25,7 +25,7 @@ namespace Mikroservis_Uplata.ServiceCalls
                     {
                         return default;
                     }
-                    var kupac = JsonConvert.DeserializeObject<KupacDTO>(responseString);
+                    var kupac = JsonConvert.DeserializeObject<KupacDto>(responseString);
                     return kupac;
                 }
                 return default;

@@ -3,7 +3,7 @@ using Uris.Models;
 
 namespace Uris.DTO
 {
-    public class KvalitetZemljistaDTO
+    public class KvalitetZemljistaDto
     {
         public int Id { get; set; }
 

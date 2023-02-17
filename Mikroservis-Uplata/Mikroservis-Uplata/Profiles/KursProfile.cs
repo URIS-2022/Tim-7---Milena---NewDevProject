@@ -8,8 +8,8 @@ namespace Mikroservis_Uplata.Profiles
     {
         public KursProfile()
         {
-            CreateMap<Kurs, KursDTO>();
-            CreateMap<KursDTO, Kurs>();
+            CreateMap<Kurs, KursDto>();
+            CreateMap<KursDto, Kurs>();
         }
     }
 }

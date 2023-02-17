@@ -5,7 +5,7 @@ using Uris.Models;
 
 namespace Uris.DTO
 {
-    public class ParcelaDTO
+    public class ParcelaDto
     {
         public int Id { get; set; }
 
@@ -27,7 +27,7 @@ namespace Uris.DTO
 
         public int KatastarskaOpstinaID { get; set; }
 
-        public KupacDTO? KupacDTO { get; set; }
+        public KupacDto? KupacDTO { get; set; }
 
         [JsonIgnore]
         public Guid KupacId { get; set; }

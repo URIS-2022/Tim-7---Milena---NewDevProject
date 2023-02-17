@@ -1,6 +1,6 @@
 ﻿namespace Mikroservis_Uplata.DTO
 {
-    public class UplataInfoDTO
+    public class UplataInfoDto
     {
         public int Id { get; set; }
 

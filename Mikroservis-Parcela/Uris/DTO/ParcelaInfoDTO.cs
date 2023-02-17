@@ -1,6 +1,6 @@
 ﻿namespace Uris.DTO
 {
-    public class ParcelaInfoDTO
+    public class ParcelaInfoDto
     {
         public int Id { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace Mikroservis_Uplata.DTO
 {
-    public class KupacDTO
+    public class KupacDto
     {
         public Guid KupacId { get; set; }
 

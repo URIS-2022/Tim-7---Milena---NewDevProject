@@ -2,7 +2,7 @@
 
 namespace Uris.DTO
 {
-    public class KulturaDTO
+    public class KulturaDto
     {
         public int Id { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace Mikroservis_Uplata.DTO
 {
-    public class UplataDTO
+    public class UplataDto
     {
         public int Id { get; set; }
 
@@ -18,12 +18,12 @@ namespace Mikroservis_Uplata.DTO
 
         public int KursID { get; set; }
 
-        public KupacDTO? KupacDTO { get; set; }
+        public KupacDto? KupacDTO { get; set; }
 
         [JsonIgnore]
         public Guid KupacId { get; set; }
 
-        public JavnoNadmetanjeDTO? JavnoNadmetanjeDTO { get; set; }
+        public JavnoNadmetanjeDto? JavnoNadmetanjeDTO { get; set; }
 
         [JsonIgnore]
         public Guid JavnoNadmetanjeId { get; set; }

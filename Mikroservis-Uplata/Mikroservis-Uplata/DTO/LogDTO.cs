@@ -1,6 +1,6 @@
 ﻿namespace Mikroservis_Uplata.DTO
 {
-    public class LogDTO
+    public class LogDto
     {
         public LogLevel Level { get; set; }
 

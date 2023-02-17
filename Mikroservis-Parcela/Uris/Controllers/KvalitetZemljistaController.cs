@@ -22,16 +22,16 @@ namespace Uris.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<KvalitetZemljistaDTO>> GetAll()
+        public ActionResult<IEnumerable<KvalitetZemljistaDto>> GetAll()
         {
-            return Ok(mapper.Map<List<KvalitetZemljistaDTO>>(kvalitetZemljistaRepository.GetAll().ToList()));
+            return Ok(mapper.Map<List<KvalitetZemljistaDto>>(kvalitetZemljistaRepository.GetAll().ToList()));
         }
 
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<KvalitetZemljistaDTO> GetById(int id)
+        public ActionResult<KvalitetZemljistaDto> GetById(int id)
         {
             if (id == 0)
             {
@@ -45,14 +45,14 @@ namespace Uris.Controllers
                 return NotFound();
             }
 
-            return Ok(mapper.Map<KvalitetZemljistaDTO>(kvalitetZemljista));
+            return Ok(mapper.Map<KvalitetZemljistaDto>(kvalitetZemljista));
         }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<KvalitetZemljistaDTO> Post([FromBody] KvalitetZemljistaDTO kvalitetZemljistaDTO)
+        public ActionResult<KvalitetZemljistaDto> Post([FromBody] KvalitetZemljistaDto kvalitetZemljistaDTO)
         {
             if (kvalitetZemljistaDTO == null)
             {
@@ -67,7 +67,7 @@ namespace Uris.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public ActionResult<KvalitetZemljistaDTO> Update(int id, [FromBody] KvalitetZemljistaDTO kvalitetZemljistaDTO)
+        public ActionResult<KvalitetZemljistaDto> Update(int id, [FromBody] KvalitetZemljistaDto kvalitetZemljistaDTO)
         {
             if (kvalitetZemljistaDTO == null || id != kvalitetZemljistaDTO.Id)
             {

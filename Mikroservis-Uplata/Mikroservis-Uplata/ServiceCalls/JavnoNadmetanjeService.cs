@@ -11,7 +11,7 @@ namespace Mikroservis_Uplata.ServiceCalls
             this.configuration = configuration;
         }
 
-        public async Task<JavnoNadmetanjeDTO> GetJavnoNadmetanjeById(Guid JavnoNadmetanjeID)
+        public async Task<JavnoNadmetanjeDto> GetJavnoNadmetanjeById(Guid JavnoNadmetanjeID)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -25,7 +25,7 @@ namespace Mikroservis_Uplata.ServiceCalls
                     {
                         return default;
                     }
-                    var javnoNadmetanje = JsonConvert.DeserializeObject<JavnoNadmetanjeDTO>(responseString);
+                    var javnoNadmetanje = JsonConvert.DeserializeObject<JavnoNadmetanjeDto>(responseString);
                     return javnoNadmetanje;
                 }
                 return default;

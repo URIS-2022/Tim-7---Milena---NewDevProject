@@ -8,8 +8,8 @@ namespace Uris.Profiles
     {
         public KulturaProfile()
         {
-            CreateMap<Kultura, KulturaDTO>();
-            CreateMap<KulturaDTO, Kultura>();
+            CreateMap<Kultura, KulturaDto>();
+            CreateMap<KulturaDto, Kultura>();
         }
     }
 }

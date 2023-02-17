@@ -1,6 +1,6 @@
 ﻿namespace Mikroservis_Uplata.DTO
 {
-    public class KursDTO
+    public class KursDto
     {
         public int Id { get; set; }
 
