@@ -80,7 +80,7 @@ namespace JavnoNadmetanjeService.Repository
             return javnoNadmetanje;
         }
 
-        public List<JavnoNadmetanje> GetJavnaNadmetanja(string status = null, string tip = null)
+        public List<JavnoNadmetanje> GetJavnaNadmetanja(string? status = null, string? tip = null)
         {
             var javnaNadmetanja = context.JavnoNadmetanje.Include(t => t.TipJavnogNadmetanja).Include(s => s.StatusJavnogNadmetanja)
                 .OrderByDescending(jn => jn.Datum).
