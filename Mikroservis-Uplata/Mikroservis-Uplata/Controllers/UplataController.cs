@@ -153,7 +153,7 @@ namespace Mikroservis_Uplata.Controllers
         {
             var uplate = uplataRepository.GetUplateByKupacIdVO(kupacId);
 
-            if (uplate.Count() == 0)
+            if (uplate.Any() == false)
             {
                 return NotFound("Nije pronađena nijedna uplata za prosleđenog kupca!");
             }
