@@ -76,8 +76,12 @@ namespace UgovorService.Controllers
             {
                 var z = mapper.Map<TipGarancije>(tipGarancije);
                 TipGarancije confirmation = tipGarancijeRepository.CreateTipGarancije(z);
+                #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 string location = linkGenerator.GetPathByAction("GetTipoveGarancija", "TipGarancije", new { TipGarancijeID = z.TipGarancijeID });
+                #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                #pragma warning disable CS8604 // Possible null reference argument.
                 return Created(location, mapper.Map<TipGarancijeConfirmationDTO>(confirmation));
+                #pragma warning disable CS8604 // Possible null reference argument.
             }
             catch (Exception)
             {
