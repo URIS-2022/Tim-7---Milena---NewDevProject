@@ -77,8 +77,12 @@ namespace AdresaService.Controllers
             {
                 var z = mapper.Map<Drzava>(drzava);
                 Drzava confirmation = drzavaRepository.CreateDrzava(z);
+                #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 string location = linkGenerator.GetPathByAction("GetDrzave", "Drzava", new { DrzavaID = z.DrzavaID });
+                #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                #pragma warning disable CS8604 // Possible null reference argument.
                 return Created(location, mapper.Map<DrzavaConfirmationDTO>(confirmation));
+                #pragma warning disable CS8604 // Possible null reference argument.
             }
             catch (Exception)
             {
