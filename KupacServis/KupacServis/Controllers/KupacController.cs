@@ -125,7 +125,7 @@ namespace KupacServis.Controllers
             {
                 return NoContent();
             }
-            kupac.Adresa = _adresaService.GetAdresaByID(kupac.AdresaId).Result; ;
+            kupac.Adresa = _adresaService.GetAdresaByID(kupac.AdresaId).Result; 
 
             
            
@@ -301,7 +301,7 @@ namespace KupacServis.Controllers
         public ActionResult<List<KupacInfoDto>> GetKupacByOvlascenoLiceId(Guid ovlascenoLiceId)
         {
             var kupci = _kupacRepository.GetKupacByOvlascenoLiceId(ovlascenoLiceId);
-            if(kupci.Count == 0 || kupci == null)
+            if(kupci.Count == 0)
             {
                 return NoContent();
             }

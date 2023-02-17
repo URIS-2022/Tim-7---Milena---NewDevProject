@@ -63,10 +63,13 @@ namespace KupacServis.Data
 
         public Kupac GetKupacById(Guid kupacId)
         {
-            var kupac= _context.Kupacs.Include(i => i.FizickoLice).Include(i => i.PravnoLice).Where(i => i.KupacId == kupacId).Include(i=>i.Prioritet).FirstOrDefault();
-            kupac.OvlascenaLica = _context.KupacOvlascenoLices.Where(ku => ku.KupacId == kupacId).Select(pk => pk.OvlascenoLiceId).ToList();
-            kupac.JavnaNadmetanja=_context.KupacJavnoNadmetanjes.Where(ku => ku.KupacId == kupacId).Select(pk => pk.JavnoNadmetanjeId).ToList();
-            
+           
+            var kupac = _context.Kupacs.Include(i => i.FizickoLice).Include(i => i.PravnoLice).Where(i => i.KupacId == kupacId).Include(i=>i.Prioritet).FirstOrDefault();
+            if (kupac is not null)
+            {
+                kupac.OvlascenaLica = _context.KupacOvlascenoLices.Where(ku => ku.KupacId == kupacId).Select(pk => pk.OvlascenoLiceId).ToList();
+                kupac.JavnaNadmetanja = _context.KupacJavnoNadmetanjes.Where(ku => ku.KupacId == kupacId).Select(pk => pk.JavnoNadmetanjeId).ToList();
+            } 
             return kupac;
         }
 

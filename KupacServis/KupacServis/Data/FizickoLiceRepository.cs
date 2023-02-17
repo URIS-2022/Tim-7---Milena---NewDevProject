@@ -4,7 +4,13 @@ namespace KupacServis.Data
 {
     public class FizickoLiceRepository:IFizickoLiceRepository
     {
-        public KupacContext _context;
+        private KupacContext _context;
+
+        public KupacContext _Context
+        {
+            get { return _context; }
+            set { _context = value; }
+        }
         public FizickoLiceRepository(KupacContext context)
         {
             _context = context;
