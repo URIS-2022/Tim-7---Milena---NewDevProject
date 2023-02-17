@@ -48,7 +48,7 @@ builder.Services.AddControllers().AddXmlDataContractSerializerFormatters()
                         {
                             ContentTypes = { "application/problem+json" }
                         };
-                    };
+                    }
 
                     //ukoliko postoji nešto što nije moglo da se parsira hoæemo da vraæamo status 400 
                     problemDetails.Status = StatusCodes.Status400BadRequest;
