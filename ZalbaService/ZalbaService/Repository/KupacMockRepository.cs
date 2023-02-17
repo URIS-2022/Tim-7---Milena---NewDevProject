@@ -11,7 +11,7 @@ namespace ZalbaService.Repository
         {
             FillData();
         }
-        private void FillData()
+        private static void FillData()
         {
             kupci.AddRange(new List<KupacDTO>
             {
