@@ -83,7 +83,7 @@ namespace ZalbaService.Controllers
             {
                 var status = mapper.Map<StatusZalbe>(statusZalbe);
                 StatusZalbe confirmation = statusZalbeRepository.CreateStatusZalbe(status);
-                string location = linkGenerator.GetPathByAction("GetStatusiZalbi", "StatusZalbe", new { StatusZalbeID = status.StatusZalbeID });
+                string? location = linkGenerator.GetPathByAction("GetStatusiZalbi", "StatusZalbe", new { StatusZalbeID = status.StatusZalbeID });
                 return Created(location, mapper.Map<StatusZalbeDTO>(confirmation));
             }
             catch (Exception)

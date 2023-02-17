@@ -85,7 +85,7 @@ namespace ZalbaService.Controllers
             {
                 var radnja = mapper.Map<RadnjaNaOsnovuZalbe>(radnjaNaOsnovuZalbe);
                 RadnjaNaOsnovuZalbe confirmation = radnjaNaOsnovuZalbeRepository.CreateRadnjaNaOsnovuZalbe(radnja);
-                string location = linkGenerator.GetPathByAction("GetRadnjeNaOsnovuZalbe", "RadnjaNaOsnovuZalbe", new { RadnjaNaOsnovuZalbeID = radnja.RadnjaNaOsnovuZalbeID });
+                string? location = linkGenerator.GetPathByAction("GetRadnjeNaOsnovuZalbe", "RadnjaNaOsnovuZalbe", new { RadnjaNaOsnovuZalbeID = radnja.RadnjaNaOsnovuZalbeID });
                 return Created(location, mapper.Map<RadnjaNaOsnovuZalbeDTO>(confirmation));
             }
             catch (Exception)

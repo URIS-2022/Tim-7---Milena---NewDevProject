@@ -48,11 +48,8 @@ namespace ZalbaService.Controllers
             }
             foreach (var zalba in zalbe)
             {
-                if (zalba.PodnosilacZalbeID !=null) 
-                {
-                    KupacInfoDto kupac = kupacService.GetKupacById(zalba.PodnosilacZalbeID).Result;
-                    zalba.Kupac = kupac;
-                }             
+                KupacInfoDto kupac = kupacService.GetKupacById(zalba.PodnosilacZalbeID).Result;
+                zalba.Kupac = kupac;                          
             }
             return Ok(zalbe);
         }
@@ -75,11 +72,8 @@ namespace ZalbaService.Controllers
                 return NoContent();
             }
 
-            if (zalba.PodnosilacZalbeID != null)
-            {
-                KupacInfoDto kupac = kupacService.GetKupacById(zalba.PodnosilacZalbeID).Result;
-                zalba.Kupac = kupac;
-            }
+            KupacInfoDto kupac = kupacService.GetKupacById(zalba.PodnosilacZalbeID).Result;
+            zalba.Kupac = kupac;
             
             return Ok(zalba);
 
@@ -116,7 +110,7 @@ namespace ZalbaService.Controllers
             {
                 var z = mapper.Map<Zalba>(zalba);
                 Zalba confirmation = zalbaRepository.CreateZalba(z);
-                string location = linkGenerator.GetPathByAction("GetZalbe", "Zalba", new { ZalbaID = z.ZalbaID });
+                string? location = linkGenerator.GetPathByAction("GetZalbe", "Zalba", new { ZalbaID = z.ZalbaID });
                 return Created(location, mapper.Map<ZalbaConfirmationDTO>(confirmation));
             }
             catch (Exception)

@@ -84,7 +84,7 @@ namespace ZalbaService.Controllers
             {
                 var tip = mapper.Map<TipZalbe>(tipZalbe);
                 TipZalbe confirmation = tipZalbeRepository.CreateTipZalbe(tip);
-                string location = linkGenerator.GetPathByAction("GetTipoviZalbi", "TipZalbe", new { TipZalbeID = tip.TipZalbeID });
+                string? location = linkGenerator.GetPathByAction("GetTipoviZalbi", "TipZalbe", new { TipZalbeID = tip.TipZalbeID });
                 return Created(location, mapper.Map<TipZalbeDTO>(confirmation));
             }
             catch (Exception)
