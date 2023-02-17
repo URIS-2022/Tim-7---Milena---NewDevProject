@@ -7,7 +7,7 @@ namespace ZalbaService.Repository
         public bool SaveChanges();
         List<RadnjaNaOsnovuZalbe> GetRadnjeNaOsnovuZalbi();
         RadnjaNaOsnovuZalbe GetRadnjaNaOsnovuZalbe(Guid RadnjaNaOsnovuZalbeID);
-        RadnjaNaOsnovuZalbe CreateRadnjaNaOsnovuZalbe(RadnjaNaOsnovuZalbe RadnjaNaOsnovuZalbe);
+        RadnjaNaOsnovuZalbe CreateRadnjaNaOsnovuZalbe(RadnjaNaOsnovuZalbe radnjaNaOsnovuZalbe);
         void UpdateRadnjaNaOsnovuZalbe(RadnjaNaOsnovuZalbe RadnjaNaOsnovuZalbe);
         void DeleteRadnjaNaOsnovuZalbe(Guid RadnjaNaOsnovuZalbeID);
     }

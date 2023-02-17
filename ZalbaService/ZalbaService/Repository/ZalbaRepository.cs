@@ -18,7 +18,7 @@ namespace ZalbaService.Repository
         {
             return context.SaveChanges() > 0;
         }
-        public List<Zalba> GetZalbe(string status = null, string tip = null)
+        public List<Zalba> GetZalbe(string? status = null, string? tip = null)
         {
             return context.Zalba.Include(z => z.TipZalbe).Include(s => s.StatusZalbe).Include(r => r.RadnjaNaOsnovuZalbe).
                 Where(e => (status == null || e.StatusZalbe.NazivStatusaZalbe == status) &&
