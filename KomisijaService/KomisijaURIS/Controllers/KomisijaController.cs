@@ -13,14 +13,14 @@ namespace KomisijaURIS.Controllers
     public class KomisijaController : ControllerBase
     {
         private readonly IKomisijaRepository komisijaRepository;
-        private readonly IMapper mapper;
+        
         private readonly IPredsednikRepository predsednikRepository;
         private readonly IClanKomisijeRepository clanKomisijeRepository;
 
-        public KomisijaController(IKomisijaRepository komisijaRepository , IMapper mapper, IPredsednikRepository predsednikRepository, IClanKomisijeRepository clanKomisijeRepository)
+        public KomisijaController(IKomisijaRepository komisijaRepository , IPredsednikRepository predsednikRepository, IClanKomisijeRepository clanKomisijeRepository)
         {
             this.komisijaRepository = komisijaRepository;
-            this.mapper = mapper;
+            
             this.predsednikRepository = predsednikRepository;
             this.clanKomisijeRepository = clanKomisijeRepository;
         }
