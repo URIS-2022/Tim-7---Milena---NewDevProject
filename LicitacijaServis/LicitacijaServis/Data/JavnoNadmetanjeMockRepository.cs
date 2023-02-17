@@ -12,7 +12,7 @@ namespace LicitacijaServis.Data
             FillData();
         }
 
-        private void FillData()
+        private static void FillData()
         {
             JavnaNadmetanja.AddRange(new List<JavnoNadmetanjeDto>
             {

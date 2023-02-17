@@ -40,12 +40,12 @@ builder.Services.AddSwaggerGen(setup =>
                        {
                            Name = "Irena Ijacic",
                            Email = "irenaijacic17@gmail.com",
-                           Url = new Uri("http://www.ftn.uns.ac.rs/")
+                           Url = new Uri(builder.Configuration["Link:Ftn"])
                        },
                        License = new OpenApiLicense
                        {
                            Name = "FTN licence",
-                           Url = new Uri("http://www.ftn.uns.ac.rs/")
+                           Url = new Uri(builder.Configuration["Link:Ftn"])
                        },
                    });
 

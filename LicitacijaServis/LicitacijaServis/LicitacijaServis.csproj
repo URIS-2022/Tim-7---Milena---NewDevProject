@@ -8,7 +8,7 @@
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>LicitacijaServis.xml</DocumentationFile>
-    <NoWarn>1701;1702;1591;CS8604.CS8618</NoWarn>
+    <NoWarn>1701;1702;1591;CS8604,CS8618</NoWarn>
   </PropertyGroup>
 
 
