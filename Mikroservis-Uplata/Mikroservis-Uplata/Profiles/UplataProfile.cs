@@ -8,10 +8,10 @@ namespace Mikroservis_Uplata.Profiles
     {
         public UplataProfile()
         {
-            CreateMap<Uplata, UplataDTO>();
-            CreateMap<UplataDTO, Uplata>();
-            CreateMap<Uplata, UplataInfoDTO>();
-            CreateMap<UplataCreationDTO, Uplata>();
+            CreateMap<Uplata, UplataDto>();
+            CreateMap<UplataDto, Uplata>();
+            CreateMap<Uplata, UplataInfoDto>();
+            CreateMap<UplataCreationDto, Uplata>();
         }
     }
 }

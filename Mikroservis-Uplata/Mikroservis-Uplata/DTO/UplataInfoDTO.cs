@@ -1,14 +1,14 @@
 ﻿namespace Mikroservis_Uplata.DTO
 {
-    public class UplataInfoDTO
+    public class UplataInfoDto
     {
         public int Id { get; set; }
 
-        public string BrojRacuna { get; set; }
+        public string? BrojRacuna { get; set; }
 
-        public string PozivNaBroj { get; set; }
+        public string? PozivNaBroj { get; set; }
 
-        public string SvrhaUplate { get; set; }
+        public string? SvrhaUplate { get; set; }
 
         public int Iznos { get; set; }
 

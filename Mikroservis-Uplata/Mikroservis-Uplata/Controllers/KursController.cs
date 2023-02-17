@@ -20,16 +20,16 @@ namespace Mikroservis_Uplata.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<KursDTO>> GetAll()
+        public ActionResult<IEnumerable<KursDto>> GetAll()
         {
-            return Ok(mapper.Map<List<KursDTO>>(kursRepository.GetAll().ToList()));
+            return Ok(mapper.Map<List<KursDto>>(kursRepository.GetAll().ToList()));
         }
 
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<KursDTO> GetById(int id)
+        public ActionResult<KursDto> GetById(int id)
         {
             if (id == 0)
             {
@@ -43,14 +43,14 @@ namespace Mikroservis_Uplata.Controllers
                 return NotFound();
             }
 
-            return Ok(mapper.Map<KursDTO>(kurs));
+            return Ok(mapper.Map<KursDto>(kurs));
         }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<KursDTO> Post([FromBody] KursDTO kursDTO)
+        public ActionResult<KursDto> Post([FromBody] KursDto kursDTO)
         {
             if (kursDTO == null)
             {
@@ -67,7 +67,7 @@ namespace Mikroservis_Uplata.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public ActionResult<KursDTO> Update(int id, [FromBody] KursDTO kursDTO)
+        public ActionResult<KursDto> Update(int id, [FromBody] KursDto kursDTO)
         {
             if (kursDTO == null || id != kursDTO.Id)
             {

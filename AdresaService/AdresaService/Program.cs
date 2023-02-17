@@ -27,12 +27,12 @@ builder.Services.AddSwaggerGen(setupAction =>
                        {
                            Name = "Enio Kurtesi",
                            Email = "enio.estiem@gmail.com",
-                           Url = new Uri("http://www.ftn.uns.ac.rs/")
+                           //Url = new Uri("http://www.ftn.uns.ac.rs/")
                        },
                        License = new OpenApiLicense
                        {
                            Name = "FTN licence",
-                           Url = new Uri("http://www.ftn.uns.ac.rs/")
+                           //Url = new Uri("http://www.ftn.uns.ac.rs/")
                        },
                    });
     var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";

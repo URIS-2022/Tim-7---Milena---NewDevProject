@@ -62,6 +62,7 @@ namespace KupacServis.Data
             public OvlascenoLice GetOvlascenoLiceById(Guid ovlascenoLiceId)
             {
                 var ol= _context.OvlascenoLices.Where(p => p.OvlascenoLiceId == ovlascenoLiceId).FirstOrDefault();
+               if (ol != null)
                  ol.Kupci = _context.KupacOvlascenoLices.Where(ku => ku.OvlascenoLiceId == ovlascenoLiceId).Select(pk => pk.KupacId).ToList();
                 return ol;
             }

@@ -31,14 +31,14 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<StatusZalbeDTO>> GetStatusiZalbi()
+        public ActionResult<List<StatusZalbeDto>> GetStatusiZalbi()
         {
             List<StatusZalbe> statusiZalbi = statusZalbeRepository.GetStatusiZalbi();
             if (statusiZalbi == null || statusiZalbi.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(mapper.Map<List<StatusZalbeDTO>>(statusiZalbi));
+            return Ok(mapper.Map<List<StatusZalbeDto>>(statusiZalbi));
         }
 
         /// <summary>
@@ -51,14 +51,14 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{statusZalbeID}")]
-        public ActionResult<StatusZalbeDTO> GetStatusZalbeByID(Guid statusZalbeID)
+        public ActionResult<StatusZalbeDto> GetStatusZalbeByID(Guid statusZalbeID)
         {
             var statusZalbe = statusZalbeRepository.GetStatusZalbe(statusZalbeID);
             if (statusZalbe == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<StatusZalbeDTO>(statusZalbe));
+            return Ok(mapper.Map<StatusZalbeDto>(statusZalbe));
 
         }
         /// <summary>
@@ -77,14 +77,14 @@ namespace ZalbaService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<StatusZalbeDTO> CreateStatusZalbe([FromBody] StatusZalbeCreationDTO statusZalbe)
+        public ActionResult<StatusZalbeDto> CreateStatusZalbe([FromBody] StatusZalbeCreationDto statusZalbe)
         {
             try
             {
                 var status = mapper.Map<StatusZalbe>(statusZalbe);
                 StatusZalbe confirmation = statusZalbeRepository.CreateStatusZalbe(status);
-                string location = linkGenerator.GetPathByAction("GetStatusiZalbi", "StatusZalbe", new { StatusZalbeID = status.StatusZalbeID });
-                return Created(location, mapper.Map<StatusZalbeDTO>(confirmation));
+                string? location = linkGenerator.GetPathByAction("GetStatusiZalbi", "StatusZalbe", new { StatusZalbeID = status.StatusZalbeID });
+                return Created(location, mapper.Map<StatusZalbeDto>(confirmation));
             }
             catch (Exception)
             {
@@ -104,7 +104,7 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<StatusZalbeDTO> UpdateStatusZalbe([FromBody] StatusZalbeDTO statusZalbe)
+        public ActionResult<StatusZalbeDto> UpdateStatusZalbe([FromBody] StatusZalbeDto statusZalbe)
         {
 
             try

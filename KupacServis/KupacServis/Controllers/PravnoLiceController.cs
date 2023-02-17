@@ -12,17 +12,16 @@ namespace KupacServis.Controllers
     {
 
         private readonly IPravnoLiceRepository _pravnoLiceRepository;
-        private readonly IKupacRepository _kupacRepository;
         private readonly IMapper _mapper;
         private readonly LinkGenerator _linkGenerator;
 
 
-        public PravnoLiceController(IPravnoLiceRepository pravnoLiceRepository, IMapper mapper, LinkGenerator linkGenerator,IKupacRepository kupacRepository)
+        public PravnoLiceController(IPravnoLiceRepository pravnoLiceRepository, IMapper mapper, LinkGenerator linkGenerator)
         {
             _pravnoLiceRepository = pravnoLiceRepository;
             _mapper = mapper;
             _linkGenerator = linkGenerator;
-            _kupacRepository = kupacRepository;
+          
         }
 
         /// <summary>
@@ -174,12 +173,12 @@ namespace KupacServis.Controllers
 
 
 
-                string location = _linkGenerator.GetPathByAction("GetPravnoLices", "PravnoLice", new { PravnoLiceId = pl.PravnoLiceId });
+                string? location = _linkGenerator.GetPathByAction("GetPravnoLices", "PravnoLice", new { PravnoLiceId = pl.PravnoLiceId });
                 return Created(location, _mapper.Map<PravnoLiceDto>(pl));
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Create error");

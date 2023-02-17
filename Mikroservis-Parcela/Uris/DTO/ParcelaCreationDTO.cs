@@ -1,6 +1,6 @@
 ﻿namespace Uris.DTO
 {
-    public class ParcelaCreationDTO
+    public class ParcelaCreationDto
     {
         public int Id { get; set; }
 
@@ -12,9 +12,9 @@
 
         public bool ZasticenaZona { get; set; }
 
-        public string OblikSvojine { get; set; }
+        public string? OblikSvojine { get; set; }
 
-        public string Odvodnjavanje { get; set; }
+        public string? Odvodnjavanje { get; set; }
 
         public int KulturaID { get; set; }
 

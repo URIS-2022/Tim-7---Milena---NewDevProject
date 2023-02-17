@@ -1,6 +1,6 @@
 ﻿namespace ZalbaService.Models
 {
-    public class RadnjaNaOsnovuZalbeCreationDTO
+    public class RadnjaNaOsnovuZalbeCreationDto
     {
         /// <summary>
         /// Naziv radnje na osnovu žalbe

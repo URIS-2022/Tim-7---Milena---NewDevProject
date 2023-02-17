@@ -4,6 +4,6 @@ namespace ZalbaService.Repository
 {
     public interface IKupacMockRepository
     {
-        public KupacDTO GetKupac(Guid KupacID); 
+        public KupacDto GetKupac(Guid KupacID); 
     }
 }

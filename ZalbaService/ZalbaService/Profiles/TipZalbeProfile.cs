@@ -9,10 +9,10 @@ namespace ZalbaService.Profiles
     {
         public TipZalbeProfile()
         {
-            CreateMap<TipZalbe, TipZalbeDTO>();
-            CreateMap<TipZalbeCreationDTO, TipZalbe>();
+            CreateMap<TipZalbe, TipZalbeDto>();
+            CreateMap<TipZalbeCreationDto, TipZalbe>();
             CreateMap<TipZalbe, TipZalbe>();
-            CreateMap<TipZalbeDTO, TipZalbe>();
+            CreateMap<TipZalbeDto, TipZalbe>();
         }
     }
 }

@@ -47,7 +47,7 @@ builder.Services.AddControllers().AddXmlDataContractSerializerFormatters()
                         {
                             ContentTypes = { "application/problem+json" }
                         };
-                    };
+                    }
 
                     //ukoliko postoji nešto što nije moglo da se parsira hoæemo da vraæamo status 400 
                     problemDetails.Status = StatusCodes.Status400BadRequest;
@@ -81,12 +81,12 @@ builder.Services.AddSwaggerGen(setupAction =>
                        {
                            Name = "Saša Iliæ",
                            Email = "ilic.sasa2001@gmail.com",
-                           Url = new Uri("http://www.ftn.uns.ac.rs/")
+                           Url = new Uri(builder.Configuration["Link:Ftn"])
                        },
                        License = new OpenApiLicense
                        {
                            Name = "FTN licence",
-                           Url = new Uri("http://www.ftn.uns.ac.rs/")
+                           Url = new Uri(builder.Configuration["Link:Ftn"])
                        },
                    });
     var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";

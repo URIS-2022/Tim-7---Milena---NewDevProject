@@ -2,7 +2,7 @@
 
 namespace ZalbaService.Models
 {
-    public class ZalbaCreationDTO:IValidatableObject
+    public class ZalbaCreationDto:IValidatableObject
     {
         /// <summary>
         /// Datum podnošenja žalbe
@@ -58,7 +58,7 @@ namespace ZalbaService.Models
             {
                 yield return new ValidationResult(
                     "Datum podnošenja žalbe ne može biti posle datuma rešenja!",
-                    new[] { "ZalbaCreationDTO" });
+                    new[] { "ZalbaCreationDto" });
             }
         }
     }

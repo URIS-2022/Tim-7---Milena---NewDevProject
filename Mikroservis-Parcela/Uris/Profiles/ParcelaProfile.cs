@@ -8,10 +8,10 @@ namespace Uris.Profiles
     {
         public ParcelaProfile()
         {
-            CreateMap<Parcela, ParcelaDTO>();
-            CreateMap<ParcelaDTO, Parcela>();
-            CreateMap<Parcela, ParcelaInfoDTO>();
-            CreateMap<ParcelaCreationDTO, Parcela>();
+            CreateMap<Parcela, ParcelaDto>();
+            CreateMap<ParcelaDto, Parcela>();
+            CreateMap<Parcela, ParcelaInfoDto>();
+            CreateMap<ParcelaCreationDto, Parcela>();
         }
     }
 }

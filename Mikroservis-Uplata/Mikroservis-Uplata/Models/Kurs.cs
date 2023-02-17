@@ -9,6 +9,6 @@ namespace Mikroservis_Uplata.Models
 
         public DateTime Datum { get; set; }
 
-        public string Valuta { get; set; }
+        public string? Valuta { get; set; }
     }
 }

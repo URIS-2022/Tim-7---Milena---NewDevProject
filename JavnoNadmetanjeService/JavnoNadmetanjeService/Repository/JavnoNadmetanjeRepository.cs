@@ -69,16 +69,18 @@ namespace JavnoNadmetanjeService.Repository
 
         public JavnoNadmetanje GetJavnoNadmetanje(Guid JavnoNadmetanjeID)
         {
-            JavnoNadmetanje javnoNadmetanje = context.JavnoNadmetanje.Include(t => t.TipJavnogNadmetanja).Include(s => s.StatusJavnogNadmetanja).FirstOrDefault(e => e.JavnoNadmetanjeID == JavnoNadmetanjeID);
+            JavnoNadmetanje? javnoNadmetanje = context.JavnoNadmetanje.Include(t => t.TipJavnogNadmetanja).Include(s => s.StatusJavnogNadmetanja).FirstOrDefault(e => e.JavnoNadmetanjeID == JavnoNadmetanjeID);
+            if (javnoNadmetanje is not null)
+            {
+                javnoNadmetanje.PrijavljeniKupciID = context.JavnoNadmetanjePrijavljeniKupci.Where(j => j.JavnoNadmetanjeID == javnoNadmetanje.JavnoNadmetanjeID).Select(pk => pk.KupacID).ToList();
+                javnoNadmetanje.LicitantiID = context.JavnoNadmetanjeOvlascenaLica.Where(j => j.JavnoNadmetanjeID == javnoNadmetanje.JavnoNadmetanjeID).Select(ol => ol.OvlascenoLiceID).ToList();
+                javnoNadmetanje.ParceleID = context.JavnoNadmetanjeParcele.Where(j => j.JavnoNadmetanjeID == javnoNadmetanje.JavnoNadmetanjeID).Select(p => p.ParcelaID).ToList();
 
-            javnoNadmetanje.PrijavljeniKupciID = context.JavnoNadmetanjePrijavljeniKupci.Where(j => j.JavnoNadmetanjeID == javnoNadmetanje.JavnoNadmetanjeID).Select(pk => pk.KupacID).ToList();
-            javnoNadmetanje.LicitantiID = context.JavnoNadmetanjeOvlascenaLica.Where(j => j.JavnoNadmetanjeID == javnoNadmetanje.JavnoNadmetanjeID).Select(ol => ol.OvlascenoLiceID).ToList();
-            javnoNadmetanje.ParceleID = context.JavnoNadmetanjeParcele.Where(j => j.JavnoNadmetanjeID == javnoNadmetanje.JavnoNadmetanjeID).Select(p => p.ParcelaID).ToList();
-            
+            }
             return javnoNadmetanje;
         }
 
-        public List<JavnoNadmetanje> GetJavnaNadmetanja(string status = null, string tip = null)
+        public List<JavnoNadmetanje> GetJavnaNadmetanja(string? status = null, string? tip = null)
         {
             var javnaNadmetanja = context.JavnoNadmetanje.Include(t => t.TipJavnogNadmetanja).Include(s => s.StatusJavnogNadmetanja)
                 .OrderByDescending(jn => jn.Datum).

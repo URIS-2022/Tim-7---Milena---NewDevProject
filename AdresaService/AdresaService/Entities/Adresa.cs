@@ -37,8 +37,6 @@ namespace AdresaService.Entities
         /// Drzava
         /// </summary>
         public Drzava Drzava { get; set; }
-        /// <summary>
-        /// ID dokumenta
-        /// </summary>
+        
     }
 }

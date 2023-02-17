@@ -8,16 +8,16 @@ namespace ZalbaService.Profiles
     {
         public ZalbaProfile()
         {
-            CreateMap<Zalba, ZalbaDTO>()
+            CreateMap<Zalba, ZalbaDto>()
                 .ForMember(dest => dest.StatusZalbe, opt => opt.MapFrom(src => src.StatusZalbe.NazivStatusaZalbe))
                 .ForMember(dest => dest.TipZalbe, opt => opt.MapFrom(src => src.TipZalbe.NazivTipaZalbe))
                 .ForMember(dest => dest.RadnjaNaOsnovuZalbe, opt => opt.MapFrom(src => src.RadnjaNaOsnovuZalbe.NazivRadnjeNaOsnovuZalbe));
-            CreateMap<ZalbaCreationDTO, Zalba>();
-            CreateMap<Zalba, ZalbaConfirmationDTO>();
-            CreateMap<ZalbaDTO, Zalba>();
+            CreateMap<ZalbaCreationDto, Zalba>();
+            CreateMap<Zalba, ZalbaConfirmationDto>();
+            CreateMap<ZalbaDto, Zalba>();
             CreateMap<Zalba, Zalba>();
-            CreateMap<Zalba, ZalbaUpdateDTO>();
-            CreateMap<ZalbaUpdateDTO, Zalba>();
+            CreateMap<Zalba, ZalbaUpdateDto>();
+            CreateMap<ZalbaUpdateDto, Zalba>();
             
         }
     }

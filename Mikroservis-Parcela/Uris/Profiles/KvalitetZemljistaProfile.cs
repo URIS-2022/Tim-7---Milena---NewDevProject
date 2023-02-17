@@ -8,8 +8,8 @@ namespace Uris.Profiles
     {
         public KvalitetZemljistaProfile()
         {
-            CreateMap<KvalitetZemljista, KvalitetZemljistaDTO>();
-            CreateMap<KvalitetZemljistaDTO, KvalitetZemljista>();
+            CreateMap<KvalitetZemljista, KvalitetZemljistaDto>();
+            CreateMap<KvalitetZemljistaDto, KvalitetZemljista>();
         }
     }
 }

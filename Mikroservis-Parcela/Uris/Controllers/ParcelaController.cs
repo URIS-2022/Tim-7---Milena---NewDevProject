@@ -34,9 +34,9 @@ namespace Uris.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<ParcelaDTO>> GetAll()
+        public ActionResult<IEnumerable<ParcelaDto>> GetAll()
         {
-            var parcele = mapper.Map<List<ParcelaDTO>>(parcelaRepository.GetAll().ToList());
+            var parcele = mapper.Map<List<ParcelaDto>>(parcelaRepository.GetAll().ToList());
 
             foreach(var obj in parcele)
             {
@@ -51,14 +51,14 @@ namespace Uris.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<ParcelaDTO> GetById(int id)
+        public ActionResult<ParcelaDto> GetById(int id)
         {
             if (id == 0)
             {
                 return BadRequest();
             }
 
-            var parcela = mapper.Map<ParcelaDTO>(parcelaRepository.GetById(id));
+            var parcela = mapper.Map<ParcelaDto>(parcelaRepository.GetById(id));
 
             if (parcela == null)
             {
@@ -74,7 +74,7 @@ namespace Uris.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<ParcelaDTO> Post([FromBody] ParcelaCreationDTO parcelaDTO)
+        public ActionResult<ParcelaDto> Post([FromBody] ParcelaCreationDto parcelaDTO)
         {
             if (parcelaDTO == null)
             {
@@ -118,7 +118,7 @@ namespace Uris.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public ActionResult<ParcelaDTO> Update(int id, [FromBody] ParcelaDTO parcelaDTO)
+        public ActionResult<ParcelaDto> Update(int id, [FromBody] ParcelaDto parcelaDTO)
         {
             if (parcelaDTO == null || id != parcelaDTO.Id)
             {
@@ -175,14 +175,14 @@ namespace Uris.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("vo/{parcelaId}")]
         [ApiExplorerSettings(IgnoreApi = true)]
-        public ActionResult<ParcelaInfoDTO> GetParceleZaDrugeServiseByID(int parcelaId)
+        public ActionResult<ParcelaInfoDto> GetParceleZaDrugeServiseByID(int parcelaId)
         {
             var parcela = parcelaRepository.GetParcelaByIdVO(parcelaId);
             if (parcela == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<ParcelaInfoDTO>(parcela));
+            return Ok(mapper.Map<ParcelaInfoDto>(parcela));
 
         }
     }

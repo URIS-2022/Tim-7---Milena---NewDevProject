@@ -30,14 +30,14 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<TipJavnogNadmetanjaDTO>> GetTipoviJavnogNadmetanja()
+        public ActionResult<List<TipJavnogNadmetanjaDto>> GetTipoviJavnogNadmetanja()
         {
             List<TipJavnogNadmetanja> tipoviJavnogNadmetanja = tipJavnogNadmetanjaRepository.GetTipoviJavnogNadmetanja();
             if (tipoviJavnogNadmetanja == null || tipoviJavnogNadmetanja.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(mapper.Map<List<TipJavnogNadmetanjaDTO>>(tipoviJavnogNadmetanja));
+            return Ok(mapper.Map<List<TipJavnogNadmetanjaDto>>(tipoviJavnogNadmetanja));
         }
 
         /// <summary>
@@ -50,33 +50,40 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{tipJavnogNadmetanjaID}")]
-        public ActionResult<TipJavnogNadmetanjaDTO> GetTipJavnogNadmetanjaByID(Guid tipJavnogNadmetanjaID)
+        public ActionResult<TipJavnogNadmetanjaDto> GetTipJavnogNadmetanjaByID(Guid tipJavnogNadmetanjaID)
         {
             var tipJavnogNadmetanja = tipJavnogNadmetanjaRepository.GetTipJavnogNadmetanja(tipJavnogNadmetanjaID);
             if (tipJavnogNadmetanja == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<TipJavnogNadmetanjaDTO>(tipJavnogNadmetanja));
+            return Ok(mapper.Map<TipJavnogNadmetanjaDto>(tipJavnogNadmetanja));
 
         }
         /// <summary>
         /// Kreira novi tip javnog nadmetanja.
         /// </summary>
+        /// <param name="tipJavnogNadmetanja">Model tipa javnog nadmetanja</param>
+        /// <remarks>
+        /// Primer zahteva za kreiranje novog tipa javnog nadmetanja \
+        /// POST /api/tipJavnogNadmetanja \
+        /// { \
+        /// "nazivTipaJavnogNadmetanja": "Prvi krug" \
+        /// }
         /// </remarks>
         /// <response code="201">Vraća kreirani tip javnog nadmetanja</response>
         /// <response code="500">Došlo je do greške na serveru prilikom kreiranja tipa javnog nadmetanja</response>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<TipJavnogNadmetanjaDTO> CreateTipJavnogNadmetanja([FromBody] TipJavnogNadmetanjaCreationDTO tipJavnogNadmetanja)
+        public ActionResult<TipJavnogNadmetanjaDto> CreateTipJavnogNadmetanja([FromBody] TipJavnogNadmetanjaCreationDto tipJavnogNadmetanja)
         {
             try
             {
                 var tip = mapper.Map<TipJavnogNadmetanja>(tipJavnogNadmetanja);
                 TipJavnogNadmetanja confirmation = tipJavnogNadmetanjaRepository.CreateTipJavnogNadmetanja(tip);
-                string location = linkGenerator.GetPathByAction("GetTipoviJavnogNadmetanja", "TipJavnogNadmetanja", new { TipJavnogNadmetanjaID = tip.TipJavnogNadmetanjaID });
-                return Created(location, mapper.Map<TipJavnogNadmetanjaDTO>(confirmation));
+                string? location = linkGenerator.GetPathByAction("GetTipoviJavnogNadmetanja", "TipJavnogNadmetanja", new { TipJavnogNadmetanjaID = tip.TipJavnogNadmetanjaID });
+                return Created(location, mapper.Map<TipJavnogNadmetanjaDto>(confirmation));
             }
             catch (Exception)
             {
@@ -87,6 +94,7 @@ namespace JavnoNadmetanjeService.Controllers
         /// <summary>
         /// Ažurira jedan tip javnog nadmetanja
         /// </summary>
+        /// <param name="tipJavnogNadmetanja">Model tipa javnog nadmetanja koji se ažurira</param>
         /// <returns>Potvrda o modfikovanom tipu javnog nadmetanja</returns>
         /// <response code="200">Vraća kreirani tip javnog nadmetanja</response>
         /// <response code="400">Željeni tip javnog nadmetanja koji se želi ažurirati nije pronađen</response>
@@ -95,7 +103,7 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<TipJavnogNadmetanjaDTO> UpdateTipJavnogNadmetanja([FromBody] TipJavnogNadmetanjaDTO tipJavnogNadmetanja)
+        public ActionResult<TipJavnogNadmetanjaDto> UpdateTipJavnogNadmetanja([FromBody] TipJavnogNadmetanjaDto tipJavnogNadmetanja)
         {
 
             try

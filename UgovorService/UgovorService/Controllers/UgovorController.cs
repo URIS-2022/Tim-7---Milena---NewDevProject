@@ -44,9 +44,9 @@ namespace UgovorService.Controllers
             }
             foreach (var ugovor in ugovori)
             {
-                KupacInfoDto kupac = kupacService.GetKupacById((Guid)ugovor.KupacID).Result;
+                KupacInfoDto kupac = kupacService.GetKupacById(ugovor.KupacID).Result;
                 ugovor.Kupac = kupac;
-                JavnoNadmetanjeInfoDTO javnoNadmetanje = javnoNadmetanjeService.GetJavnoNadmetanjeById((Guid)ugovor.JavnoNadmetanjeID).Result;
+                JavnoNadmetanjeInfoDTO javnoNadmetanje = javnoNadmetanjeService.GetJavnoNadmetanjeById(ugovor.JavnoNadmetanjeID).Result;
                 ugovor.JavnoNadmetanje = javnoNadmetanje;
 
             }
@@ -70,9 +70,9 @@ namespace UgovorService.Controllers
             {
                 return NotFound();
             }
-            KupacInfoDto kupac = kupacService.GetKupacById((Guid)ugovor.KupacID).Result;
+            KupacInfoDto kupac = kupacService.GetKupacById(ugovor.KupacID).Result;
             ugovor.Kupac = kupac;
-            JavnoNadmetanjeInfoDTO javnoNadmetanje = javnoNadmetanjeService.GetJavnoNadmetanjeById((Guid)ugovor.JavnoNadmetanjeID).Result;
+            JavnoNadmetanjeInfoDTO javnoNadmetanje = javnoNadmetanjeService.GetJavnoNadmetanjeById(ugovor.JavnoNadmetanjeID).Result;
             ugovor.JavnoNadmetanje = javnoNadmetanje;
 
             return Ok(ugovor);
@@ -94,8 +94,12 @@ namespace UgovorService.Controllers
             {
                 var z = mapper.Map<Ugovor>(ugovor);
                 Ugovor confirmation = ugovorRepository.CreateUgovor(z);
+                #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 string location = linkGenerator.GetPathByAction("GetUgovore", "Ugovor", new { UgovorID = z.UgovorID });
+                #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                #pragma warning disable CS8604 // Possible null reference argument.
                 return Created(location, mapper.Map<UgovorConfirmationDTO>(confirmation));
+                #pragma warning disable CS8604 // Possible null reference argument.
             }
             catch (Exception)
             {

@@ -1,6 +1,6 @@
 ﻿namespace ZalbaService.Models
 {
-    public class StatusZalbeDTO
+    public class StatusZalbeDto
     {
         /// <summary>
         /// ID statusa žalbe

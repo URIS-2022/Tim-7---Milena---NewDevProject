@@ -20,16 +20,16 @@ namespace Uris.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<KulturaDTO>> GetAll()
+        public ActionResult<IEnumerable<KulturaDto>> GetAll()
         {
-            return Ok(mapper.Map<List<KulturaDTO>>(kulturaRepository.GetAll().ToList()));
+            return Ok(mapper.Map<List<KulturaDto>>(kulturaRepository.GetAll().ToList()));
         }
 
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<KulturaDTO> GetById(int id)
+        public ActionResult<KulturaDto> GetById(int id)
         {
             if (id == 0)
             {
@@ -43,14 +43,14 @@ namespace Uris.Controllers
                 return NotFound();
             }
 
-            return Ok(mapper.Map<KulturaDTO>(kultura));
+            return Ok(mapper.Map<KulturaDto>(kultura));
         }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<KulturaDTO> Post([FromBody] KulturaDTO kulturaDTO)
+        public ActionResult<KulturaDto> Post([FromBody] KulturaDto kulturaDTO)
         {
             if (kulturaDTO == null)
             {
@@ -68,7 +68,7 @@ namespace Uris.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public ActionResult<KulturaDTO> Update(int id, [FromBody] KulturaDTO kulturaDTO)
+        public ActionResult<KulturaDto> Update(int id, [FromBody] KulturaDto kulturaDTO)
         {
             if (kulturaDTO == null || id != kulturaDTO.Id)
             {

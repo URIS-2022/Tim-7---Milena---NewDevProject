@@ -51,7 +51,7 @@ namespace KupacServis.Controllers
             }
                 foreach (var o in ovlascenaLica)
                 {
-                    o.Drzava = _drzavaService.GetDrzavaByID((Guid)o.DrzavaId).Result;
+                    o.Drzava = _drzavaService.GetDrzavaByID(o.DrzavaId).Result;
                    
                     o.Adresa = _adresaService.GetAdresaByID(o.AdresaId).Result;
                 }
@@ -101,7 +101,7 @@ namespace KupacServis.Controllers
 
                 }
                  ovlascenoLice.KupciObj = kupci;
-              ovlascenoLice.Drzava = _drzavaService.GetDrzavaByID((Guid)ovlascenoLice.DrzavaId).Result;
+              ovlascenoLice.Drzava = _drzavaService.GetDrzavaByID(ovlascenoLice.DrzavaId).Result;
 
                 ovlascenoLice.Adresa = _adresaService.GetAdresaByID(ovlascenoLice.AdresaId).Result;
 
@@ -160,8 +160,8 @@ namespace KupacServis.Controllers
             [ProducesResponseType(StatusCodes.Status500InternalServerError)]
             public ActionResult<OvlascenoLiceUpdateDto> UpdateOvlascenoLice([FromBody] OvlascenoLiceUpdateDto ovlascenoLice)
             {
-                //try
-               // {
+                try
+               {
                     OvlascenoLice staroOvlascenoLice = _ovlascenoLiceRepository.GetOvlascenoLiceById(ovlascenoLice.OvlascenoLiceId);
                     if (staroOvlascenoLice == null)
                     {
@@ -171,11 +171,11 @@ namespace KupacServis.Controllers
                     _ovlascenoLiceRepository.UpdateOvlascenoLice(staroOvlascenoLice, novoOvlascenoLice);
                     return Ok(_mapper.Map<OvlascenoLiceUpdateDto>(novoOvlascenoLice));
 
-               // }
-               // catch (Exception)
-               // {
-               //     return StatusCode(StatusCodes.Status500InternalServerError, "Greška prilikom ažuriranja javnog nadmetanja!");
-                //}
+                }
+                catch (Exception)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, "Greška prilikom ažuriranja ovlascenog lica!");
+                }
         }
 
         /// <summary>
@@ -213,12 +213,12 @@ namespace KupacServis.Controllers
 
 
 
-                    string location = _linkGenerator.GetPathByAction("GetOvlascenoLices", "OvlascenoLice", new { OvlascenoLiceId = pri.OvlascenoLiceId });
+                    string? location = _linkGenerator.GetPathByAction("GetOvlascenoLices", "OvlascenoLice", new { OvlascenoLiceId = pri.OvlascenoLiceId });
                     return Created(location, _mapper.Map<OvlascenoLiceInfoDto>(pri));
 
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                     return StatusCode(StatusCodes.Status500InternalServerError, "Create error");

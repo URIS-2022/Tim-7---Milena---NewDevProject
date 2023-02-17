@@ -164,12 +164,12 @@ namespace KupacServis.Controllers
 
 
 
-                string location = _linkGenerator.GetPathByAction("GetPrioritets", "Prioritet", new { PrioritetId = pri.PrioritetId });
+                string? location = _linkGenerator.GetPathByAction("GetPrioritets", "Prioritet", new { PrioritetId = pri.PrioritetId });
                 return Created(location, _mapper.Map<PrioritetDto>(pri));
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Create error");

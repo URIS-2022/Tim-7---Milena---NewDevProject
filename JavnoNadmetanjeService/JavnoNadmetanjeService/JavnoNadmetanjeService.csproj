@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	<NoWarn>1701;1702,1591,CS8618,CS8603</NoWarn>
+	<NoWarn>1701;1702,1591,CS8618,CS8603,CS8604</NoWarn>
 	<DocumentationFile>JavnoNadmetanjeService.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>

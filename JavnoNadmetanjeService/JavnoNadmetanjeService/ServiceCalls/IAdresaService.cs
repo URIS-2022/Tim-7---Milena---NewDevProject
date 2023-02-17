@@ -4,6 +4,6 @@ namespace JavnoNadmetanjeService.ServiceCalls
 {
     public interface IAdresaService
     {
-        public Task<AdresaDTO> GetAdresaById(Guid AdresaID);
+        public Task<AdresaDto> GetAdresaById(Guid AdresaID);
     }
 }

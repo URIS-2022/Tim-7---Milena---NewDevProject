@@ -12,7 +12,7 @@ namespace JavnoNadmetanjeService.ServiceCalls
             this.configuration = configuration;
         }
 
-        public async Task<AdresaDTO> GetAdresaById(Guid AdresaID)
+        public async Task<AdresaDto> GetAdresaById(Guid AdresaID)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -26,7 +26,7 @@ namespace JavnoNadmetanjeService.ServiceCalls
                     {
                         return default;
                     }
-                    var adresa = JsonConvert.DeserializeObject<AdresaDTO>(responseString);
+                    var adresa = JsonConvert.DeserializeObject<AdresaDto>(responseString);
                     return adresa;
                 }
                 return default;

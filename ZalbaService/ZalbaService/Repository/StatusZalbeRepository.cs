@@ -46,7 +46,7 @@ namespace ZalbaService.Repository
 
         public void UpdateStatusZalbe(StatusZalbe statusZalbe)
         {
-
+            throw new NotSupportedException();
         }
     }
 }

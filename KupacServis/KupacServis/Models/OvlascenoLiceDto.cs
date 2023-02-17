@@ -30,7 +30,7 @@ namespace KupacServis.Models
         /// Id drzave ovlascenog lica
         /// </summary>
         [JsonIgnore]
-        public Guid? DrzavaId { get; set; }
+        public Guid DrzavaId { get; set; }
 
         public DrzavaDto Drzava { get; set; }
         /// <summary>

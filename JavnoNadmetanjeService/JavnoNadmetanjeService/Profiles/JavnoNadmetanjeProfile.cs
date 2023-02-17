@@ -8,16 +8,16 @@ namespace JavnoNadmetanjeService.Profiles
     {
         public JavnoNadmetanjeProfile()
         {
-            CreateMap<JavnoNadmetanje, JavnoNadmetanjeDTO>()
+            CreateMap<JavnoNadmetanje, JavnoNadmetanjeDto>()
                 .ForMember(dest => dest.StatusJavnogNadmetanja, opt => opt.MapFrom(src => src.StatusJavnogNadmetanja.NazivStatusaJavnogNadmetanja))
                 .ForMember(dest => dest.TipJavnogNadmetanja, opt => opt.MapFrom(src => src.TipJavnogNadmetanja.NazivTipaJavnogNadmetanja));
-            CreateMap<JavnoNadmetanjeCreationDTO, JavnoNadmetanje>();
-            CreateMap<JavnoNadmetanje, JavnoNadmetanjeConfirmationDTO>();
-            CreateMap<JavnoNadmetanjeDTO, JavnoNadmetanje>();
+            CreateMap<JavnoNadmetanjeCreationDto, JavnoNadmetanje>();
+            CreateMap<JavnoNadmetanje, JavnoNadmetanjeConfirmationDto>();
+            CreateMap<JavnoNadmetanjeDto, JavnoNadmetanje>();
             CreateMap<JavnoNadmetanje, JavnoNadmetanje>();
-            CreateMap<JavnoNadmetanje, JavnoNadmetanjeUpdateDTO>();
-            CreateMap<JavnoNadmetanjeUpdateDTO, JavnoNadmetanje>();
-            CreateMap<JavnoNadmetanje, JavnoNadmetanjeInfoDTO>()
+            CreateMap<JavnoNadmetanje, JavnoNadmetanjeUpdateDto>();
+            CreateMap<JavnoNadmetanjeUpdateDto, JavnoNadmetanje>();
+            CreateMap<JavnoNadmetanje, JavnoNadmetanjeInfoDto>()
                .ForMember(dest => dest.StatusJavnogNadmetanja, opt => opt.MapFrom(src => src.StatusJavnogNadmetanja.NazivStatusaJavnogNadmetanja))
                .ForMember(dest => dest.TipJavnogNadmetanja, opt => opt.MapFrom(src => src.TipJavnogNadmetanja.NazivTipaJavnogNadmetanja));
         }

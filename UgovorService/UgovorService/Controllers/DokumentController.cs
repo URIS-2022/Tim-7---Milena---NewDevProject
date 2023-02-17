@@ -76,8 +76,12 @@ namespace UgovorService.Controllers
             {
                 var z = mapper.Map<Dokument>(dokument);
                 Dokument confirmation = dokumentRepository.CreateDokument(z);
+                #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 string location = linkGenerator.GetPathByAction("GetDokumente", "Dokument", new { DokumentID = z.DokumentID });
+                #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                #pragma warning disable CS8604 // Possible null reference argument.
                 return Created(location, mapper.Map<DokumentConfirmationDTO>(confirmation));
+                #pragma warning disable CS8604 // Possible null reference argument.
             }
             catch (Exception)
             {

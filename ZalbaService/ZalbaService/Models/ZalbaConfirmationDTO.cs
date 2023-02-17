@@ -1,6 +1,6 @@
 ﻿namespace ZalbaService.Models
 {
-    public class ZalbaConfirmationDTO
+    public class ZalbaConfirmationDto
     {
         /// <summary>
         /// ID žalbe

@@ -7,10 +7,10 @@ namespace JavnoNadmetanjeService.Profiles
     {
         public StatusJavnogNadmetanjaProfile()
         {
-            CreateMap<StatusJavnogNadmetanja, StatusJavnogNadmetanjaDTO>();
-            CreateMap<StatusJavnogNadmetanjaCreationDTO, StatusJavnogNadmetanja>();
+            CreateMap<StatusJavnogNadmetanja, StatusJavnogNadmetanjaDto>();
+            CreateMap<StatusJavnogNadmetanjaCreationDto, StatusJavnogNadmetanja>();
             CreateMap<StatusJavnogNadmetanja, StatusJavnogNadmetanja>();
-            CreateMap<StatusJavnogNadmetanjaDTO, StatusJavnogNadmetanja>();
+            CreateMap<StatusJavnogNadmetanjaDto, StatusJavnogNadmetanja>();
         }
     }
 }

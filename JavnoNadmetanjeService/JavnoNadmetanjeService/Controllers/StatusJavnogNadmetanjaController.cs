@@ -31,14 +31,14 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<StatusJavnogNadmetanjaDTO>> GetStatusiJavnogNadmetanja()
+        public ActionResult<List<StatusJavnogNadmetanjaDto>> GetStatusiJavnogNadmetanja()
         {
             List<StatusJavnogNadmetanja> statusiJavnogNadmetanja = statusJavnogNadmetanjaRepository.GetStatusiJavnogNadmetanja();
             if (statusiJavnogNadmetanja == null || statusiJavnogNadmetanja.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(mapper.Map<List<StatusJavnogNadmetanjaDTO>>(statusiJavnogNadmetanja));
+            return Ok(mapper.Map<List<StatusJavnogNadmetanjaDto>>(statusiJavnogNadmetanja));
         }
 
         /// <summary>
@@ -51,33 +51,40 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{statusJavnogNadmetanjaID}")]
-        public ActionResult<StatusJavnogNadmetanjaDTO> GetStatusJavnogNadmetanjaByID(Guid statusJavnogNadmetanjaID)
+        public ActionResult<StatusJavnogNadmetanjaDto> GetStatusJavnogNadmetanjaByID(Guid statusJavnogNadmetanjaID)
         {
             var statusJavnogNadmetanja = statusJavnogNadmetanjaRepository.GetStatusJavnogNadmetanja(statusJavnogNadmetanjaID);
             if (statusJavnogNadmetanja == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<StatusJavnogNadmetanjaDTO>(statusJavnogNadmetanja));
+            return Ok(mapper.Map<StatusJavnogNadmetanjaDto>(statusJavnogNadmetanja));
 
         }
         /// <summary>
         /// Kreira novi status javnog nadmetanja.
         /// </summary>
+        /// <param name="statusJavnogNadmetanja">Model statusa javnog nadmetanja</param>
+        /// <remarks>
+        /// Primer zahteva za kreiranje novog statusa javnog nadmetanja \
+        /// POST /api/statusJavnogNadmetanja \
+        /// { \
+        /// "nazivStatusaJavnogNadmetanja": "Prvi krug" \
+        /// }
         /// </remarks>
         /// <response code="201">Vraća kreirani status javnog nadmetanja</response>
         /// <response code="500">Došlo je do greške na serveru prilikom kreiranja statusa javnog nadmetanja</response>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<StatusJavnogNadmetanjaDTO> CreateStatusJavnogNadmetanja([FromBody] StatusJavnogNadmetanjaCreationDTO statusJavnogNadmetanja)
+        public ActionResult<StatusJavnogNadmetanjaDto> CreateStatusJavnogNadmetanja([FromBody] StatusJavnogNadmetanjaCreationDto statusJavnogNadmetanja)
         {
             try
             {
                 var status = mapper.Map<StatusJavnogNadmetanja>(statusJavnogNadmetanja);
                 StatusJavnogNadmetanja confirmation = statusJavnogNadmetanjaRepository.CreateStatusJavnogNadmetanja(status);
-                string location = linkGenerator.GetPathByAction("GetStatusiJavnogNadmetanja", "StatusJavnogNadmetanja", new { StatusJavnogNadmetanjaID = status.StatusJavnogNadmetanjaID });
-                return Created(location, mapper.Map<StatusJavnogNadmetanjaDTO>(confirmation));
+                string? location = linkGenerator.GetPathByAction("GetStatusiJavnogNadmetanja", "StatusJavnogNadmetanja", new { StatusJavnogNadmetanjaID = status.StatusJavnogNadmetanjaID });
+                return Created(location, mapper.Map<StatusJavnogNadmetanjaDto>(confirmation));
             }
             catch (Exception)
             {
@@ -88,6 +95,7 @@ namespace JavnoNadmetanjeService.Controllers
         /// <summary>
         /// Ažurira jedan status javnog nadmetanja
         /// </summary>
+        /// <param name="statusJavnogNadmetanja">Model statusa javnog nadmetanja koji se ažurira</param>
         /// <returns>Potvrda o modfikovanom statusu javnog nadmetanja</returns>
         /// <response code="200">Vraća kreirani status javnog nadmetanja</response>
         /// <response code="400">Željeni status javnog nadmetanja koji se želi ažurirati nije pronađen</response>
@@ -96,7 +104,7 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<StatusJavnogNadmetanjaDTO> UpdateStatusJavnogNadmetanja([FromBody] StatusJavnogNadmetanjaDTO statusJavnogNadmetanja)
+        public ActionResult<StatusJavnogNadmetanjaDto> UpdateStatusJavnogNadmetanja([FromBody] StatusJavnogNadmetanjaDto statusJavnogNadmetanja)
         {
 
             try

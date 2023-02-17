@@ -199,7 +199,7 @@ namespace LicitacijaServis.Controllers
 
              
 
-                string location = _linkGenerator.GetPathByAction("GetLicitacijas", "Licitacija", new { LicitacijaId = lic.LicitacijaId });
+                string? location = _linkGenerator.GetPathByAction("GetLicitacijas", "Licitacija", new { LicitacijaId = lic.LicitacijaId });
                 return Created(location, _mapper.Map<LicitacijaConfirmationDto>(lic));
 
                

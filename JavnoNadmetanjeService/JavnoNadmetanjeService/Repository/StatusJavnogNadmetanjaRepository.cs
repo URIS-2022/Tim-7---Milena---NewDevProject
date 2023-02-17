@@ -45,7 +45,7 @@ namespace JavnoNadmetanjeService.Repository
 
         public void UpdateStatusJavnogNadmetanja(StatusJavnogNadmetanja statusJavnogNadmetanja)
         {
-
+            throw new NotSupportedException();
         }
     }
 }

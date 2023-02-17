@@ -45,16 +45,16 @@ namespace JavnoNadmetanjeService.Controllers
         [HttpGet]
         [HttpHead]
 
-        public ActionResult<List<JavnoNadmetanjeDTO>> GetJavnaNadmetanja([FromQuery] string? status=null,string? tip=null)
+        public ActionResult<List<JavnoNadmetanjeDto>> GetJavnaNadmetanja([FromQuery] string? status=null,string? tip=null)
         {
-            List<JavnoNadmetanjeDTO> javnaNadmetanja = mapper.Map<List<JavnoNadmetanjeDTO >>(javnoNadmetanjeRepository.GetJavnaNadmetanja(status,tip));
+            List<JavnoNadmetanjeDto> javnaNadmetanja = mapper.Map<List<JavnoNadmetanjeDto >>(javnoNadmetanjeRepository.GetJavnaNadmetanja(status,tip));
             if (javnaNadmetanja == null || javnaNadmetanja.Count == 0)
             {
                 return NoContent();
             }
             foreach (var jn in javnaNadmetanja)
             {
-                AdresaDTO adresa = adresaService.GetAdresaById((Guid)jn.AdresaID).Result;  
+                AdresaDto adresa = adresaService.GetAdresaById(jn.AdresaID).Result;  
                 jn.Adresa = adresa;
                 KupacInfoDto najboljiPonudjac = kupacService.GetKupacById(jn.KupacID).Result;
                 jn.NajboljiPonudjac = najboljiPonudjac;
@@ -93,14 +93,14 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{javnoNadmetanjeID}")]
-        public ActionResult<JavnoNadmetanjeDTO> GetJavnoNadmetanjeByID(Guid javnoNadmetanjeID)
+        public ActionResult<JavnoNadmetanjeDto> GetJavnoNadmetanjeByID(Guid javnoNadmetanjeID)
         {
-            var javnoNadmetanje = mapper.Map<JavnoNadmetanjeDTO>(javnoNadmetanjeRepository.GetJavnoNadmetanje(javnoNadmetanjeID));
+            var javnoNadmetanje = mapper.Map<JavnoNadmetanjeDto>(javnoNadmetanjeRepository.GetJavnoNadmetanje(javnoNadmetanjeID));
             if (javnoNadmetanje == null)
             {
                 return NotFound();
             }
-            AdresaDTO adresa = adresaService.GetAdresaById((Guid)javnoNadmetanje.AdresaID).Result;
+            AdresaDto adresa = adresaService.GetAdresaById(javnoNadmetanje.AdresaID).Result;
             javnoNadmetanje.Adresa = adresa;
             KupacInfoDto najboljiPonudjac = kupacService.GetKupacById(javnoNadmetanje.KupacID).Result;
             javnoNadmetanje.NajboljiPonudjac = najboljiPonudjac;
@@ -139,14 +139,14 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("vo/{javnoNadmetanjeID}")]
         [ApiExplorerSettings(IgnoreApi = true)]
-        public ActionResult<JavnoNadmetanjeInfoDTO> GetJavnoNadmetanjeZaDrugeServiseByID(Guid javnoNadmetanjeID)
+        public ActionResult<JavnoNadmetanjeInfoDto> GetJavnoNadmetanjeZaDrugeServiseByID(Guid javnoNadmetanjeID)
         {
             var javnoNadmetanje = javnoNadmetanjeRepository.GetJavnoNadmetanjeByIdVO(javnoNadmetanjeID);
             if (javnoNadmetanje == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<JavnoNadmetanjeInfoDTO>(javnoNadmetanje));
+            return Ok(mapper.Map<JavnoNadmetanjeInfoDto>(javnoNadmetanje));
 
         }
 
@@ -188,14 +188,14 @@ namespace JavnoNadmetanjeService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<JavnoNadmetanjeConfirmationDTO> CreateJavnoNadmetanje([FromBody] JavnoNadmetanjeCreationDTO javnoNadmetanje)
+        public ActionResult<JavnoNadmetanjeConfirmationDto> CreateJavnoNadmetanje([FromBody] JavnoNadmetanjeCreationDto javnoNadmetanje)
         {
             try
             {
                 var nadmetanje = mapper.Map<JavnoNadmetanje>(javnoNadmetanje);
                 JavnoNadmetanje confirmation = javnoNadmetanjeRepository.CreateJavnoNadmetanje(nadmetanje);
-                string location = linkGenerator.GetPathByAction("GetJavnaNadmetanja", "JavnoNadmetanje", new { JavnoNadmetanjeID = nadmetanje.JavnoNadmetanjeID });
-                return Created(location, mapper.Map<JavnoNadmetanjeConfirmationDTO>(confirmation));
+                string? location = linkGenerator.GetPathByAction("GetJavnaNadmetanja", "JavnoNadmetanje", new { JavnoNadmetanjeID = nadmetanje.JavnoNadmetanjeID });
+                return Created(location, mapper.Map<JavnoNadmetanjeConfirmationDto>(confirmation));
             }
             catch (Exception)
             {
@@ -214,7 +214,7 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<JavnoNadmetanjeUpdateDTO> UpdateJavnoNadmetanje([FromBody] JavnoNadmetanjeUpdateDTO javnoNadmetanje)
+        public ActionResult<JavnoNadmetanjeUpdateDto> UpdateJavnoNadmetanje([FromBody] JavnoNadmetanjeUpdateDto javnoNadmetanje)
         {
 
             try
@@ -226,7 +226,7 @@ namespace JavnoNadmetanjeService.Controllers
                 }
                 JavnoNadmetanje novoJavnoNadmetanje = mapper.Map<JavnoNadmetanje>(javnoNadmetanje);
                 javnoNadmetanjeRepository.UpdateJavnoNadmetanje(staroJavnoNadmetanje, novoJavnoNadmetanje);
-                return Ok(mapper.Map<JavnoNadmetanjeUpdateDTO>(novoJavnoNadmetanje));
+                return Ok(mapper.Map<JavnoNadmetanjeUpdateDto>(novoJavnoNadmetanje));
 
             }
             catch (Exception)

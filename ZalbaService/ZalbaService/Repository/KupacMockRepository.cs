@@ -5,17 +5,17 @@ namespace ZalbaService.Repository
 {
     public class KupacMockRepository : IKupacMockRepository
     {
-        public static List<KupacDTO> kupci { get; set; } = new List <KupacDTO>();
+        public static List<KupacDto> kupci { get; set; } = new List <KupacDto>();
 
         public KupacMockRepository()
         {
             FillData();
         }
-        private void FillData()
+        private static void FillData()
         {
-            kupci.AddRange(new List<KupacDTO>
+            kupci.AddRange(new List<KupacDto>
             {
-                new KupacDTO
+                new KupacDto
                 {
                     KupacId = Guid.Parse("8B88BADB-5EC1-4E38-A90D-C376BC31D011"),
                     PrioritetId = Guid.Parse("2915C26D-2912-438A-BC7A-8ED229009412"),
@@ -28,7 +28,7 @@ namespace ZalbaService.Repository
                     BrTelefona = "00381947294000",
                     Email = "kupacgmail.com"
                 },
-                new KupacDTO
+                new KupacDto
                 {
                     KupacId = Guid.NewGuid(),
                     PrioritetId = Guid.Parse("2915C26D-2912-438A-BC7A-8ED229009412"),
@@ -45,7 +45,7 @@ namespace ZalbaService.Repository
             }
                 );
         }
-        public KupacDTO GetKupac(Guid KupacID)
+        public KupacDto GetKupac(Guid KupacID)
         {
             return kupci.FirstOrDefault(e => e.KupacId == KupacID);
         }

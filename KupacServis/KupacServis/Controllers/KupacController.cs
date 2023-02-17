@@ -18,10 +18,8 @@ namespace KupacServis.Controllers
         private readonly IKupacRepository _kupacRepository;
         private readonly IMapper _mapper;
         private readonly LinkGenerator _linkGenerator;
-        //private readonly IJavnoNadmetanjeRepository _javnoNadmetanjeRepository;
        // private readonly IUplataRepository _uplataRepository;
         private readonly IOvlascenoLiceRepository _ovlascenoLiceRepository;
-        // private readonly IAdresaRepository _adresaRepository;
         private readonly IAdresaService _adresaService;
         private readonly IJavnoNadmetanjeService _javnoNadmetanjeService;
         private readonly IUplataService _uplataService;
@@ -32,7 +30,6 @@ namespace KupacServis.Controllers
             _kupacRepository = kupacRepository;
             _mapper = mapper;
             _linkGenerator = linkGenerator;
-            // _javnoNadmetanjeRepository = javnoNadmetanjeRepository;
             //_uplataRepository = uplataRepository;
             _uplataService = uplataService;
             _adresaService = adresaService;
@@ -54,9 +51,9 @@ namespace KupacServis.Controllers
         public ActionResult<List<KupacDto>> GetKupacs()
         {
             var kupci = _mapper.Map<List<KupacDto>>(_kupacRepository.GetKupacs());
-            //  List<JavnoNadmetanjeDto> javnaNadmetanja = _javnoNadmetanjeRepository.GetJavnaNadmetanja().ToList();
+            
            
-            if(kupci.Count == 0 || kupci == null  )
+            if(kupci.Count == 0 )
             {
                 return NoContent();
             }
@@ -122,13 +119,13 @@ namespace KupacServis.Controllers
         public ActionResult<KupacDto> GetKupacById(Guid id)
         {
             var kupac = _mapper.Map<KupacDto>(_kupacRepository.GetKupacById(id));
-            //   List<JavnoNadmetanjeDto> javnaNadmetanja = _javnoNadmetanjeRepository.GetJavnaNadmetanja().ToList();
+           
             //List<UplataDto> uplate = _uplataRepository.GetUplata().ToList();
             if (kupac == null)
             {
                 return NoContent();
             }
-            kupac.Adresa = _adresaService.GetAdresaByID(kupac.AdresaId).Result; ;
+            kupac.Adresa = _adresaService.GetAdresaByID(kupac.AdresaId).Result; 
 
             
            
@@ -281,12 +278,12 @@ namespace KupacServis.Controllers
 
 
 
-                string location = _linkGenerator.GetPathByAction("GetKupacs", "Kupac", new { KupacId = kup.KupacId });
+                string? location = _linkGenerator.GetPathByAction("GetKupacs", "Kupac", new { KupacId = kup.KupacId });
                 return Created(location, _mapper.Map<KupacConfirmationDto>(kup));
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Create error");
@@ -304,7 +301,7 @@ namespace KupacServis.Controllers
         public ActionResult<List<KupacInfoDto>> GetKupacByOvlascenoLiceId(Guid ovlascenoLiceId)
         {
             var kupci = _kupacRepository.GetKupacByOvlascenoLiceId(ovlascenoLiceId);
-            if(kupci.Count == 0 || kupci == null)
+            if(kupci.Count == 0)
             {
                 return NoContent();
             }
@@ -320,7 +317,7 @@ namespace KupacServis.Controllers
 
             }
 
-            // var kupacInfo = _mapper.Map<List<KupacInfoDto>>(kupacDtos);
+           
             return Ok(kupacDtos);
         }
 

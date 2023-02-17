@@ -177,12 +177,12 @@ namespace KupacServis.Controllers
 
 
 
-                string location = _linkGenerator.GetPathByAction("GetFizickoLices", "FizickoLice", new { FizickoLiceId = fl.FizickoLiceId });
+                string? location = _linkGenerator.GetPathByAction("GetFizickoLices", "FizickoLice", new { FizickoLiceId = fl.FizickoLiceId });
                 return Created(location, _mapper.Map<FizickoLiceDto>(fl));
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Create error");

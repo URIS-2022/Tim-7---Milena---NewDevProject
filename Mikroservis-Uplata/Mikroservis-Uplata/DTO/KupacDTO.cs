@@ -1,6 +1,6 @@
 ﻿namespace Mikroservis_Uplata.DTO
 {
-    public class KupacDTO
+    public class KupacDto
     {
         public Guid KupacId { get; set; }
 
@@ -8,10 +8,10 @@
 
         public bool ImaZabranu { get; set; }
 
-        public string BrTelefona1 { get; set; }
+        public string? BrTelefona1 { get; set; }
 
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
-        public string BrRacuna { get; set; }
+        public string? BrRacuna { get; set; }
     }
 }

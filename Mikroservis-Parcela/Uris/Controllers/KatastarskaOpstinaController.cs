@@ -21,16 +21,16 @@ namespace Uris.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<KatastarskaOpstinaDTO>> GetAll()
+        public ActionResult<IEnumerable<KatastarskaOpstinaDto>> GetAll()
         {
-            return Ok(mapper.Map<List<KatastarskaOpstinaDTO>>(katastarskaOpstinaRepository.GetAll().ToList()));
+            return Ok(mapper.Map<List<KatastarskaOpstinaDto>>(katastarskaOpstinaRepository.GetAll().ToList()));
         }
 
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<KatastarskaOpstinaDTO> GetById(int id)
+        public ActionResult<KatastarskaOpstinaDto> GetById(int id)
         {
             if (id == 0)
             {
@@ -44,14 +44,14 @@ namespace Uris.Controllers
                 return NotFound();
             }
 
-            return Ok(mapper.Map<KatastarskaOpstinaDTO>(katastarskaOpstina));
+            return Ok(mapper.Map<KatastarskaOpstinaDto>(katastarskaOpstina));
         }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<KatastarskaOpstinaDTO> Post([FromBody] KatastarskaOpstinaDTO katastarskaOpstinaDTO)
+        public ActionResult<KatastarskaOpstinaDto> Post([FromBody] KatastarskaOpstinaDto katastarskaOpstinaDTO)
         {
             if (katastarskaOpstinaDTO == null)
             {
@@ -68,7 +68,7 @@ namespace Uris.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public ActionResult<KatastarskaOpstinaDTO> Update(int id, [FromBody] KatastarskaOpstinaDTO katastarskaOpstinaDTO)
+        public ActionResult<KatastarskaOpstinaDto> Update(int id, [FromBody] KatastarskaOpstinaDto katastarskaOpstinaDTO)
         {
             if (katastarskaOpstinaDTO == null || id != katastarskaOpstinaDTO.Id)
             {

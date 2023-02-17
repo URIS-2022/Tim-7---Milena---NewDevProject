@@ -7,7 +7,7 @@ namespace Uris.Models
         [Required]
         public int Id { get; set; }
 
-        public string NazivVrsteZemljista { get; set; }
+        public string? NazivVrsteZemljista { get; set; }
 
         public Kvalitet Kvalitet { get; set; }
     }
