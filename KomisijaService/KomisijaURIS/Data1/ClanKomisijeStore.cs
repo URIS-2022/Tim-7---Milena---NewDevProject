@@ -2,7 +2,7 @@
 
 namespace KomisijaURIS.Data1
 {
-    public class ClanKomisijeStore
+    public static class ClanKomisijeStore
     {
         public static ICollection<ClanKomisijeDto> clanKomisijeDtoList = new List<ClanKomisijeDto>()
         {
