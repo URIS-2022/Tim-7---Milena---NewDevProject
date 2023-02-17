@@ -6,8 +6,8 @@ namespace KomisijaURIS.Entites
     {
         [Key]
         public int ClanId { get; set; }
-        public string ImeClana { get; set; }
-        public string PrezimeClana { get; set; }
-        public string EmailClana { get; set; }
+        public string? ImeClana { get; set; }
+        public string? PrezimeClana { get; set; }
+        public string? EmailClana { get; set; }
     }
 }

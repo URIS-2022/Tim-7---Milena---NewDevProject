@@ -77,8 +77,12 @@ namespace AdresaService.Controllers
             {
                 var z = mapper.Map<Adresa>(adresa);
                 Adresa confirmation = adresaRepository.CreateAdresa(z);
+                #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 string location = linkGenerator.GetPathByAction("GetAdrese", "Adresa", new { AdresaID = z.AdresaID });
+                #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                #pragma warning disable CS8604 // Possible null reference argument.
                 return Created(location, mapper.Map<AdresaConfirmationDTO>(confirmation));
+                #pragma warning restore CS8604 // Possible null reference argument.
             }
             catch (Exception)
             {
