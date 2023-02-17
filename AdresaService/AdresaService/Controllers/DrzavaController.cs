@@ -31,14 +31,14 @@ namespace AdresaService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<DrzavaDTO>> GetDrzave()
+        public ActionResult<List<DrzavaDto>> GetDrzave()
         {
             List<Drzava> drzave = drzavaRepository.GetDrzave();
             if (drzave == null || drzave.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(mapper.Map<List<DrzavaDTO>>(drzave));
+            return Ok(mapper.Map<List<DrzavaDto>>(drzave));
         }
 
         /// <summary>
@@ -51,14 +51,14 @@ namespace AdresaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{drzavaID}")]
-        public ActionResult<DrzavaDTO> GetDrzavaByID(Guid drzavaID)
+        public ActionResult<DrzavaDto> GetDrzavaByID(Guid drzavaID)
         {
             var drzava = drzavaRepository.GetDrzava(drzavaID);
             if (drzava == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<DrzavaDTO>(drzava));
+            return Ok(mapper.Map<DrzavaDto>(drzava));
 
         }
 
@@ -71,7 +71,7 @@ namespace AdresaService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<DrzavaConfirmationDTO> CreateDrzava([FromBody] DrzavaCreationDTO drzava)
+        public ActionResult<DrzavaConfirmationDto> CreateDrzava([FromBody] DrzavaCreationDto drzava)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace AdresaService.Controllers
                 string location = linkGenerator.GetPathByAction("GetDrzave", "Drzava", new { DrzavaID = z.DrzavaID });
                 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
                 #pragma warning disable CS8604 // Possible null reference argument.
-                return Created(location, mapper.Map<DrzavaConfirmationDTO>(confirmation));
+                return Created(location, mapper.Map<DrzavaConfirmationDto>(confirmation));
                 #pragma warning disable CS8604 // Possible null reference argument.
             }
             catch (Exception)
@@ -133,7 +133,7 @@ namespace AdresaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<DrzavaUpdateDTO> UpdateDrzava([FromBody] DrzavaUpdateDTO drzava)
+        public ActionResult<DrzavaUpdateDto> UpdateDrzava([FromBody] DrzavaUpdateDto drzava)
         {
 
             try
@@ -145,7 +145,7 @@ namespace AdresaService.Controllers
                 }
                 Drzava novaDrzava = mapper.Map<Drzava>(drzava);
                 drzavaRepository.UpdateDrzava(staraDrzava, novaDrzava);
-                return Ok(mapper.Map<DrzavaUpdateDTO>(novaDrzava));
+                return Ok(mapper.Map<DrzavaUpdateDto>(novaDrzava));
 
             }
             catch (Exception)

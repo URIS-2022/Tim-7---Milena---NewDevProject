@@ -31,14 +31,14 @@ namespace AdresaService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<AdresaDTO>> GetAdrese()
+        public ActionResult<List<AdresaDto>> GetAdrese()
         {
             List<Adresa> adrese = adresaRepository.GetAdrese();
             if (adrese == null || adrese.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(mapper.Map<List<AdresaDTO>>(adrese));
+            return Ok(mapper.Map<List<AdresaDto>>(adrese));
         }
 
         /// <summary>
@@ -51,14 +51,14 @@ namespace AdresaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{adresaID}")]
-        public ActionResult<AdresaDTO> GetAdresaByID(Guid adresaID)
+        public ActionResult<AdresaDto> GetAdresaByID(Guid adresaID)
         {
             var adresa = adresaRepository.GetAdresa(adresaID);
             if (adresa == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<AdresaDTO>(adresa));
+            return Ok(mapper.Map<AdresaDto>(adresa));
 
         }
 
@@ -71,7 +71,7 @@ namespace AdresaService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<AdresaConfirmationDTO> CreateAdresa([FromBody] AdresaCreationDTO adresa)
+        public ActionResult<AdresaConfirmationDto> CreateAdresa([FromBody] AdresaCreationDto adresa)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace AdresaService.Controllers
                 string location = linkGenerator.GetPathByAction("GetAdrese", "Adresa", new { AdresaID = z.AdresaID });
                 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
                 #pragma warning disable CS8604 // Possible null reference argument.
-                return Created(location, mapper.Map<AdresaConfirmationDTO>(confirmation));
+                return Created(location, mapper.Map<AdresaConfirmationDto>(confirmation));
                 #pragma warning restore CS8604 // Possible null reference argument.
             }
             catch (Exception)
@@ -133,7 +133,7 @@ namespace AdresaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<AdresaUpdateDTO> UpdateAdresa([FromBody] AdresaUpdateDTO adresa)
+        public ActionResult<AdresaUpdateDto> UpdateAdresa([FromBody] AdresaUpdateDto adresa)
         {
 
             try
@@ -145,7 +145,7 @@ namespace AdresaService.Controllers
                 }
                 Adresa novaAdresa = mapper.Map<Adresa>(adresa);
                 adresaRepository.UpdateAdresa(staraAdresa, novaAdresa);
-                return Ok(mapper.Map<AdresaUpdateDTO>(novaAdresa));
+                return Ok(mapper.Map<AdresaUpdateDto>(novaAdresa));
 
             }
             catch (Exception)

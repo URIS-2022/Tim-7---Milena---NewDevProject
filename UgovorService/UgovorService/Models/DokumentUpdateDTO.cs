@@ -2,7 +2,7 @@
 
 namespace UgovorService.Models
 {
-    public class DokumentUpdateDTO
+    public class DokumentUpdateDto
     {
         /// <summary>
         /// ID dokumenta

@@ -2,7 +2,7 @@
 
 namespace UgovorService.Models
 {
-    public class DokumentCreationDTO
+    public class DokumentCreationDto
     {
         /// <summary>
         /// Zavodni broj dokumenta

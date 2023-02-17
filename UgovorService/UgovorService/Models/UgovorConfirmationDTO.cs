@@ -1,6 +1,6 @@
 ﻿namespace UgovorService.Models
 {
-    public class UgovorConfirmationDTO
+    public class UgovorConfirmationDto
     {
         /// <summary>
         /// ID ugovora

@@ -1,6 +1,6 @@
 ﻿namespace UgovorService.Models
 {
-    public class TipGarancijeUpdateDTO
+    public class TipGarancijeUpdateDto
     {
         /// <summary>
         /// ID tipa garancije

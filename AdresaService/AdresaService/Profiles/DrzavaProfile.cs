@@ -8,13 +8,13 @@ namespace AdresaService.Profiles
     {
         public DrzavaProfile()
         {
-            CreateMap<Drzava, DrzavaDTO>();
-            CreateMap<DrzavaCreationDTO, Drzava>();
+            CreateMap<Drzava, DrzavaDto>();
+            CreateMap<DrzavaCreationDto, Drzava>();
             CreateMap<Drzava, Drzava>();
-            CreateMap<DrzavaDTO, Drzava>();
-            CreateMap<Drzava, DrzavaConfirmationDTO>();
-            CreateMap<Drzava, DrzavaUpdateDTO>();
-            CreateMap<DrzavaUpdateDTO, Drzava>();
+            CreateMap<DrzavaDto, Drzava>();
+            CreateMap<Drzava, DrzavaConfirmationDto>();
+            CreateMap<Drzava, DrzavaUpdateDto>();
+            CreateMap<DrzavaUpdateDto, Drzava>();
         }
     }
 }

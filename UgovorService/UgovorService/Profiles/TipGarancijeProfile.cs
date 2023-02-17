@@ -8,13 +8,13 @@ namespace UgovorService.Profiles
     {
         public TipGarancijeProfile()
         {
-            CreateMap<TipGarancije, TipGarancijeDTO>();
-            CreateMap<TipGarancijeCreationDTO, TipGarancije>();
+            CreateMap<TipGarancije, TipGarancijeDto>();
+            CreateMap<TipGarancijeCreationDto, TipGarancije>();
             CreateMap<TipGarancije, TipGarancije>();
-            CreateMap<TipGarancijeDTO, TipGarancije>();
-            CreateMap<TipGarancije, TipGarancijeConfirmationDTO>();
-            CreateMap<TipGarancije, TipGarancijeUpdateDTO>();
-            CreateMap<TipGarancijeUpdateDTO, TipGarancije>();
+            CreateMap<TipGarancijeDto, TipGarancije>();
+            CreateMap<TipGarancije, TipGarancijeConfirmationDto>();
+            CreateMap<TipGarancije, TipGarancijeUpdateDto>();
+            CreateMap<TipGarancijeUpdateDto, TipGarancije>();
         }
     }
 }

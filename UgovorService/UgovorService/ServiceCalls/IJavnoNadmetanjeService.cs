@@ -4,6 +4,6 @@ namespace UgovorService.ServiceCalls
 {
     public interface IJavnoNadmetanjeService
     {
-        public Task<JavnoNadmetanjeInfoDTO> GetJavnoNadmetanjeById(Guid JavnoNadmetanjeID);
+        public Task<JavnoNadmetanjeInfoDto> GetJavnoNadmetanjeById(Guid JavnoNadmetanjeID);
     }
 }

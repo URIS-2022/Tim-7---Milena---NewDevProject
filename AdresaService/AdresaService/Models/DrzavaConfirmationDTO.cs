@@ -1,6 +1,6 @@
 ﻿namespace AdresaService.Models
 {
-    public class DrzavaConfirmationDTO
+    public class DrzavaConfirmationDto
     {
         /// <summary>
         /// ID drzave

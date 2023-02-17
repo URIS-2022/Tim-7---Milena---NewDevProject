@@ -11,7 +11,7 @@ namespace UgovorService.ServiceCalls
             this.configuration = configuration;
         }
 
-        public async Task<JavnoNadmetanjeInfoDTO> GetJavnoNadmetanjeById(Guid JavnoNadmetanjeID)
+        public async Task<JavnoNadmetanjeInfoDto> GetJavnoNadmetanjeById(Guid JavnoNadmetanjeID)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -25,7 +25,7 @@ namespace UgovorService.ServiceCalls
                     {
                         return default;
                     }
-                    var javnoNadmetanje = JsonConvert.DeserializeObject<JavnoNadmetanjeInfoDTO>(responseString);
+                    var javnoNadmetanje = JsonConvert.DeserializeObject<JavnoNadmetanjeInfoDto>(responseString);
                     return javnoNadmetanje;
                 }
                 return default;

@@ -1,6 +1,6 @@
 ﻿namespace UgovorService.Models
 {
-    public class UgovorUpdateDTO
+    public class UgovorUpdateDto
     {
         /// <summary>
         /// ID ugovora

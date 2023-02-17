@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace UgovorService.Models
 {
-    public class UgovorDTO
+    public class UgovorDto
     {
         /// <summary>
         /// ID ugovora
@@ -64,7 +64,7 @@ namespace UgovorService.Models
         /// <summary>
         /// Javno nadmetanje
         /// </summary>
-        public JavnoNadmetanjeInfoDTO JavnoNadmetanje { get; set; }
+        public JavnoNadmetanjeInfoDto JavnoNadmetanje { get; set; }
 
         
     }

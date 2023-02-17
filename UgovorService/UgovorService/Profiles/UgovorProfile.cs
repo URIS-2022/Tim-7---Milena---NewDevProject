@@ -8,13 +8,13 @@ namespace UgovorService.Profiles
     {
         public UgovorProfile()
         {
-            CreateMap<Ugovor, UgovorDTO>();
-            CreateMap<UgovorCreationDTO, Ugovor>();
+            CreateMap<Ugovor, UgovorDto>();
+            CreateMap<UgovorCreationDto, Ugovor>();
             CreateMap<Ugovor, Ugovor>();
-            CreateMap<UgovorDTO, Ugovor>();
-            CreateMap<Ugovor, UgovorConfirmationDTO>();
-            CreateMap<Ugovor, UgovorUpdateDTO>();
-            CreateMap<UgovorUpdateDTO, Ugovor>();
+            CreateMap<UgovorDto, Ugovor>();
+            CreateMap<Ugovor, UgovorConfirmationDto>();
+            CreateMap<Ugovor, UgovorUpdateDto>();
+            CreateMap<UgovorUpdateDto, Ugovor>();
         }
 
     }

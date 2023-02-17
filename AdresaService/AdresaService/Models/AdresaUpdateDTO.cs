@@ -1,6 +1,6 @@
 ﻿namespace AdresaService.Models
 {
-    public class AdresaUpdateDTO
+    public class AdresaUpdateDto
     {
         /// <summary>
         /// ID adrese

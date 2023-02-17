@@ -1,6 +1,6 @@
 ﻿namespace UgovorService.Models
 {
-    public class JavnoNadmetanjeInfoDTO
+    public class JavnoNadmetanjeInfoDto
     {
         public Guid JavnoNadmetanjeID { get; set; }
         public DateTime Datum { get; set; }

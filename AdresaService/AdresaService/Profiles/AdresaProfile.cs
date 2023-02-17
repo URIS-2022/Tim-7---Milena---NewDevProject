@@ -8,13 +8,13 @@ namespace AdresaService.Profiles
     {
         public AdresaProfile()
         {
-            CreateMap<Adresa, AdresaDTO>();
-            CreateMap<AdresaCreationDTO, Adresa>();
+            CreateMap<Adresa, AdresaDto>();
+            CreateMap<AdresaCreationDto, Adresa>();
             CreateMap<Adresa, Adresa>();
-            CreateMap<AdresaDTO, Adresa>();
-            CreateMap<Adresa, AdresaConfirmationDTO>();
-            CreateMap<Adresa, AdresaUpdateDTO>();
-            CreateMap<AdresaUpdateDTO, Adresa>();
+            CreateMap<AdresaDto, Adresa>();
+            CreateMap<Adresa, AdresaConfirmationDto>();
+            CreateMap<Adresa, AdresaUpdateDto>();
+            CreateMap<AdresaUpdateDto, Adresa>();
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace AdresaService.Models
 {
-    public class AdresaCreationDTO
+    public class AdresaCreationDto
     {
         /// <summary>
         /// ulica

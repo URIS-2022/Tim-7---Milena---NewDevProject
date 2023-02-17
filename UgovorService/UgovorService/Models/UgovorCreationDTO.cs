@@ -2,7 +2,7 @@
 
 namespace UgovorService.Models
 {
-    public class UgovorCreationDTO
+    public class UgovorCreationDto
     {
         /// <summary>
         /// zavodni broj ugovora

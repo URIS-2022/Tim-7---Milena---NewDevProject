@@ -30,14 +30,14 @@ namespace UgovorService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<TipGarancijeDTO>> GetTipoveGarancija()
+        public ActionResult<List<TipGarancijeDto>> GetTipoveGarancija()
         {
             List<TipGarancije> tipoviGarancija = tipGarancijeRepository.GetTipoveGarancija();
             if (tipoviGarancija == null || tipoviGarancija.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(mapper.Map<List<TipGarancijeDTO>>(tipoviGarancija));
+            return Ok(mapper.Map<List<TipGarancijeDto>>(tipoviGarancija));
         }
 
         /// <summary>
@@ -50,14 +50,14 @@ namespace UgovorService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{tipGarancijeID}")]
-        public ActionResult<TipGarancijeDTO> GetTipGarancijeByID(Guid tipGarancijeID)
+        public ActionResult<TipGarancijeDto> GetTipGarancijeByID(Guid tipGarancijeID)
         {
             var tipGarancije = tipGarancijeRepository.GetTipGarancije(tipGarancijeID);
             if (tipGarancije == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<TipGarancijeDTO>(tipGarancije));
+            return Ok(mapper.Map<TipGarancijeDto>(tipGarancije));
 
         }
 
@@ -70,7 +70,7 @@ namespace UgovorService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<TipGarancijeConfirmationDTO> CreateTipGarancije([FromBody] TipGarancijeCreationDTO tipGarancije)
+        public ActionResult<TipGarancijeConfirmationDto> CreateTipGarancije([FromBody] TipGarancijeCreationDto tipGarancije)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace UgovorService.Controllers
                 string location = linkGenerator.GetPathByAction("GetTipoveGarancija", "TipGarancije", new { TipGarancijeID = z.TipGarancijeID });
                 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
                 #pragma warning disable CS8604 // Possible null reference argument.
-                return Created(location, mapper.Map<TipGarancijeConfirmationDTO>(confirmation));
+                return Created(location, mapper.Map<TipGarancijeConfirmationDto>(confirmation));
                 #pragma warning disable CS8604 // Possible null reference argument.
             }
             catch (Exception)
@@ -132,7 +132,7 @@ namespace UgovorService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<TipGarancijeUpdateDTO> UpdateTipGarancije([FromBody] TipGarancijeUpdateDTO tipGarancije)
+        public ActionResult<TipGarancijeUpdateDto> UpdateTipGarancije([FromBody] TipGarancijeUpdateDto tipGarancije)
         {
 
             try
@@ -144,7 +144,7 @@ namespace UgovorService.Controllers
                 }
                 TipGarancije noviTipGarancije = mapper.Map<TipGarancije>(tipGarancije);
                 tipGarancijeRepository.UpdateTipGarancije(stariTipGarancije, noviTipGarancije);
-                return Ok(mapper.Map<TipGarancijeUpdateDTO>(noviTipGarancije));
+                return Ok(mapper.Map<TipGarancijeUpdateDto>(noviTipGarancije));
 
             }
             catch (Exception)

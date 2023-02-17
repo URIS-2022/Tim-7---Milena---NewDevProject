@@ -1,6 +1,6 @@
 ﻿namespace AdresaService.Models
 {
-    public class DrzavaCreationDTO
+    public class DrzavaCreationDto
     {
         /// <summary>
         /// Naziv drzave

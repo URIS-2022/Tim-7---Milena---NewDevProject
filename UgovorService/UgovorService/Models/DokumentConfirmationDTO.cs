@@ -1,6 +1,6 @@
 ﻿namespace UgovorService.Models
 {
-    public class DokumentConfirmationDTO
+    public class DokumentConfirmationDto
     {
         /// <summary>
         /// ID dokumenta

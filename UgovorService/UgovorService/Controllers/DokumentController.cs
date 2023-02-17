@@ -30,14 +30,14 @@ namespace UgovorService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<DokumentDTO>> GetDokumente()
+        public ActionResult<List<DokumentDto>> GetDokumente()
         {
             List<Dokument> dokumenti = dokumentRepository.GetDokumente();
             if (dokumenti == null || dokumenti.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(mapper.Map<List<DokumentDTO>>(dokumenti));
+            return Ok(mapper.Map<List<DokumentDto>>(dokumenti));
         }
 
         /// <summary>
@@ -50,14 +50,14 @@ namespace UgovorService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{dokumentID}")]
-        public ActionResult<DokumentDTO> GetDokumentByID(Guid dokumentID)
+        public ActionResult<DokumentDto> GetDokumentByID(Guid dokumentID)
         {
             var dokument = dokumentRepository.GetDokument(dokumentID);
             if (dokument == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<DokumentDTO>(dokument));
+            return Ok(mapper.Map<DokumentDto>(dokument));
 
         }
 
@@ -70,7 +70,7 @@ namespace UgovorService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<DokumentConfirmationDTO> CreateDokument([FromBody] DokumentCreationDTO dokument)
+        public ActionResult<DokumentConfirmationDto> CreateDokument([FromBody] DokumentCreationDto dokument)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace UgovorService.Controllers
                 string location = linkGenerator.GetPathByAction("GetDokumente", "Dokument", new { DokumentID = z.DokumentID });
                 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
                 #pragma warning disable CS8604 // Possible null reference argument.
-                return Created(location, mapper.Map<DokumentConfirmationDTO>(confirmation));
+                return Created(location, mapper.Map<DokumentConfirmationDto>(confirmation));
                 #pragma warning disable CS8604 // Possible null reference argument.
             }
             catch (Exception)
@@ -132,7 +132,7 @@ namespace UgovorService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<DokumentUpdateDTO> UpdateDokument([FromBody] DokumentUpdateDTO dokument)
+        public ActionResult<DokumentUpdateDto> UpdateDokument([FromBody] DokumentUpdateDto dokument)
         {
 
             try
@@ -144,7 +144,7 @@ namespace UgovorService.Controllers
                 }
                 Dokument noviDokument = mapper.Map<Dokument>(dokument);
                 dokumentRepository.UpdateDokument(stariDokument, noviDokument);
-                return Ok(mapper.Map<DokumentUpdateDTO>(noviDokument));
+                return Ok(mapper.Map<DokumentUpdateDto>(noviDokument));
 
             }
             catch (Exception)

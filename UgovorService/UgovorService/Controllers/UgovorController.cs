@@ -35,9 +35,9 @@ namespace UgovorService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<UgovorDTO>> GetUgovore()
+        public ActionResult<List<UgovorDto>> GetUgovore()
         {
-            List<UgovorDTO> ugovori = mapper.Map<List<UgovorDTO>>(ugovorRepository.GetUgovore());
+            List<UgovorDto> ugovori = mapper.Map<List<UgovorDto>>(ugovorRepository.GetUgovore());
             if (ugovori == null || ugovori.Count == 0)
             {
                 return NoContent();
@@ -46,7 +46,7 @@ namespace UgovorService.Controllers
             {
                 KupacInfoDto kupac = kupacService.GetKupacById(ugovor.KupacID).Result;
                 ugovor.Kupac = kupac;
-                JavnoNadmetanjeInfoDTO javnoNadmetanje = javnoNadmetanjeService.GetJavnoNadmetanjeById(ugovor.JavnoNadmetanjeID).Result;
+                JavnoNadmetanjeInfoDto javnoNadmetanje = javnoNadmetanjeService.GetJavnoNadmetanjeById(ugovor.JavnoNadmetanjeID).Result;
                 ugovor.JavnoNadmetanje = javnoNadmetanje;
 
             }
@@ -62,9 +62,9 @@ namespace UgovorService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{ugovorID}")]
-        public ActionResult<UgovorDTO> GetUgovorByID(Guid ugovorID)
+        public ActionResult<UgovorDto> GetUgovorByID(Guid ugovorID)
         {
-            var ugovor = mapper.Map<UgovorDTO>(ugovorRepository.GetUgovor(ugovorID));
+            var ugovor = mapper.Map<UgovorDto>(ugovorRepository.GetUgovor(ugovorID));
             if (ugovor == null)
 
             {
@@ -72,7 +72,7 @@ namespace UgovorService.Controllers
             }
             KupacInfoDto kupac = kupacService.GetKupacById(ugovor.KupacID).Result;
             ugovor.Kupac = kupac;
-            JavnoNadmetanjeInfoDTO javnoNadmetanje = javnoNadmetanjeService.GetJavnoNadmetanjeById(ugovor.JavnoNadmetanjeID).Result;
+            JavnoNadmetanjeInfoDto javnoNadmetanje = javnoNadmetanjeService.GetJavnoNadmetanjeById(ugovor.JavnoNadmetanjeID).Result;
             ugovor.JavnoNadmetanje = javnoNadmetanje;
 
             return Ok(ugovor);
@@ -88,7 +88,7 @@ namespace UgovorService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<UgovorConfirmationDTO> CreateUgovor([FromBody] UgovorCreationDTO ugovor)
+        public ActionResult<UgovorConfirmationDto> CreateUgovor([FromBody] UgovorCreationDto ugovor)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace UgovorService.Controllers
                 string location = linkGenerator.GetPathByAction("GetUgovore", "Ugovor", new { UgovorID = z.UgovorID });
                 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
                 #pragma warning disable CS8604 // Possible null reference argument.
-                return Created(location, mapper.Map<UgovorConfirmationDTO>(confirmation));
+                return Created(location, mapper.Map<UgovorConfirmationDto>(confirmation));
                 #pragma warning disable CS8604 // Possible null reference argument.
             }
             catch (Exception)
@@ -150,7 +150,7 @@ namespace UgovorService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<UgovorUpdateDTO> UpdateUgovor([FromBody] UgovorUpdateDTO ugovor)
+        public ActionResult<UgovorUpdateDto> UpdateUgovor([FromBody] UgovorUpdateDto ugovor)
         {
 
             try
@@ -162,7 +162,7 @@ namespace UgovorService.Controllers
                 }
                 Ugovor noviUgovor = mapper.Map<Ugovor>(ugovor);
                 ugovorRepository.UpdateUgovor(stariUgovor, noviUgovor);
-                return Ok(mapper.Map<UgovorUpdateDTO>(noviUgovor));
+                return Ok(mapper.Map<UgovorUpdateDto>(noviUgovor));
 
             }
             catch (Exception)
