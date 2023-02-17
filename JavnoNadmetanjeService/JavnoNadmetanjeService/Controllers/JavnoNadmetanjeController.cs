@@ -54,7 +54,7 @@ namespace JavnoNadmetanjeService.Controllers
             }
             foreach (var jn in javnaNadmetanja)
             {
-                AdresaDTO adresa = adresaService.GetAdresaById((Guid)jn.AdresaID).Result;  
+                AdresaDTO adresa = adresaService.GetAdresaById(jn.AdresaID).Result;  
                 jn.Adresa = adresa;
                 KupacInfoDto najboljiPonudjac = kupacService.GetKupacById(jn.KupacID).Result;
                 jn.NajboljiPonudjac = najboljiPonudjac;
@@ -100,7 +100,7 @@ namespace JavnoNadmetanjeService.Controllers
             {
                 return NotFound();
             }
-            AdresaDTO adresa = adresaService.GetAdresaById((Guid)javnoNadmetanje.AdresaID).Result;
+            AdresaDTO adresa = adresaService.GetAdresaById(javnoNadmetanje.AdresaID).Result;
             javnoNadmetanje.Adresa = adresa;
             KupacInfoDto najboljiPonudjac = kupacService.GetKupacById(javnoNadmetanje.KupacID).Result;
             javnoNadmetanje.NajboljiPonudjac = najboljiPonudjac;
