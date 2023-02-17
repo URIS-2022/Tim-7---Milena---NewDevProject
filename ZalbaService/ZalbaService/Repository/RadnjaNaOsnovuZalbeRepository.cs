@@ -46,7 +46,7 @@ namespace ZalbaService.Repository
 
         public void UpdateRadnjaNaOsnovuZalbe(RadnjaNaOsnovuZalbe RadnjaNaOsnovuZalbe)
         {
-
+            throw new NotSupportedException();
         }
     }
 }

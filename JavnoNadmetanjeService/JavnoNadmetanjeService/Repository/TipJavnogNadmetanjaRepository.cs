@@ -45,7 +45,7 @@ namespace JavnoNadmetanjeService.Repository
 
         public void UpdateTipJavnogNadmetanja(TipJavnogNadmetanja tipJavnogNadmetanja)
         {
-
+            throw new NotSupportedException();
         }
     }
 }

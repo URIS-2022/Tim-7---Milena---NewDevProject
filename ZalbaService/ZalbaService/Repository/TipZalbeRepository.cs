@@ -44,7 +44,7 @@ namespace ZalbaService.Repository
 
         public void UpdateTipZalbe(TipZalbe zalba)
         {
-
+            throw new NotSupportedException();
         }
     }
 }
