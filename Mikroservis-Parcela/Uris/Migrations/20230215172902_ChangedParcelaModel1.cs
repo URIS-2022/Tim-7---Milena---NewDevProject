@@ -38,7 +38,7 @@ namespace Uris.Migrations
                 table: "Parcele",
                 type: "uniqueidentifier",
                 nullable: false,
-                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
+                defaultValue: Guid.NewGuid());
         }
 
         /// <inheritdoc />
