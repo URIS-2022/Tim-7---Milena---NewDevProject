@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "b2a21ed7-2ff7-4046-a5a3-b1a4348d6790",
+		"name": "JavnoNadmetanjeServiceCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all status javnog nadmetanja",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/statusJavnogNadmetanja/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"statusJavnogNadmetanja",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get status javnog nadmetanja by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/statusJavnogNadmetanja/bd094186-09d6-4c8e-af79-abeeee94ba8a",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"statusJavnogNadmetanja",
+						"bd094186-09d6-4c8e-af79-abeeee94ba8a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post status javnog nadmetanja",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nazivStatusaJavnogNadmetanja\": \"Testni status\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7165/api/statusJavnogNadmetanja/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"statusJavnogNadmetanja",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update status javnog nadmetanja",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"statusJavnogNadmetanjaID\": \"bd094186-09d6-4c8e-af79-abeeee94ba8a\",\r\n        \"nazivStatusaJavnogNadmetanja\": \"Drugi krug sa starim uslovima update\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7165/api/statusJavnogNadmetanja/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"statusJavnogNadmetanja",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete status javnog nadmetanja",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/statusJavnogNadmetanja/bd094186-09d6-4c8e-af79-abeeee94ba8a",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"statusJavnogNadmetanja",
+						"bd094186-09d6-4c8e-af79-abeeee94ba8a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all tip javnog nadmetanja",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/tipJavnogNadmetanja/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"tipJavnogNadmetanja",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get javno nadmetanje by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/tipJavnogNadmetanja/b54d76e0-a230-4821-a072-e40524766d77",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"tipJavnogNadmetanja",
+						"b54d76e0-a230-4821-a072-e40524766d77"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post tip javnog nadmetanja",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nazivTipaJavnogNadmetanja\": \"Testni tip\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7165/api/tipJavnogNadmetanja/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"tipJavnogNadmetanja",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update tip javnog nadmetanja",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipJavnogNadmetanjaID\": \"b54d76e0-a230-4821-a072-e40524766d77\",\r\n    \"nazivTipaJavnogNadmetanja\": \"Otvaranje zatvorenih ponuda update\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7165/api/tipJavnogNadmetanja/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"tipJavnogNadmetanja",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete tip javnog nadmetanja",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/tipJavnogNadmetanja/b54d76e0-a230-4821-a072-e40524766d77",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"tipJavnogNadmetanja",
+						"b54d76e0-a230-4821-a072-e40524766d77"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all javna nadmetanja",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/javnoNadmetanje/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"javnoNadmetanje",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get javno nadmetanje by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/javnoNadmetanje/a21d9035-cc6e-40a6-8fcc-63a3de6ae448",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"javnoNadmetanje",
+						"a21d9035-cc6e-40a6-8fcc-63a3de6ae448"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post javno nadmetanje",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"datum\": \"2023-02-16T16:41:41.220Z\",\r\n\"vremePocetka\": \"11:00\",\r\n\"vremeKraja\": \"14:000\",\r\n\"pocetnaCenaPoHektaru\": 500,\r\n\"izuzeto\": true,\r\n\"tipJavnogNadmetanjaID\": \"97dca59e-49df-468c-83f6-2171a966d3bb\",\r\n\"statusJavnogNadmetanjaID\": \"9e2d4dac-d491-46c3-a0c5-3437cb4e6cb4\",\r\n\"izlicitiranaCena\": 1000,\r\n\"periodZakupa\":4,\r\n\"brojUcesnika\": 2,\r\n\"visinaDopuneDepozita\": 200,\r\n\"krug\": 2,\r\n\"licitantiID\": [ \"1a6290ec-eaef-45a2-a01a-447ed04d6565\"\r\n],\r\n\"prijavljeniKupciID\": [\r\n\"fead4cee-fa4c-4b6a-8b27-83b70aa43698\",\r\n\"9fe2017c-8109-42d9-a7b7-9ff9e016aefb\"\r\n],\r\n\"parcela\": [\r\n1\r\n],\r\n\"adresaID\": \"bab22d26-811b-4ec1-a012-025102eae6a5\",\r\n\"kupacID\": \"fead4cee-fa4c-4b6a-8b27-83b70aa43698\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7165/api/javnoNadmetanje/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"javnoNadmetanje",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update javno nadmetanje",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"javnoNadmetanjeID\": \"a21d9035-cc6e-40a6-8fcc-63a3de6ae448\",\r\n\"datum\": \"2023-02-16T16:41:41.220Z\",\r\n\"vremePocetka\": \"11:00\",\r\n\"vremeKraja\": \"14:000\",\r\n\"pocetnaCenaPoHektaru\": 500,\r\n\"izuzeto\": true,\r\n\"tipJavnogNadmetanjaID\": \"97dca59e-49df-468c-83f6-2171a966d3bb\",\r\n\"statusJavnogNadmetanjaID\": \"9e2d4dac-d491-46c3-a0c5-3437cb4e6cb4\",\r\n\"izlicitiranaCena\": 1000,\r\n\"periodZakupa\":4,\r\n\"brojUcesnika\": 2,\r\n\"visinaDopuneDepozita\": 200,\r\n\"krug\": 2,\r\n\"licitantiID\": [ \"1a6290ec-eaef-45a2-a01a-447ed04d6565\"\r\n],\r\n\"prijavljeniKupciID\": [\r\n\"fead4cee-fa4c-4b6a-8b27-83b70aa43698\",\r\n\"9fe2017c-8109-42d9-a7b7-9ff9e016aefb\"\r\n],\r\n\"parceleID\": [\r\n1\r\n],\r\n\"adresaID\": \"bab22d26-811b-4ec1-a012-025102eae6a5\",\r\n\"kupacID\": \"fead4cee-fa4c-4b6a-8b27-83b70aa43698\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7165/api/javnoNadmetanje/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"javnoNadmetanje",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete javno nadmetanje",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/javnoNadmetanje/a21d9035-cc6e-40a6-8fcc-63a3de6ae448",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"javnoNadmetanje",
+						"a21d9035-cc6e-40a6-8fcc-63a3de6ae448"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

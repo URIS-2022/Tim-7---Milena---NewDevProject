@@ -1,0 +1,498 @@
+{
+	"info": {
+		"_postman_id": "8336605c-a389-4ab4-ba77-a74c372c8045",
+		"name": "ZalbaServiceCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all tip žalbe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/tipZalbe",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"tipZalbe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get tip zalbe by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/tipZalbe/9d51bfec-5281-4972-970d-b3bb2119e9ed",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"tipZalbe",
+						"9d51bfec-5281-4972-970d-b3bb2119e9ed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post tip zalbe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nazivTipaZalbe\": \"Testni tip žalbe\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/tipZalbe",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"tipZalbe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update tip žalbe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"tipZalbeID\": \"9d51bfec-5281-4972-970d-b3bb2119e9ed\",\r\n        \"nazivTipaZalbe\": \"Žalba na tok javnog nadmetanja update\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/tipZalbe",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"tipZalbe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete tip žalbe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/tipZalbe/d5d6624e-48f6-4167-bb07-9e8589fd9281",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"tipZalbe",
+						"d5d6624e-48f6-4167-bb07-9e8589fd9281"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all status žalbe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/statusZalbe/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"statusZalbe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get status žalbe by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/statusZalbe/8d2ce4f7-c2a2-40f1-a92e-f30ac529153e",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"statusZalbe",
+						"8d2ce4f7-c2a2-40f1-a92e-f30ac529153e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post status žalbe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nazivStatusaZalbe\": \"Testni status\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/statusZalbe/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"statusZalbe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update status žalbe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"statusZalbeID\": \"8d2ce4f7-c2a2-40f1-a92e-f30ac529153e\",\r\n    \"nazivStatusaZalbe\": \"Usvojena žalba\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/statusZalbe/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"statusZalbe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete status žalbe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/statusZalbe/8d2ce4f7-c2a2-40f1-a92e-f30ac529153e",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"statusZalbe",
+						"8d2ce4f7-c2a2-40f1-a92e-f30ac529153e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all radnja na osnovu žalbe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/radnjaNaOsnovuZalbe/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"radnjaNaOsnovuZalbe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get radnja na osnovu žalbe by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/radnjaNaOsnovuZalbe/55c00a00-ba2b-4141-966c-5cfb5ea50079",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"radnjaNaOsnovuZalbe",
+						"55c00a00-ba2b-4141-966c-5cfb5ea50079"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post radnja na osnovu žalbe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nazivRadnjeNaOsnovuZalbe\": \"Testna radnja na osnovu žalbe\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/radnjaNaOsnovuZalbe/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"radnjaNaOsnovuZalbe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update radnja na osnovu žalbe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"radnjaNaOsnovuZalbeID\": \"55c00a00-ba2b-4141-966c-5cfb5ea50079\",\r\n    \"nazivRadnjeNaOsnovuZalbe\": \"JN ide u drugi krug sa novim uslovima update\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/radnjaNaOsnovuZalbe/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"radnjaNaOsnovuZalbe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete radnja na osnovu žalbe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/radnjaNaOsnovuZalbe/55c00a00-ba2b-4141-966c-5cfb5ea50079",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"radnjaNaOsnovuZalbe",
+						"55c00a00-ba2b-4141-966c-5cfb5ea50079"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all žalbe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/zalbe/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"zalbe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get žalba by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/zalbe/b787e1fe-01aa-4aee-a153-0a0acce216a6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"zalbe",
+						"b787e1fe-01aa-4aee-a153-0a0acce216a6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post žalba",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"datumPodnosenjaZalbe\": \"2023-02-16T15:18:57.945Z\",\r\n\"razlogZalbe\": \"neki razlog\",\r\n\"obrazlozenje\": \"neko obrazlozenje\",\r\n\"brojNadmetanja\": \"neki broj\",\r\n\"datumResenja\": \"2023-02-16T15:18:57.945Z\",\r\n\"brojResenja\": \"broj resenja 2\",\r\n\"tipZalbeID\": \"9d51bfec-5281-4972-970d-b3bb2119e9ed\",\r\n\"statusZalbeID\": \"5b3470da-a635-4a04-8ef4-988608c46546\",\r\n\"radnjaNaOsnovuZalbeID\": \"af98278e-4a44-462f-9978-460b1ab8e2d1\",\r\n\"podnosilacZalbeID\": \"fead4cee-fa4c-4b6a-8b27-83b70aa43698\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/zalbe/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"zalbe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update žalba",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"zalbaID\": \"b787e1fe-01aa-4aee-a153-0a0acce216a6\",\r\n\"datumPodnosenjaZalbe\": \"2023-02-16T15:18:57.945Z\",\r\n\"razlogZalbe\": \"neki razlog za update\",\r\n\"obrazlozenje\": \"neko obrazlozenje update\",\r\n\"brojNadmetanja\": \"neki broj\",\r\n\"datumResenja\": \"2023-02-16T15:18:57.945Z\",\r\n\"brojResenja\": \"broj resenja update\",\r\n\"tipZalbeID\": \"9d51bfec-5281-4972-970d-b3bb2119e9ed\",\r\n\"statusZalbeID\": \"5b3470da-a635-4a04-8ef4-988608c46546\",\r\n\"radnjaNaOsnovuZalbeID\": \"af98278e-4a44-462f-9978-460b1ab8e2d1\",\r\n\"podnosilacZalbeID\": \"9fe2017c-8109-42d9-a7b7-9ff9e016aefb\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7246/api/zalbe/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"zalbe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete žalba",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7246/api/zalbe/b787e1fe-01aa-4aee-a153-0a0acce216a6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7246",
+					"path": [
+						"api",
+						"zalbe",
+						"b787e1fe-01aa-4aee-a153-0a0acce216a6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
