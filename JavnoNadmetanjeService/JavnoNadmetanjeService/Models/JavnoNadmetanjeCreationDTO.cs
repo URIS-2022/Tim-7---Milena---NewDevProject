@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace JavnoNadmetanjeService.Models
 {
-    public class JavnoNadmetanjeCreationDTO:IValidatableObject
+    public class JavnoNadmetanjeCreationDto:IValidatableObject
     {
         /// <summary>
         ///  Datum održavanja javnog nadmetanja

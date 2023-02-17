@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace JavnoNadmetanjeService.Models
 {
-    public class JavnoNadmetanjeDTO
+    public class JavnoNadmetanjeDto
     {
         /// <summary>
         /// ID javnog nadmetanja
@@ -81,7 +81,7 @@ namespace JavnoNadmetanjeService.Models
         /// <summary>
         /// Adresa javnog nadmetanja
         /// </summary>
-        public AdresaDTO Adresa { get; set; }
+        public AdresaDto Adresa { get; set; }
         [JsonIgnore]
         public Guid KupacID { get; set; }
         /// <summary>

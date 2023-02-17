@@ -2,7 +2,7 @@
 
 namespace JavnoNadmetanjeService.Models
 {
-    public class TipJavnogNadmetanjaCreationDTO
+    public class TipJavnogNadmetanjaCreationDto
     {
         /// <summary>
         /// Naziv tipa javnog nadmetanja

@@ -1,6 +1,6 @@
 ﻿namespace ZalbaService.Models.Mock
 {
-    public class KupacDTO
+    public class KupacDto
     {
         public Guid KupacId { get; set; }
         public Guid PrioritetId { get; set; }

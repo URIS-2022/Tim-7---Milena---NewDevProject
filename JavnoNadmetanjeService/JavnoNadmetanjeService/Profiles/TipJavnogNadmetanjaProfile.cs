@@ -8,10 +8,10 @@ namespace JavnoNadmetanjeService.Profiles
     {
         public TipJavnogNadmetanjaProfile()
         {
-            CreateMap<TipJavnogNadmetanja, TipJavnogNadmetanjaDTO>();
-            CreateMap<TipJavnogNadmetanjaCreationDTO, TipJavnogNadmetanja>();
+            CreateMap<TipJavnogNadmetanja, TipJavnogNadmetanjaDto>();
+            CreateMap<TipJavnogNadmetanjaCreationDto, TipJavnogNadmetanja>();
             CreateMap<TipJavnogNadmetanja, TipJavnogNadmetanja>();
-            CreateMap<TipJavnogNadmetanjaDTO, TipJavnogNadmetanja>();
+            CreateMap<TipJavnogNadmetanjaDto, TipJavnogNadmetanja>();
         }
     }
 }

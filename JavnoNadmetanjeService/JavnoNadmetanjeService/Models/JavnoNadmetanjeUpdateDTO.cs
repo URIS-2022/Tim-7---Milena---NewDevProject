@@ -1,6 +1,6 @@
 ﻿namespace JavnoNadmetanjeService.Models
 {
-    public class JavnoNadmetanjeUpdateDTO
+    public class JavnoNadmetanjeUpdateDto
     {
         /// <summary>
         /// ID javnog nadmetanja

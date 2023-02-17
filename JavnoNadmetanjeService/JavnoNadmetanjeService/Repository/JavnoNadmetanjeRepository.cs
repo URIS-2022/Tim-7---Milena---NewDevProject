@@ -69,7 +69,7 @@ namespace JavnoNadmetanjeService.Repository
 
         public JavnoNadmetanje GetJavnoNadmetanje(Guid JavnoNadmetanjeID)
         {
-            JavnoNadmetanje javnoNadmetanje = context.JavnoNadmetanje.Include(t => t.TipJavnogNadmetanja).Include(s => s.StatusJavnogNadmetanja).FirstOrDefault(e => e.JavnoNadmetanjeID == JavnoNadmetanjeID);
+            JavnoNadmetanje? javnoNadmetanje = context.JavnoNadmetanje.Include(t => t.TipJavnogNadmetanja).Include(s => s.StatusJavnogNadmetanja).FirstOrDefault(e => e.JavnoNadmetanjeID == JavnoNadmetanjeID);
             if (javnoNadmetanje is not null)
             {
                 javnoNadmetanje.PrijavljeniKupciID = context.JavnoNadmetanjePrijavljeniKupci.Where(j => j.JavnoNadmetanjeID == javnoNadmetanje.JavnoNadmetanjeID).Select(pk => pk.KupacID).ToList();

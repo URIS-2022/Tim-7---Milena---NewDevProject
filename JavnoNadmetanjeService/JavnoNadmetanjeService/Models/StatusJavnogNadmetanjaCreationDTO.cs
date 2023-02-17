@@ -2,7 +2,7 @@
 
 namespace JavnoNadmetanjeService.Models
 {
-    public class StatusJavnogNadmetanjaCreationDTO
+    public class StatusJavnogNadmetanjaCreationDto
     {
         /// <summary>
         /// Naziv statusa javnog nadmetanja

@@ -31,14 +31,14 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<StatusJavnogNadmetanjaDTO>> GetStatusiJavnogNadmetanja()
+        public ActionResult<List<StatusJavnogNadmetanjaDto>> GetStatusiJavnogNadmetanja()
         {
             List<StatusJavnogNadmetanja> statusiJavnogNadmetanja = statusJavnogNadmetanjaRepository.GetStatusiJavnogNadmetanja();
             if (statusiJavnogNadmetanja == null || statusiJavnogNadmetanja.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(mapper.Map<List<StatusJavnogNadmetanjaDTO>>(statusiJavnogNadmetanja));
+            return Ok(mapper.Map<List<StatusJavnogNadmetanjaDto>>(statusiJavnogNadmetanja));
         }
 
         /// <summary>
@@ -51,14 +51,14 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{statusJavnogNadmetanjaID}")]
-        public ActionResult<StatusJavnogNadmetanjaDTO> GetStatusJavnogNadmetanjaByID(Guid statusJavnogNadmetanjaID)
+        public ActionResult<StatusJavnogNadmetanjaDto> GetStatusJavnogNadmetanjaByID(Guid statusJavnogNadmetanjaID)
         {
             var statusJavnogNadmetanja = statusJavnogNadmetanjaRepository.GetStatusJavnogNadmetanja(statusJavnogNadmetanjaID);
             if (statusJavnogNadmetanja == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<StatusJavnogNadmetanjaDTO>(statusJavnogNadmetanja));
+            return Ok(mapper.Map<StatusJavnogNadmetanjaDto>(statusJavnogNadmetanja));
 
         }
         /// <summary>
@@ -77,14 +77,14 @@ namespace JavnoNadmetanjeService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<StatusJavnogNadmetanjaDTO> CreateStatusJavnogNadmetanja([FromBody] StatusJavnogNadmetanjaCreationDTO statusJavnogNadmetanja)
+        public ActionResult<StatusJavnogNadmetanjaDto> CreateStatusJavnogNadmetanja([FromBody] StatusJavnogNadmetanjaCreationDto statusJavnogNadmetanja)
         {
             try
             {
                 var status = mapper.Map<StatusJavnogNadmetanja>(statusJavnogNadmetanja);
                 StatusJavnogNadmetanja confirmation = statusJavnogNadmetanjaRepository.CreateStatusJavnogNadmetanja(status);
-                string location = linkGenerator.GetPathByAction("GetStatusiJavnogNadmetanja", "StatusJavnogNadmetanja", new { StatusJavnogNadmetanjaID = status.StatusJavnogNadmetanjaID });
-                return Created(location, mapper.Map<StatusJavnogNadmetanjaDTO>(confirmation));
+                string? location = linkGenerator.GetPathByAction("GetStatusiJavnogNadmetanja", "StatusJavnogNadmetanja", new { StatusJavnogNadmetanjaID = status.StatusJavnogNadmetanjaID });
+                return Created(location, mapper.Map<StatusJavnogNadmetanjaDto>(confirmation));
             }
             catch (Exception)
             {
@@ -104,7 +104,7 @@ namespace JavnoNadmetanjeService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<StatusJavnogNadmetanjaDTO> UpdateStatusJavnogNadmetanja([FromBody] StatusJavnogNadmetanjaDTO statusJavnogNadmetanja)
+        public ActionResult<StatusJavnogNadmetanjaDto> UpdateStatusJavnogNadmetanja([FromBody] StatusJavnogNadmetanjaDto statusJavnogNadmetanja)
         {
 
             try
