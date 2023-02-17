@@ -8,10 +8,10 @@ namespace ZalbaService.Profiles
     {
         public RadnjaNaOsnovuZalbeProfile()
         {
-            CreateMap<RadnjaNaOsnovuZalbe, RadnjaNaOsnovuZalbeDTO>();
-            CreateMap<RadnjaNaOsnovuZalbeCreationDTO, RadnjaNaOsnovuZalbe>();
+            CreateMap<RadnjaNaOsnovuZalbe, RadnjaNaOsnovuZalbeDto>();
+            CreateMap<RadnjaNaOsnovuZalbeCreationDto, RadnjaNaOsnovuZalbe>();
             CreateMap<RadnjaNaOsnovuZalbe, RadnjaNaOsnovuZalbe>();
-            CreateMap<RadnjaNaOsnovuZalbeDTO, RadnjaNaOsnovuZalbe>();
+            CreateMap<RadnjaNaOsnovuZalbeDto, RadnjaNaOsnovuZalbe>();
         }
     }
 }

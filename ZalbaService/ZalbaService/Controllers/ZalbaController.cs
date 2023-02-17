@@ -38,10 +38,10 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<ZalbaDTO>> GetZalbe([FromQuery] string? status = null, string? tip = null)
+        public ActionResult<List<ZalbaDto>> GetZalbe([FromQuery] string? status = null, string? tip = null)
         {
             List<Zalba> z = zalbaRepository.GetZalbe(status, tip);
-            var zalbe = mapper.Map<List<ZalbaDTO>>(z);
+            var zalbe = mapper.Map<List<ZalbaDto>>(z);
             if (zalbe == null || zalbe.Count == 0)
             {
                 return NoContent();
@@ -63,10 +63,10 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{zalbaID}")]
-        public ActionResult<ZalbaDTO> GetZalbaByID(Guid zalbaID)
+        public ActionResult<ZalbaDto> GetZalbaByID(Guid zalbaID)
         {
             Zalba z = zalbaRepository.GetZalba(zalbaID);
-            var zalba = mapper.Map<ZalbaDTO>(z);
+            var zalba = mapper.Map<ZalbaDto>(z);
             if (zalba == null)
             {
                 return NoContent();
@@ -104,14 +104,14 @@ namespace ZalbaService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ZalbaConfirmationDTO> CreateZalba([FromBody] ZalbaCreationDTO zalba)
+        public ActionResult<ZalbaConfirmationDto> CreateZalba([FromBody] ZalbaCreationDto zalba)
         {
             try
             {
                 var z = mapper.Map<Zalba>(zalba);
                 Zalba confirmation = zalbaRepository.CreateZalba(z);
                 string? location = linkGenerator.GetPathByAction("GetZalbe", "Zalba", new { ZalbaID = z.ZalbaID });
-                return Created(location, mapper.Map<ZalbaConfirmationDTO>(confirmation));
+                return Created(location, mapper.Map<ZalbaConfirmationDto>(confirmation));
             }
             catch (Exception)
             {
@@ -131,7 +131,7 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public  ActionResult<ZalbaUpdateDTO> UpdateZalba([FromBody] ZalbaUpdateDTO zalba)
+        public  ActionResult<ZalbaUpdateDto> UpdateZalba([FromBody] ZalbaUpdateDto zalba)
         {
 
             try
@@ -143,7 +143,7 @@ namespace ZalbaService.Controllers
                 }
                 Zalba novaZalba = mapper.Map<Zalba>(zalba);
                 zalbaRepository.UpdateZalba(staraZalba, novaZalba);
-                return Ok(mapper.Map<ZalbaUpdateDTO>(novaZalba));
+                return Ok(mapper.Map<ZalbaUpdateDto>(novaZalba));
 
             }
             catch (Exception)

@@ -8,10 +8,10 @@ namespace ZalbaService.Profiles
     {
         public StatusZalbeProfile()
         {
-            CreateMap<StatusZalbe, StatusZalbeDTO>();
-            CreateMap<StatusZalbeCreationDTO, StatusZalbe>();
+            CreateMap<StatusZalbe, StatusZalbeDto>();
+            CreateMap<StatusZalbeCreationDto, StatusZalbe>();
             CreateMap<StatusZalbe, StatusZalbe>();
-            CreateMap<StatusZalbeDTO, StatusZalbe>();
+            CreateMap<StatusZalbeDto, StatusZalbe>();
         }
     }
 }

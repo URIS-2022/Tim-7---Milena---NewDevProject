@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace ZalbaService.Models
 {
-    public class ZalbaDTO
+    public class ZalbaDto
     {
         /// <summary>
         /// ID žalbe

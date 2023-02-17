@@ -33,14 +33,14 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<RadnjaNaOsnovuZalbeDTO>> GetRadnjeNaOsnovuZalbe()
+        public ActionResult<List<RadnjaNaOsnovuZalbeDto>> GetRadnjeNaOsnovuZalbe()
         {
             List<RadnjaNaOsnovuZalbe> radnjeNaOsnovuZalbe = radnjaNaOsnovuZalbeRepository.GetRadnjeNaOsnovuZalbi();
             if (radnjeNaOsnovuZalbe == null || radnjeNaOsnovuZalbe.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(mapper.Map<List<RadnjaNaOsnovuZalbeDTO>>(radnjeNaOsnovuZalbe));
+            return Ok(mapper.Map<List<RadnjaNaOsnovuZalbeDto>>(radnjeNaOsnovuZalbe));
         }
 
         /// <summary>
@@ -53,14 +53,14 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{radnjaNaOsnovuZalbeID}")]
-        public ActionResult<RadnjaNaOsnovuZalbeDTO> GetRadnjaNaOsnovuZalbeByID(Guid radnjaNaOsnovuZalbeID)
+        public ActionResult<RadnjaNaOsnovuZalbeDto> GetRadnjaNaOsnovuZalbeByID(Guid radnjaNaOsnovuZalbeID)
         {
             var radnjaNaOsnovuZalbe = radnjaNaOsnovuZalbeRepository.GetRadnjaNaOsnovuZalbe(radnjaNaOsnovuZalbeID);
             if (radnjaNaOsnovuZalbe == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<RadnjaNaOsnovuZalbeDTO>(radnjaNaOsnovuZalbe));
+            return Ok(mapper.Map<RadnjaNaOsnovuZalbeDto>(radnjaNaOsnovuZalbe));
 
         }
         /// <summary>
@@ -79,14 +79,14 @@ namespace ZalbaService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<RadnjaNaOsnovuZalbeDTO> CreateRadnjaNaOsnovuZalbe([FromBody] RadnjaNaOsnovuZalbeCreationDTO radnjaNaOsnovuZalbe)
+        public ActionResult<RadnjaNaOsnovuZalbeDto> CreateRadnjaNaOsnovuZalbe([FromBody] RadnjaNaOsnovuZalbeCreationDto radnjaNaOsnovuZalbe)
         {
             try
             {
                 var radnja = mapper.Map<RadnjaNaOsnovuZalbe>(radnjaNaOsnovuZalbe);
                 RadnjaNaOsnovuZalbe confirmation = radnjaNaOsnovuZalbeRepository.CreateRadnjaNaOsnovuZalbe(radnja);
                 string? location = linkGenerator.GetPathByAction("GetRadnjeNaOsnovuZalbe", "RadnjaNaOsnovuZalbe", new { RadnjaNaOsnovuZalbeID = radnja.RadnjaNaOsnovuZalbeID });
-                return Created(location, mapper.Map<RadnjaNaOsnovuZalbeDTO>(confirmation));
+                return Created(location, mapper.Map<RadnjaNaOsnovuZalbeDto>(confirmation));
             }
             catch (Exception)
             {
@@ -106,7 +106,7 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<RadnjaNaOsnovuZalbeDTO> UpdateRadnjaNaOsnovuZalbe([FromBody] RadnjaNaOsnovuZalbeDTO radnjaNaOsnovuZalbe)
+        public ActionResult<RadnjaNaOsnovuZalbeDto> UpdateRadnjaNaOsnovuZalbe([FromBody] RadnjaNaOsnovuZalbeDto radnjaNaOsnovuZalbe)
         {
 
             try

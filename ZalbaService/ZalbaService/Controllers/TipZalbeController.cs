@@ -32,14 +32,14 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         [HttpHead]
-        public ActionResult<List<TipZalbeDTO>> GetTipoviZalbi()
+        public ActionResult<List<TipZalbeDto>> GetTipoviZalbi()
         {
             List<TipZalbe> tipoviZalbi = tipZalbeRepository.GetTipoviZalbi();
             if (tipoviZalbi == null || tipoviZalbi.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(mapper.Map<List<TipZalbeDTO>>(tipoviZalbi));
+            return Ok(mapper.Map<List<TipZalbeDto>>(tipoviZalbi));
         }
 
         /// <summary>
@@ -52,14 +52,14 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("{tipZalbeID}")]
-        public ActionResult<TipZalbeDTO> GetTipZalbeByID(Guid tipZalbeID)
+        public ActionResult<TipZalbeDto> GetTipZalbeByID(Guid tipZalbeID)
         {
             var tipZalbe = tipZalbeRepository.GetTipZalbe(tipZalbeID);
             if (tipZalbe == null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<TipZalbeDTO>(tipZalbe));
+            return Ok(mapper.Map<TipZalbeDto>(tipZalbe));
 
         }
         /// <summary>
@@ -78,14 +78,14 @@ namespace ZalbaService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<TipZalbeDTO> CreateTipZalbe([FromBody] TipZalbeCreationDTO tipZalbe)
+        public ActionResult<TipZalbeDto> CreateTipZalbe([FromBody] TipZalbeCreationDto tipZalbe)
         {
             try
             {
                 var tip = mapper.Map<TipZalbe>(tipZalbe);
                 TipZalbe confirmation = tipZalbeRepository.CreateTipZalbe(tip);
                 string? location = linkGenerator.GetPathByAction("GetTipoviZalbi", "TipZalbe", new { TipZalbeID = tip.TipZalbeID });
-                return Created(location, mapper.Map<TipZalbeDTO>(confirmation));
+                return Created(location, mapper.Map<TipZalbeDto>(confirmation));
             }
             catch (Exception)
             {
@@ -105,7 +105,7 @@ namespace ZalbaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<TipZalbeDTO> UpdateTipZalbe([FromBody] TipZalbeDTO tipZalbe)
+        public ActionResult<TipZalbeDto> UpdateTipZalbe([FromBody] TipZalbeDto tipZalbe)
         {
 
             try

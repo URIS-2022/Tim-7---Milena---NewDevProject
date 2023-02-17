@@ -1,6 +1,6 @@
 ﻿namespace ZalbaService.Models
 {
-    public class ZalbaUpdateDTO
+    public class ZalbaUpdateDto
     {
         /// <summary>
         /// ID žalbe

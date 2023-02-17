@@ -1,6 +1,6 @@
 ﻿namespace ZalbaService.Models
 {
-    public class TipZalbeDTO
+    public class TipZalbeDto
     {
         /// <summary>
         /// ID tipa žalbe
