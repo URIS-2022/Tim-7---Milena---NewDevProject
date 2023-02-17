@@ -51,7 +51,7 @@ namespace KupacServis.Controllers
             }
                 foreach (var o in ovlascenaLica)
                 {
-                    o.Drzava = _drzavaService.GetDrzavaByID((Guid)o.DrzavaId).Result;
+                    o.Drzava = _drzavaService.GetDrzavaByID(o.DrzavaId).Result;
                    
                     o.Adresa = _adresaService.GetAdresaByID(o.AdresaId).Result;
                 }
@@ -101,7 +101,7 @@ namespace KupacServis.Controllers
 
                 }
                  ovlascenoLice.KupciObj = kupci;
-              ovlascenoLice.Drzava = _drzavaService.GetDrzavaByID((Guid)ovlascenoLice.DrzavaId).Result;
+              ovlascenoLice.Drzava = _drzavaService.GetDrzavaByID(ovlascenoLice.DrzavaId).Result;
 
                 ovlascenoLice.Adresa = _adresaService.GetAdresaByID(ovlascenoLice.AdresaId).Result;
 
@@ -218,7 +218,7 @@ namespace KupacServis.Controllers
 
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                     return StatusCode(StatusCodes.Status500InternalServerError, "Create error");
