@@ -117,13 +117,13 @@ namespace JavnoNadmetanjeService.Entities
             modelBuilder.Entity<JavnoNadmetanjeOvlascenaLica>()
                 .HasData(new
                 {
-                    JavnoNadmetanjeID = Guid.Parse("A21D9035-CC6E-40A6-8FCC-63A3DE6AE448"),
-                    OvlascenoLiceID = Guid.Parse("87AE40CF-A971-434E-ACD7-8E7F522433F9")
+                    JavnoNadmetanjeID = Guid.Parse("E128D9EA-25D6-47B7-8D94-4B73C6CB536C"),
+                    OvlascenoLiceID = Guid.Parse("1A6290EC-EAEF-45A2-A01A-447ED04D6565")
                 },
                 new
                 {
                     JavnoNadmetanjeID = Guid.Parse("A21D9035-CC6E-40A6-8FCC-63A3DE6AE448"),
-                    OvlascenoLiceID = Guid.Parse("A1030C3B-9552-4946-A54E-559BED8CF733")
+                    OvlascenoLiceID = Guid.Parse("1A6290EC-EAEF-45A2-A01A-447ED04D6565")
                 });
             modelBuilder.Entity<JavnoNadmetanjeParcele>()
                 .HasData(new
@@ -133,8 +133,8 @@ namespace JavnoNadmetanjeService.Entities
                 },
                 new
                 {
-                    JavnoNadmetanjeID = Guid.Parse("A21D9035-CC6E-40A6-8FCC-63A3DE6AE448"),
-                    ParcelaID = 2
+                    JavnoNadmetanjeID = Guid.Parse("E128D9EA-25D6-47B7-8D94-4B73C6CB536C"),
+                    ParcelaID = 1
                 });
 
 

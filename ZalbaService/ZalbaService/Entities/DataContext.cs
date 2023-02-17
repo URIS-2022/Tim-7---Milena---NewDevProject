@@ -67,7 +67,7 @@ namespace ZalbaService.Entities
                     TipZalbeID = Guid.Parse("9D51BFEC-5281-4972-970D-B3BB2119E9ED"),
                     StatusZalbeID = Guid.Parse("8D2CE4F7-C2A2-40F1-A92E-F30AC529153E"),
                     RadnjaNaOsnovuZalbeID = Guid.Parse("55C00A00-BA2B-4141-966C-5CFB5EA50079"),
-                    PodnosilacZalbeID = Guid.Parse("8B88BADB-5EC1-4E38-A90D-C376BC31D011")
+                    PodnosilacZalbeID = Guid.Parse("9FE2017C-8109-42D9-A7B7-9FF9E016AEFB")
 
                 });
 
@@ -84,7 +84,7 @@ namespace ZalbaService.Entities
                     TipZalbeID = Guid.Parse("9D51BFEC-5281-4972-970D-B3BB2119E9ED"),
                     StatusZalbeID = Guid.Parse("8D2CE4F7-C2A2-40F1-A92E-F30AC529153E"),
                     RadnjaNaOsnovuZalbeID = Guid.Parse("55C00A00-BA2B-4141-966C-5CFB5EA50079"),
-                    PodnosilacZalbeID = Guid.Parse("8B88BADB-5EC1-4E38-A90D-C376BC31D011")
+                    PodnosilacZalbeID = Guid.Parse("FEAD4CEE-FA4C-4B6A-8B27-83B70AA43698")
 
                 });
         }

@@ -57,15 +57,15 @@
         /// <summary>
         /// Lista id-jeva licitanata
         /// </summary>
-        public List<Guid> Licitanti { get; set; }
+        public List<Guid> LicitantiID { get; set; }
         /// <summary>
         /// Lista id-jeva prijavljenih kupaca
         /// </summary>
-        public List<Guid> PrijavljeniKupci { get; set; }
+        public List<Guid> PrijavljeniKupciID { get; set; }
         /// <summary>
         /// Lista id-jeva parcela
         /// </summary>
-        public List<int> Parcela { get; set; }
+        public List<int> ParceleID { get; set; }
         /// <summary>
         /// ID adrese javnog nadmetanja
         /// </summary>

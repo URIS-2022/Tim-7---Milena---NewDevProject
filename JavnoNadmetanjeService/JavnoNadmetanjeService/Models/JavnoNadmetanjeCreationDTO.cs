@@ -72,7 +72,7 @@ namespace JavnoNadmetanjeService.Models
         /// <summary>
         /// Lista id-jeva parcela
         /// </summary>
-        public List<int> Parcela { get; set; }
+        public List<int> ParceleID { get; set; }
         /// <summary>
         /// ID adrese javnog nadmetanja
         /// </summary>
