@@ -7,7 +7,7 @@ namespace Uris.DTO
     {
         public int Id { get; set; }
 
-        public string NazivVrsteZemljista { get; set; }
+        public string? NazivVrsteZemljista { get; set; }
 
         public Kvalitet Kvalitet { get; set; }
     }

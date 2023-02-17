@@ -16,9 +16,9 @@ namespace Uris.Models
 
         public bool ZasticenaZona { get; set; }
 
-        public string OblikSvojine { get; set; }
+        public string? OblikSvojine { get; set; }
 
-        public string Odvodnjavanje { get; set; }
+        public string? Odvodnjavanje { get; set; }
 
         [ForeignKey("Kultura")]
         public int KulturaID { get; set; }
