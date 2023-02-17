@@ -34,8 +34,7 @@ namespace OglasURIS.DTO
 
         [JsonIgnore]
         public Guid JavnoNadmetanjeId { get; set; }
-
-        
+ 
         public JavnoNadmetanjeInfoDto JavnoNadmetanje { get; set; }
 
     }

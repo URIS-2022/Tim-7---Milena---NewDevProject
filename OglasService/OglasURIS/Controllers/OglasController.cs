@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using OglasURIS.DTO;
 using OglasURIS.Interfaces;
 using OglasURIS.Models;
-using OglasURIS.Repository;
 using OglasURIS.ServiceCalls;
 
 namespace OglasURIS.Controllers
@@ -12,7 +11,7 @@ namespace OglasURIS.Controllers
     /// <summary>
     /// Predstavlja kontroler oglasa
     /// </summary>
-    
+
     [Route("api/Oglas")]
     [ApiController]
     public class OglasController : ControllerBase
@@ -47,16 +46,13 @@ namespace OglasURIS.Controllers
 
             }
 
-
-
-
             /// <summary>
             /// Vraća oglas po zadatoj vrednosti id-a
             /// </summary>
             /// <param name="OglasId"></param>
             /// <returns>Objekat oglasa</returns>
 
-            [HttpGet("{id:int}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -131,7 +127,7 @@ namespace OglasURIS.Controllers
             oglas.ObjavljenUListuId = oglasDto.ObjavljenUListuId;
             oglasRepository.Update(oglas, oglas.OglasId);
 
-            return NoContent();
+            return Ok(oglas);
         }
 
 
@@ -157,7 +153,7 @@ namespace OglasURIS.Controllers
                 return NotFound();
             }
             oglasRepository.Delete(id);
-            return NoContent();
+            return Ok("Oglas uspesno obrisan");
         }
 
     }

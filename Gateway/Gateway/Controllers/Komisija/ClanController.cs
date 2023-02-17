@@ -10,13 +10,13 @@ using System.Reflection;
 
 namespace Gateway.Controllers.Komisija
 {
-    [Route("api/clan")]
+    [Route("api/ClanKomisije")]
     [ApiController]
     [Produces("application/json")]
     public class ClanController : ControllerBase
     {
         private readonly IServiceCall<ClanKomisijeDto, ClanKomisijeDto> _serviceCall;
-        private readonly string url = $"{StaticDetails.KomisijaService}api/clan/";
+        private readonly string url = $"{StaticDetails.KomisijaService}api/ClanKomisije/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private readonly string _noAuth;

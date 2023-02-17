@@ -144,8 +144,6 @@ namespace KomisijaURIS.Controllers
 
             komisijaRepository.Update(komisija, id);
 
-
-
             return Ok(komisija);
         }
 
@@ -175,7 +173,7 @@ namespace KomisijaURIS.Controllers
                 return NotFound();
             }
             komisijaRepository.Delete(id);
-            return NoContent();
+            return Ok("Uspesno obrisana komisija");
         }
 
 

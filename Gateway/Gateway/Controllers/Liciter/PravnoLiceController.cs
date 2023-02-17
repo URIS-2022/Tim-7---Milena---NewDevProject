@@ -16,7 +16,7 @@ namespace Gateway.Controllers.Liciter
     public class PravnoLiceController : ControllerBase
     {
         private readonly IServiceCall<PravnoLiceCreationDto, PravnoLiceUpdateDto> _serviceCall;
-        private readonly string url = $"{StaticDetails.LiciterService}api/pravnoLice/";
+        private readonly string url = $"{StaticDetails.KupacService}api/pravnoLice/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private readonly string _noAuth;

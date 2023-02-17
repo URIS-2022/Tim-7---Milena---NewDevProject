@@ -16,7 +16,7 @@ namespace Gateway.Controllers.Liciter
     public class FizickoLiceController : ControllerBase
     {
         private readonly IServiceCall<FizickoLiceCreationDto, FizickoLiceUpdateDto> _serviceCall;
-        private readonly string url = $"{StaticDetails.LiciterService}api/fizickoLice/";
+        private readonly string url = $"{StaticDetails.KupacService}api/fizickoLice/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private readonly string _noAuth;

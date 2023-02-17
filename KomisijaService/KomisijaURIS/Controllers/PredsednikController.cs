@@ -111,7 +111,7 @@ namespace KomisijaURIS.Controllers
             var predsednik = mapper.Map<Predsednik>(predsednikDto);
             predsednikRepository.Update(predsednik, predsednik.PredsednikId);
 
-            return NoContent();
+            return Ok(predsednik);
         }
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace KomisijaURIS.Controllers
                 return NotFound();
             }
             predsednikRepository.Delete(id);
-            return NoContent();
+            return Ok("Uspesno obrisan predsednik");
         }
     }
 }

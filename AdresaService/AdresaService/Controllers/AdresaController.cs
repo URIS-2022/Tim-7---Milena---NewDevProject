@@ -114,7 +114,7 @@ namespace AdresaService.Controllers
                 }
 
                 adresaRepository.DeleteAdresa(adresaID);
-                return NoContent();
+                return Ok();
             }
             catch (Exception)
             {

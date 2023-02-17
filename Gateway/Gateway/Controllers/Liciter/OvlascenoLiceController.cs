@@ -16,7 +16,7 @@ namespace Gateway.Controllers.Liciter
     public class OvlascenoLiceController : ControllerBase
     {
         private readonly IServiceCall<OvlascenoLiceCreationDto, OvlascenoLiceUpdateDto> _serviceCall;
-        private readonly string url = $"{StaticDetails.LiciterService}api/ovlascenoLice/";
+        private readonly string url = $"{StaticDetails.KupacService}api/ovlascenoLice/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private readonly string _noAuth;

@@ -123,7 +123,7 @@ namespace OglasURIS.Controllers
                 return BadRequest(sluzbeniListDto);
             }
             
-            var sluzbenilist = sluzbeniListRepository.GetById(id);
+            var sluzbenilist = sluzbeniListRepository.GetById(x => x.SluzbeniListId == id, includeProperties: "ListaOglasa");
 
             List<Oglas> oglasi = new List<Oglas>();
             foreach (var x in sluzbeniListDto.ListaOglasa)
@@ -159,7 +159,7 @@ namespace OglasURIS.Controllers
                 return NotFound();
             }
             sluzbeniListRepository.Delete(id);
-            return NoContent();
+            return Ok("Sluzbeni list uspesno obrisan");
         }
 
 

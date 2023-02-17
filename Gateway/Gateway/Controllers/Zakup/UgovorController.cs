@@ -16,7 +16,7 @@ namespace Gateway.Controllers.Zakup
     public class UgovorController : ControllerBase
     {
         private readonly IServiceCall<UgovorDto, UgovorConfirmationDto> _serviceCall;
-        private readonly string url = $"{StaticDetails.ZakupService}api/ugovor/";
+        private readonly string url = $"{StaticDetails.UgovorService}api/ugovor/";
         private readonly ILoggerService _loggerService;
         private readonly string _controllerName;
         private readonly string _noAuth;
