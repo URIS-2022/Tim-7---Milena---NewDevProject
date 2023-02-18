@@ -1,4 +1,5 @@
-﻿using Gateway.ServiceCalls.Interfaces;
+﻿using Gateway.Models;
+using Gateway.ServiceCalls.Interfaces;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 
@@ -11,7 +12,7 @@ namespace Gateway.ServiceCalls.Implementations
             try
             {
                 using var httpClient = new HttpClient();
-                Uri uri = new Uri(url + id);
+                Uri uri = new(url + id);
                 var request = new HttpRequestMessage(HttpMethod.Delete, uri);
                 var response = await httpClient.SendAsync(request);
                 if (response.IsSuccessStatusCode)
@@ -20,24 +21,24 @@ namespace Gateway.ServiceCalls.Implementations
                     if (string.IsNullOrEmpty(content))
                     {
                         #pragma warning disable CS8603 // Possible null reference return.
-                        return null;
+                        return "Empty response";
                     }
                     return content;
                 }
-                return null;
+                return "Bad request";
             }
             catch
             {
-                return null;
+                return "No connection could be made because the target machine actively refused it";
             }
         }
 
-        public async Task<List<C>> GetAsync(string url)
+        public async Task<ResponsePackageNoData> GetAsync(string url)
         {
             try
             {
                 using var httpClient = new HttpClient();
-                Uri uri = new Uri(url);
+                Uri uri = new(url);
                 var request = new HttpRequestMessage(HttpMethod.Get, uri);
                 var response = await httpClient.SendAsync(request);
                 if (response.IsSuccessStatusCode)
@@ -45,24 +46,29 @@ namespace Gateway.ServiceCalls.Implementations
                     var content = await response.Content.ReadAsStringAsync();
                     if (string.IsNullOrEmpty(content))
                     {
-                        return null;
+                        return new ResponsePackageNoData(StatusCodes.Status204NoContent, "Empty response");
                     }
-                    return JsonConvert.DeserializeObject<List<C>>(content);
+                    return new ResponsePackageList<C>(JsonConvert.DeserializeObject<List<C>>(content)!);
                 }
-                return null;
+                return new ResponsePackageNoData(StatusCodes.Status400BadRequest, "Bad request");
             }
             catch 
             {
-                return null;
+                var error = new ResponsePackageNoData
+                {
+                    Message = "No connection could be made because the target machine actively refused it",
+                    Status = StatusCodes.Status500InternalServerError
+                };
+                return error;
             }
         }
 
-        public async Task<C> GetByIdAsync(string url, object id)
+        public async Task<ResponsePackageNoData> GetByIdAsync(string url, object id)
         {
             try
             {
                 using var httpClient = new HttpClient();
-                Uri uri = new Uri(url + id);
+                Uri uri = new(url + id);
                 var request = new HttpRequestMessage(HttpMethod.Get, uri);
                 var response = await httpClient.SendAsync(request);
                 if (response.IsSuccessStatusCode)
@@ -70,24 +76,29 @@ namespace Gateway.ServiceCalls.Implementations
                     var content = await response.Content.ReadAsStringAsync();
                     if (string.IsNullOrEmpty(content))
                     {
-                        return null;
+                        return new ResponsePackageNoData(StatusCodes.Status204NoContent, "Empty response");
                     }
-                    return JsonConvert.DeserializeObject<C>(content);
+                    return new ResponsePackage<C>(JsonConvert.DeserializeObject<C>(content)!);
                 }
-                return null;
+                return new ResponsePackageNoData(StatusCodes.Status400BadRequest, "Bad request");
             }
             catch
             {
-                return null;
+                var error = new ResponsePackageNoData
+                {
+                    Message = "No connection could be made because the target machine actively refused it",
+                    Status = StatusCodes.Status500InternalServerError
+                };
+                return error;
             }
         }
 
-        public async Task<C> PostAsync(string url, T Dto)
+        public async Task<ResponsePackageNoData> PostAsync(string url, T Dto)
         {
             try
             {
                 using var httpClient = new HttpClient();
-                Uri uri = new Uri(url);
+                Uri uri = new(url);
                 var request = new HttpRequestMessage(HttpMethod.Post, uri);
                 request.Content = new StringContent(JsonConvert.SerializeObject(Dto));
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
@@ -97,19 +108,24 @@ namespace Gateway.ServiceCalls.Implementations
                     var content = await response.Content.ReadAsStringAsync();
                     if (string.IsNullOrEmpty(content))
                     {
-                        return null;
+                        return new ResponsePackageNoData(StatusCodes.Status204NoContent, "Empty response");
                     }
-                    return JsonConvert.DeserializeObject<C>(content);
+                    return new ResponsePackage<C>(JsonConvert.DeserializeObject<C>(content)!);
                 }
-                return null;
+                return new ResponsePackageNoData(StatusCodes.Status400BadRequest, "Bad request");
             }
             catch
             {
-                return null;
+                var error = new ResponsePackageNoData
+                {
+                    Message = "No connection could be made because the target machine actively refused it",
+                    Status = StatusCodes.Status500InternalServerError
+                };
+                return error;
             }
         }
 
-        public async Task<C> PutAsync(string url, int? id, object Dto)
+        public async Task<ResponsePackageNoData> PutAsync(string url, int? id, object Dto)
         {
             try
             {
@@ -128,15 +144,20 @@ namespace Gateway.ServiceCalls.Implementations
                     var content = await response.Content.ReadAsStringAsync();
                     if (string.IsNullOrEmpty(content))
                     {
-                        return null;
+                        return new ResponsePackageNoData(StatusCodes.Status204NoContent, "Empty response");
                     }
-                    return JsonConvert.DeserializeObject<C>(content);
+                    return new ResponsePackage<C>(JsonConvert.DeserializeObject<C>(content)!);
                 }
-                return null;
+                return new ResponsePackageNoData(StatusCodes.Status400BadRequest, "Bad request");
             }
             catch
             {
-                return null;
+                var error = new ResponsePackageNoData
+                {
+                    Message = "No connection could be made because the target machine actively refused it",
+                    Status = StatusCodes.Status500InternalServerError
+                };
+                return error;
             }
         }
     }
