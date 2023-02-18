@@ -1,0 +1,758 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gateway</name>
+    </assembly>
+    <members>
+        <member name="P:Gateway.Models.Komisija.ClanKomisijeDto.ClanId">
+            <summary>
+            Id clana komisije
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Komisija.ClanKomisijeDto.ImeClana">
+            <summary>
+            Ime clana komisije
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Komisija.ClanKomisijeDto.PrezimeClana">
+            <summary>
+            Prezime clana komisije
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Komisija.ClanKomisijeDto.EmailClana">
+            <summary>
+            Email adresa clana komisije
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Komisija.PredsednikDto.ImePredsednika">
+            <summary>
+            Ime predsednika komisije
+            </summary>       
+        </member>
+        <member name="P:Gateway.Models.Komisija.PredsednikDto.PrezimePredsednika">
+            <summary>
+            Prezime predsednika komisije
+            </summary>       
+        </member>
+        <member name="P:Gateway.Models.Komisija.PredsednikDto.EmailPredsednika">
+            <summary>
+            Email predsednika komisije
+            </summary>     
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaDto.Broj">
+            <summary>
+            Broj licitacije
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaDto.Godina">
+            <summary>
+            Godina licitacije
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaDto.Ogranicenje">
+            <summary>
+            Ogranicenje licitacije
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaDto.KorakCene">
+            <summary>
+            Korak cijene
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaDto.ListaDokumentacijeFizickaLica">
+            <summary>
+            Lista dokumenata fizickog lica za datu licitaciju
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaDto.ListaDokumentacijePravnaLica">
+            <summary>
+            Lista dokumenata pravnog lica za datu licitaciju
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaDto.Rok">
+            <summary>
+            Rok 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaDto.Datum">
+             <summary>
+            datum licitacije
+             </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaDto.JavnaNadmetanja">
+            <summary>
+            Lista Dto objekata javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaDto.JavnaNadmetanjaId">
+            <summary>
+            Lista id javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaUpdateDto.LicitacijaId">
+             <summary>
+            id licitacije
+             </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaUpdateDto.Broj">
+             <summary>
+            broj licitacije
+             </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaUpdateDto.Godina">
+            <summary>
+            godina licitacije
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaUpdateDto.Ogranicenje">
+             <summary>
+            ogranicenje licitacije
+             </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaUpdateDto.KorakCene">
+            <summary>
+            korak cijene
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaUpdateDto.ListaDokumentacijeFizickaLica">
+            <summary>
+            Lista dokumenata fizickog lica za datu licitaciju
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaUpdateDto.ListaDokumentacijePravnaLica">
+            <summary>
+            Lista dokumenata pravnog lica za datu licitaciju
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaUpdateDto.Rok">
+             <summary>
+            rok
+             </summary>
+        </member>
+        <member name="P:Gateway.Models.Licitacija.LicitacijaUpdateDto.Datum">
+             <summary>
+            datum licitacije
+             </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceCreationDto.Ime">
+            <summary>
+            Ime fizickog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceCreationDto.Prezime">
+            <summary>
+            Prezime fizickog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceCreationDto.JMBG">
+            <summary>
+            JMBG fizickog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceCreationDto.KupacId">
+            <summary>
+            id kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceDto.FizickoLiceId">
+            <summary>
+            Fizicko lice id
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceDto.Ime">
+            <summary>
+            Ime fizickog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceDto.Prezime">
+            <summary>
+            Prezime fizickog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceDto.JMBG">
+            <summary>
+            JMBG fizickog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceUpdateDto.FizickoLiceId">
+            <summary>
+            Fizicko lice id
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceUpdateDto.Ime">
+            <summary>
+            Ime fizickog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceUpdateDto.Prezime">
+            <summary>
+            Prezime fizickog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceUpdateDto.JMBG">
+            <summary>
+            JMBG fizickog lica 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.FizickoLiceUpdateDto.KupacId">
+            <summary>
+            Kupac id
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacConfirmationDto.PrioritetId">
+            <summary>
+            Id prioriteta kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacConfirmationDto.OstvarenaPovrsina">
+            <summary>
+            Ostvarena povrsina kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacConfirmationDto.ImaZabranu">
+            <summary>
+            Ima li kupac zabranu
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacConfirmationDto.DatumPocetkaZabrane">
+            <summary>
+            Datum pocetka zabrane 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacConfirmationDto.DatumPrestankaZabrane">
+            <summary>
+            Datum prestanka zabrane
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacConfirmationDto.DuzinaTrajanjaZabraneUGod">
+            <summary>
+            Duzina trajanja zabrane u godinama
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacConfirmationDto.BrTelefona1">
+            <summary>
+            Broj telefona kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacConfirmationDto.BrTelefona2">
+            <summary>
+            Drugi broj telefona kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacConfirmationDto.Email">
+            <summary>
+            Email kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacConfirmationDto.BrRacuna">
+            <summary>
+            Broj racuna kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.PrioritetId">
+            <summary>
+            Id prioriteta kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.OstvarenaPovrsina">
+            <summary>
+            Ostvarena povrsina kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.ImaZabranu">
+            <summary>
+            Ima li kupac zabranu
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.DatumPocetkaZabrane">
+            <summary>
+            Datum pocetka zabrane 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.DatumPrestankaZabrane">
+            <summary>
+            Datum prestanka zabrane
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.DuzinaTrajanjaZabraneUGod">
+            <summary>
+            Duzina trajanja zabrane u godinama
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.BrTelefona1">
+            <summary>
+            Broj telefona kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.BrTelefona2">
+            <summary>
+            Drugi broj telefona kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.Email">
+            <summary>
+            Email kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.BrRacuna">
+            <summary>
+            Broj racuna kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.AdresaId">
+            <summary>
+            Id adrese kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.OvlascenaLica">
+            <summary>
+            Lista kljuceva ovlascenih lica kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacCreationDto.JavnaNadmetanja">
+            <summary>
+            Lista kljuceva javnih nadmetanja na kojima kupac ucestvuje
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.KupacId">
+            <summary>
+            Id kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.OpisPrioriteta">
+            <summary>
+            Opis priosirteta kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.OstvarenaPovrsina">
+            <summary>
+            Ostvarena povrsina
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.ImaZabranu">
+             <summary>
+            Da li kupac ima zabranu
+             </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.DatumPocetkaZabrane">
+            <summary>
+            Datum pocetka zabrane
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.DatumPrestankaZabrane">
+            <summary>
+            Datum prestanka zabrane
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.DuzinaTrajanjaZabraneUGod">
+            <summary>
+            Duzina trajanja zabrane u godinama
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.BrTelefona1">
+            <summary>
+            Broj telefona kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.BrTelefona2">
+            <summary>
+            Drugi broj telefona kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.Email">
+            <summary>
+            Email kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.BrRacuna">
+            <summary>
+            Broj racuna kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.AdresaId">
+            <summary>
+            Dto objekat adrese
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.PravnoLice">
+            <summary>
+            Dto objekat Pravnog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.FizickoLice">
+            <summary>
+            Dto objekat fizickog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.JavnaNadmetanja">
+            <summary>
+            Lista kljuceva javnog nadmetanja koja se ne prikazuje
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.JavnaNadmetanjaOb">
+            <summary>
+            Lista Dto objekata javnog nadmetanja
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.Uplate">
+            <summary>
+            Lista Dto objekata uplate
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.UplateId">
+            <summary>
+            Lista uplata id
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.OvlascenaLica">
+            <summary>
+            Lista ovlasceno lice id
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacDto.OvlascenaLicaObj">
+            <summary>
+            Lista Dto objekata ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacInfoDto.KupacId">
+            <summary>
+            Kupac Id
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacInfoDto.OstvarenaPovrsina">
+            <summary>
+            Ostvarena povrsina kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacInfoDto.ImaZabranu">
+             <summary>
+            Da li kupac ima zabranu
+             </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacInfoDto.BrTelefona1">
+            <summary>
+            Broj telefona kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacInfoDto.Email">
+            <summary>
+            Email kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacInfoDto.BrRacuna">
+            <summary>
+            Broj racuna kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.KupacId">
+            <summary>
+            Id kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.OstvarenaPovrsina">
+            <summary>
+            Ostvarena povrsina kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.ImaZabranu">
+            <summary>
+            Da li kupac ima zabranu
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.DatumPocetkaZabrane">
+            <summary>
+            Datum pocetka zabrane
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.DatumPrestankaZabrane">
+            <summary>
+            Datum prestanka zabrane
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.DuzinaTrajanjaZabraneUGod">
+            <summary>
+            Trajanje zabrane u godinama 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.BrTelefona1">
+            <summary>
+            Broj telefona kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.BrTelefona2">
+            <summary>
+            Drugi broj telefona kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.Email">
+            <summary>
+            Email kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.BrRacuna">
+            <summary>
+            Broj racuna kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacOvlascenoDto.OvlascenaLica">
+            <summary>
+            Kolekcija Dto objekata ovlascenog lica datum kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.PrioritetId">
+            <summary>
+            Id prioriteta kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.OstvarenaPovrsina">
+            <summary>
+            Ostvarena povrsina kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.ImaZabranu">
+            <summary>
+            Ima li kupac zabranu
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.DatumPocetkaZabrane">
+            <summary>
+            Datum pocetka zabrane 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.DatumPrestankaZabrane">
+            <summary>
+            Datum prestanka zabrane
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.DuzinaTrajanjaZabraneUGod">
+            <summary>
+            Duzina trajanja zabrane u godinama
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.BrTelefona1">
+            <summary>
+            Broj telefona kupca 
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.BrTelefona2">
+            <summary>
+            Drugi broj telefona kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.Email">
+            <summary>
+            Email kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.BrRacuna">
+            <summary>
+            Broj racuna kupca
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.OvlascenaLica">
+            <summary>
+            Lista ovlascenih lica koja se moze azurirati
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.JavnaNadmetanja">
+             <summary>
+            Lista javnih nadmetanja koja se moze azuriratu
+             </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.PravnoLiceId">
+            <summary>
+            Id pravnog lica koji vec postoji u bazi
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.KupacUpdateDto.FizickoLiceId">
+             <summary>
+            Id fizickog lica 
+             </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceCreationDto.Ime">
+            <summary>
+            Ime ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceCreationDto.Prezime">
+            <summary>
+            Prezime ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceCreationDto.Jmbg">
+            <summary>
+            Jmbg ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceCreationDto.AdresaId">
+            <summary>
+            Id adrese ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceCreationDto.DrzavaId">
+            <summary>
+            Id drzave ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceCreationDto.BrTable">
+            <summary>
+            Broj table ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceDto.OvlascenoLiceId">
+            <summary>
+            Id ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceDto.Ime">
+            <summary>
+            Ime ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceDto.Prezime">
+            <summary>
+            Prezime ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceDto.Jmbg">
+            <summary>
+            Jmbg ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceDto.DrzavaId">
+            <summary>
+            Id drzave ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceDto.BrTable">
+            <summary>
+            Broj table ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceDto.KupciObj">
+            <summary>
+            Kolekcija kupaca koje dato ovlasceno lice zastupa
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceDto.Kupci">
+            <summary>
+            Lista kupac id
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceInfoDto.OvlascenoLiceId">
+            <summary>
+            Id ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceInfoDto.Ime">
+            <summary>
+            Ime ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceInfoDto.Prezime">
+            <summary>
+            Prezime ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceInfoDto.Jmbg">
+            <summary>
+            Jmbg ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceInfoDto.BrTable">
+            <summary>
+            Broj table ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceUpdateDto.OvlascenoLiceId">
+            <summary>
+            Id ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceUpdateDto.Ime">
+            <summary>
+            Ime ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceUpdateDto.Prezime">
+            <summary>
+            Prezime ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceUpdateDto.Jmbg">
+            <summary>
+            Jmbg ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceUpdateDto.AdresaId">
+            <summary>
+            Id adrese ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceUpdateDto.DrzavaId">
+            <summary>
+            Id drzave ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.OvlascenoLiceUpdateDto.BrTable">
+            <summary>
+            Broj table ovlascenog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PravnoLiceCreationDto.Naziv">
+            <summary>
+            Naziv pravnog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PravnoLiceCreationDto.MaticniBroj">
+            <summary>
+            Maticni broj pravnog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PravnoLiceCreationDto.Faks">
+            <summary>
+            Faks pravnog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PravnoLiceCreationDto.KupacId">
+            <summary>
+            Id kupca koji je pravno lice
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PravnoLiceUpdateDto.PravnoLiceId">
+            <summary>
+            Id pravnog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PravnoLiceUpdateDto.Naziv">
+            <summary>
+            Naziv pravnog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PravnoLiceUpdateDto.MaticniBroj">
+            <summary>
+            Maticni broj pravnog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PravnoLiceUpdateDto.Faks">
+            <summary>
+            Faks pravnog lica
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PrioritetCreationDto.OpisPrioriteta">
+            <summary>
+            Opis prioriteta
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PrioritetUpdateDto.PrioritetId">
+            <summary>
+            Id prioriteta
+            </summary>
+        </member>
+        <member name="P:Gateway.Models.Liciter.PrioritetUpdateDto.OpisPrioriteta">
+            <summary>
+            Opis priositeta
+            </summary>
+        </member>
+    </members>
+</doc>

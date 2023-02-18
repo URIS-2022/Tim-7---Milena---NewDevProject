@@ -1,0 +1,319 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Korisnik</name>
+    </assembly>
+    <members>
+        <member name="M:Korisnik.Controllers.KorisnikController.Get">
+            <summary>
+            Vraca sve korisnike
+            </summary>
+            <returns>Lista korisnika</returns>
+            <response code="200">Vraca sve korisnike</response>
+            <response code="204">Ako ne postoji nijedan korisnik u bazi</response>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Korisnik.Controllers.KorisnikController.Get(System.Int32)" -->
+        <member name="M:Korisnik.Controllers.KorisnikController.Register(Korisnik.Models.KorisnikDto)">
+            <summary>
+            Kreira novog korisnika
+            </summary>
+            <param name="korisnikDto"></param>
+            <returns>Vraca novokreiranog korisnika</returns>
+            <response code="200">Vraca novokreiranog korisnika</response>
+            <response code="409">Ako vec postoji korisnik sa tim korisnickim imenom</response>
+        </member>
+        <member name="M:Korisnik.Controllers.KorisnikController.Login(Korisnik.Models.KorisnikLoginDto)">
+            <summary>
+            Loguje postojeceg korisnika
+            </summary>
+            <param name="korisnikDto"></param>
+            <returns>Vraca ulogovanog korisnika</returns>
+            <response code="200">Vraca ulogovanog korisnika</response>
+            <response code="204">Ako ne postoji korisnik sa tim korisnickim imenom ili je lozinka pogresna</response>
+        </member>
+        <member name="M:Korisnik.Controllers.KorisnikController.Put(System.Int32,Korisnik.Models.KorisnikDto)">
+            <summary>
+            Modifikuje postojeceg korisnika
+            </summary>
+            <param name="korisnik"></param>
+            <returns>Vraca modifikovanog korisnika</returns>
+            <response code="200">Vraca modifikovanog korisnika</response>
+            <response code="204">Ako ne postoji korisnik sa prosledjenim ID-jem</response>
+        </member>
+        <member name="M:Korisnik.Controllers.KorisnikController.Delete(System.Int32)">
+             <summary>
+             Brise postojeceg korisnika
+             </summary>
+             <param name="id"></param>
+             <returns>Brise postojeceg korisnika</returns>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/korisnik/1
+            
+             </remarks>
+             <response code="200">Uspesno obrisan korisnik</response>
+             <response code="204">Ako ne postoji korisnik sa prosledjenim ID-jem</response>
+        </member>
+        <member name="M:Korisnik.Controllers.TipKorisnikaController.Get">
+            <summary>
+            Vraca sve tipove korisnika
+            </summary>
+            <returns>Lista tipova korisnika</returns>
+            <response code="200">Vraca sve tipove korisnika</response>
+            <response code="204">Ako ne postoji nijedan tip korisnika u bazi</response>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Korisnik.Controllers.TipKorisnikaController.Get(System.Int32)" -->
+        <member name="M:Korisnik.Controllers.TipKorisnikaController.Post(Korisnik.Models.TipKorisnikaDto)">
+             <summary>
+             Kreira novog tipa korisnika
+             </summary>
+             <param name="tipKorisnikaDto"></param>
+             <returns>Vraca novokreiranog tipa korisnika</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /api/tipKorisnika
+                 {
+                    "naziv": "Operater"
+                 }
+            
+             </remarks>
+             <response code="200">Vraca novokreiranog tipa korisnika</response>
+             <response code="409">Ako vec postoji tip korisnika sa tim imenom</response>
+        </member>
+        <member name="M:Korisnik.Controllers.TipKorisnikaController.Put(System.Int32,Korisnik.Models.TipKorisnikaDto)">
+             <summary>
+             Modifikuje postojeceg tipa korisnika
+             </summary>
+             <param name="tipKorisnika"></param>
+             <returns>Vraca modifikovanog tipa korisnika</returns>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/tipKorisnika/2
+                 {
+                    "naziv": "Operater"
+                 }
+            
+             </remarks>
+             <response code="200">Vraca modifikovanog tipa korisnika</response>
+             <response code="204">Ako ne postoji tip korisnika sa prosledjenim ID-jem</response>
+             <response code="409">Ako vec postoji tip korisnika sa tim imenom</response>
+        </member>
+        <member name="M:Korisnik.Controllers.TipKorisnikaController.Delete(System.Int32)">
+             <summary>
+             Brise postojeceg tipa korisnika
+             </summary>
+             <param name="id"></param>
+             <returns>Brise postojeceg tipa korisnika</returns>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/tipKorisnika/1
+            
+             </remarks>
+             <response code="200">Uspesno obrisan tipa korisnika</response>
+             <response code="204">Ako ne postoji tip korisnika sa prosledjenim ID-jem</response>
+        </member>
+        <member name="T:Korisnik.Entities.KorisnikEntity">
+            <summary>
+            Predstavlja model korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Entities.KorisnikEntity.Id">
+            <summary>
+            Id korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Entities.KorisnikEntity.Ime">
+            <summary>
+            Ime korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Entities.KorisnikEntity.Prezime">
+            <summary>
+            Prezime korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Entities.KorisnikEntity.KorisnickoIme">
+            <summary>
+            Korisničko ime
+            </summary>
+        </member>
+        <member name="P:Korisnik.Entities.KorisnikEntity.LozinkaHash">
+            <summary>
+            Hash-ovana šifra korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Entities.KorisnikEntity.LozinkaSalt">
+            <summary>
+            Salt
+            </summary>
+        </member>
+        <member name="P:Korisnik.Entities.KorisnikEntity.TipKorisnika">
+            <summary>
+            Tip korisnika
+            </summary>
+        </member>
+        <member name="T:Korisnik.Entities.TipKorisnikaEntity">
+            <summary>
+            Predstavlja model tipa korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Entities.TipKorisnikaEntity.Id">
+            <summary>
+            Id tipa korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Entities.TipKorisnikaEntity.Naziv">
+            <summary>
+            Naziv tipa korisnika
+            </summary>
+        </member>
+        <member name="T:Korisnik.Migrations.FirstMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:Korisnik.Migrations.FirstMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Korisnik.Migrations.FirstMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Korisnik.Migrations.FirstMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Korisnik.Migrations.UpdatedKorisnik">
+            <inheritdoc />
+        </member>
+        <member name="M:Korisnik.Migrations.UpdatedKorisnik.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Korisnik.Migrations.UpdatedKorisnik.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Korisnik.Migrations.UpdatedKorisnik.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Korisnik.Models.KorisnikConfirmationDto">
+            <summary>
+            Dto za uspesno kreiranog Korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikConfirmationDto.Id">
+            <summary>
+            Id korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikConfirmationDto.KorisnickoIme">
+            <summary>
+            Korisnicko ime korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikConfirmationDto.Ime">
+            <summary>
+            Ime korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikConfirmationDto.Prezime">
+            <summary>
+            Prezime korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikConfirmationDto.TipKorisnikaId">
+            <summary>
+            Id tipa korisnika
+            </summary>
+        </member>
+        <member name="T:Korisnik.Models.KorisnikDto">
+            <summary>
+            Dto za Korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikDto.Ime">
+            <summary>
+            Ime korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikDto.Prezime">
+            <summary>
+            Prezime korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikDto.KorisnickoIme">
+            <summary>
+            Korisnicko ime korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikDto.Lozinka">
+            <summary>
+            Lozinka korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikDto.TipKorisnikaId">
+            <summary>
+            Id tipa korisnika
+            </summary>
+        </member>
+        <member name="T:Korisnik.Models.KorisnikLoginDto">
+            <summary>
+            Dto za logovanje korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikLoginDto.KorisnickoIme">
+            <summary>
+            Korisnicko ime korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikLoginDto.Lozinka">
+            <summary>
+            Lozinka korisnika
+            </summary>
+        </member>
+        <member name="T:Korisnik.Models.KorisnikTokenDto">
+            <summary>
+            Dto za ulogovanog korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikTokenDto.Id">
+            <summary>
+            Id korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikTokenDto.KorisnickoIme">
+            <summary>
+            Korisnicko ime korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.KorisnikTokenDto.Token">
+            <summary>
+            Token korisnika
+            </summary>
+        </member>
+        <member name="T:Korisnik.Models.TipKorisnikaConfirmationDto">
+            <summary>
+            Dto za uspesno kreiranog tipa korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.TipKorisnikaConfirmationDto.Id">
+            <summary>
+            Id tipa korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.TipKorisnikaConfirmationDto.Naziv">
+            <summary>
+            Naziv tipa korisnika
+            </summary>
+        </member>
+        <member name="T:Korisnik.Models.TipKorisnikaDto">
+            <summary>
+            Dto za tipa korisnika
+            </summary>
+        </member>
+        <member name="P:Korisnik.Models.TipKorisnikaDto.Naziv">
+            <summary>
+            Naziv tipa korisnika
+            </summary>
+        </member>
+    </members>
+</doc>

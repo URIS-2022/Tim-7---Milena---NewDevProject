@@ -3,6 +3,7 @@ using Gateway.ServiceCalls.Interfaces;
 using Gateway.Helpers;
 using Microsoft.OpenApi.Models;
 using Gateway.Logger;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,8 +22,12 @@ builder.Services.AddSwaggerGen(options =>
     {
         Version = "v1",
         Title = "Gateway API",
-        Description = "Mikroservis za rutiranje zahteva"
+        Description = "Mikroservis za rutiranje zahteva i autorizaciju"
     });
+
+    var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
+    options.IncludeXmlComments(xmlCommentsPath);
 });
 
 var app = builder.Build();

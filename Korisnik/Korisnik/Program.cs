@@ -4,6 +4,7 @@ using Korisnik.Repositories.Implementations;
 using Korisnik.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,10 @@ builder.Services.AddSwaggerGen(options =>
         Title = "Korisnik API",
         Description = "Mikroservis za CRUD operacije Korisnika i Tipa Korisnika, kao i za login i registraciju"
     });
+
+    var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
+    options.IncludeXmlComments(xmlCommentsPath);
 });
 
 var app = builder.Build();
